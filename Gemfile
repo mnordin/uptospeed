@@ -19,6 +19,9 @@ gem 'jquery-rails'
 
 gem "pg", "0.11.0"
 
+# Airbrake for debugging
+gem "airbrake"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
