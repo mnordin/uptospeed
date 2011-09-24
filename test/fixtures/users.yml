@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+guybrush:
+  first_name: "Guybrush"
+  last_name: "Threepwood"
+  email: "guybrush.threepwood@mynewsdesk.com"
+  personal_goal: "A pirate i was meant to be! Trim the sails and roam the seas!"
+
+one:
+  first_name: "Sven"
+  last_name: "Bertil"
+  email: "sven.bertil@mynewsdesk.com"
+  personal_goal: "I want to get fit for the beach season 2012"
