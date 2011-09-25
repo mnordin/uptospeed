@@ -22,12 +22,8 @@ gem "pg", "0.11.0"
 # Airbrake for debugging
 gem "airbrake"
 
-# Use unicorn as the web server
-# gem 'unicorn'
+# Thin speeds up environment on Cedar, http://devcenter.heroku.com/articles/cedar#using_cedar
+gem 'thin'
 
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
-
+# New relic for Heroku
+gem 'newrelic_rpm'
