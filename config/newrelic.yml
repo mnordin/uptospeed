@@ -1,5 +1,4 @@
----
-<%= ENV["RACK_ENV"] %>:
+development:
   error_collector:
     capture_source: true
     enabled: true
@@ -9,7 +8,7 @@
   monitor_mode: true
   license_key: <%= ENV["NEW_RELIC_LICENSE_KEY"] %>
   developer_mode: false
-  app_name: <%= ENV["NEW_RELIC_APP_NAME"] %>
+  app_name: uptospeed
   transaction_tracer:
     record_sql: obfuscated
     enabled: true
