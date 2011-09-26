@@ -2,11 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
-gem 'json'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -15,9 +10,11 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
-
+gem 'json'
 gem "pg", "0.11.0"
+
+# Beta Omniauth with new specific gem for OpenId, https://github.com/intridea/omniauth
+gem 'oa-openid', "0.3.0"
 
 # Airbrake for debugging
 gem "airbrake"
