@@ -1,6 +1,6 @@
 class AuthenticationsController < ApplicationController
   def index
-    @authentications = current_user.authentications
+    @authentications = current_user.authentications if current_user
   end
 
   def create    
@@ -12,7 +12,7 @@ class AuthenticationsController < ApplicationController
       log_in(auth)
     end
     
-    current_user.authentications.create(:provider => auth['provider'], :uid => auth['uid'])
+    current_user.authentications.find_or_create_by_provider_and_uid(:provider => auth['provider'], :uid => auth['uid'])
     flash[:notice] = "Authentication successful."
     redirect_to root_path
   end
