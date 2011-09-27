@@ -12,6 +12,9 @@
     <body>
         <div data-role="page">
             <%= yield %>
+            <div data-role="footer">
+                <%= session.inspect %>
+            </div>
         </div>
     </body>
 </html>
