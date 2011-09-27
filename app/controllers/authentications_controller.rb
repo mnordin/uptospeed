@@ -9,7 +9,7 @@ class AuthenticationsController < ApplicationController
     
     log_in(auth) if params[:provider] == "google"
     
-    current_user.authentications.create(:provider => auth ['provider'], :uid => auth['uid'])
+    current_user.authentications.create(:provider => auth['provider'], :uid => auth['uid'])
     flash[:notice] = "Authentication successful."
     redirect_to root_path
   end
