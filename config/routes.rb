@@ -3,7 +3,7 @@ UpToSpeed::Application.routes.draw do
   match "/auth/:provider/callback" => "authentications#create"
   match "/auth/failure" => "authentications#failure", :as => "auth_failure"
 
-  resources :authentications, :users
+  resources :authentications, :users, :events
 
-  root :to => 'users#index'
+  root :to => 'events#index'
 end
