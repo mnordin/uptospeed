@@ -8,12 +8,10 @@ class AuthenticationsController < ApplicationController
     Rails.logger.info("********#{auth}")
     if params[:provider] == "google"
       restrict_blocked_google_accounts
-      log_in(auth)
+      current_user = log_in(auth)
     end
-    
     current_user.authentications.find_or_create_by_provider_and_uid(:provider => auth['provider'], :uid => auth['uid'])
-    flash[:notice] = "Authentication successful."
-    redirect_to root_path
+    redirect_to root_path, :notice => "Authentication successful."
   end
 
   def destroy
@@ -31,6 +29,7 @@ class AuthenticationsController < ApplicationController
   def log_in(omniauth_hash)
     user = User.find_or_create_by_omniauth_hash(omniauth_hash)
     session[:user_id] = user.id
+    return user
   end
 
   def restrict_blocked_google_accounts
