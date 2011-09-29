@@ -1,9 +1,10 @@
 $(document).ready(function(){
     $.get("https://www.google.com/calendar/feeds/default/allcalendars/full", 
-        {oauth_consumer_key: "www.uptospeed.se",
-         alt: "jsonc", 
-         oauth_token: "AItOawmW0BiW-RNY_BtT7t4H91mn69N9MvkF6fE"}, function(data){
-    console.log(data);
+    {oauth_consumer_key: "uptospeed.se",
+     alt: "jsonc",
+     oauth_token: "AItOawmW0BiW-RNY_BtT7t4H91mn69N9MvkF6fE"
+    }, function(data){
+        console.log(data);
     });
 });
 
