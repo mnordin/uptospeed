@@ -9,8 +9,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  private
   def require_authed_user
-    redirect_to "/auth/google" if session[:user_id].nil?
+    redirect_to "/auth/google"
   end
 end
