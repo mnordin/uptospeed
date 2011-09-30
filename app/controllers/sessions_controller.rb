@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     #user = User.find_by_provider_and_uid(params[:provider], auth["uid"]) || User.create_with_omniauth(auth)
     #session[:user_id] = user.id
     #store_google_credentials(auth)
-    #redirect_to root_url, :notice => "Signed in!"
+    redirect_to root_url, :notice => "Signed in!"
   end
 
   # Copy from create action
