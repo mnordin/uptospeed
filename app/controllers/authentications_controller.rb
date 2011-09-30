@@ -6,7 +6,7 @@ class AuthenticationsController < ApplicationController
   def create    
     auth = request.env["omniauth.auth"]
     Rails.logger.info("********#{auth}")
-    if params[:provider] == "google"
+    if params[:provider] == "google_apps"
       restrict_blocked_google_accounts
       current_user = log_in(auth)
     end

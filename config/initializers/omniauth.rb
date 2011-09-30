@@ -1,6 +1,5 @@
 Rails.configuration.middleware.use OmniAuth::Builder do
-  provider :open_id, nil, {
-        :name => "google",
+  provider :google_apps, nil, {
         :callback_path => "/auth/google/callback",
         :identifier => "https://www.google.com/accounts/o8/id",
         :domain => 'newsdesk.se',
