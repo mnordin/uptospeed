@@ -7,10 +7,10 @@ class EventsController < ApplicationController
     service.authenticate(session["credentials"]["token"], User.find(session[:user_id]).email)
     Rails.logger.info("****************")
     Rails.logger.info("service: #{service}")
-    Rails.logger.info("********")
-    Rails.logger.info("calendars: #{service.calendars}")
-    Rails.logger.info("********")
-    Rails.logger.info("account: #{service.account}")
+    #Rails.logger.info("********")
+    #Rails.logger.info("calendars: #{service.calendars}")
+    #Rails.logger.info("********")
+    #Rails.logger.info("account: #{service.account}")
     Rails.logger.info("****************")
   end
 
