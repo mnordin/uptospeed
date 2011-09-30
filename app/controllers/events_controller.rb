@@ -3,7 +3,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    service = GCal4Ruby::Service.authenticate(session["credentials"]["token"], User.find(session[:user_id]).email)
+    service = GCal4Ruby::Service.new
+    service.authenticate(session["credentials"]["token"], User.find(session[:user_id]).email)
     Rails.logger.info("****************")
     Rails.logger.info("service: #{service}")
     Rails.logger.info("********")
