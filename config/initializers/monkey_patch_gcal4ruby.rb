@@ -1,4 +1,7 @@
 # Monkey patching GCal4Ruby authenticate method to take the auth token and email as params (instead of email and password and resolving the auth token)
+require 'gcal4ruby/base'
+require 'gcal4ruby/calendar'
+
 module GCal4Ruby
   class Service < Base
 
