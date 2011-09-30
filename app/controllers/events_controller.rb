@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :require_authed_user, :only => [:index]
+  #before_filter :require_authed_user, :only => [:index]
 
   def index
     @events = Event.all
