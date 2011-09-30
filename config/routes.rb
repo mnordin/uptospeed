@@ -1,7 +1,7 @@
 UpToSpeed::Application.routes.draw do
 
-  match "/auth/:provider/callback" => "authentications#create"
-  match "/auth/failure" => "authentications#failure", :as => "auth_failure"
+  match "/auth/:provider/callback" => "sessions#create"
+  match "/signout" => "sessions#destroy", :as => :signout
 
   resources :users, :events
 
