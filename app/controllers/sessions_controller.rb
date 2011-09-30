@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     auth = request.env["omniauth.auth"]
     Rails.logger.info("********#{auth}")
     @@auth = auth
+    session[:auth] = auth
     #user = User.find_by_provider_and_uid(params[:provider], auth["uid"]) || User.create_with_omniauth(auth)
     #session[:user_id] = user.id
     #store_google_credentials(auth)
@@ -14,6 +15,9 @@ class SessionsController < ApplicationController
 
   # Copy from create action
   def failure
+    Rails.logger.info("******** @@auth: #{@@auth}")
+    Rails.logger.info("********session[:auth] #{session[:auth]}")
+    
     user = User.find_by_provider_and_uid("google", @@auth["uid"]) || User.create_with_omniauth(@@auth)
     session[:user_id] = user.id
     store_google_credentials(@@auth)
