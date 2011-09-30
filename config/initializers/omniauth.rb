@@ -6,6 +6,6 @@ Rails.configuration.middleware.use OmniAuth::Builder do
         :domain => 'newsdesk.se',
         :consumer_key => "uptospeed.se",
         :consumer_secret => "g_ysByjed_wnqipVx2bk8Quf",
-        :scope => "https://www.google.com/calendar/feeds/"
+        :scope => "https://www.google.com/calendar/feeds/default/allcalendars/full"
   }
 end
