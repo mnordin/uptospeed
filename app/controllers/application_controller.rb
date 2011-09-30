@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_authed_user
-    redirect_to "/auth/google"
+    redirect_to "/auth/google_apps"
   end
 end
