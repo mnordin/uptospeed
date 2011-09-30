@@ -18,7 +18,8 @@ gem "gcal4ruby", "~> 0.5.5"
 gem 'appconfig', :require => 'app_config'
 
 # Beta Omniauth with new specific gem for OpenId, https://github.com/intridea/omniauth
-gem 'oa-openid', "~> 0.3.0"
+#gem 'oa-openid', "~> 0.3.0"
+gem "omniauth", "~> 0.3.0"
 
 # Airbrake for debugging
 gem "airbrake"
