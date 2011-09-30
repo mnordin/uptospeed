@@ -1,3 +1,5 @@
+OmniAuth.config.full_host = "http://uptospeed.se"
+
 Rails.configuration.middleware.use OmniAuth::Builder do
   provider :google, "newsdesk.se", "g_ysByjed_wnqipVx2bk8Quf", {
     :callback_path => "/auth/google/callback",
