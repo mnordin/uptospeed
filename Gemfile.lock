@@ -36,7 +36,6 @@ GEM
     airbrake (3.0.4)
       activesupport
       builder
-    appconfig (0.1.1)
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
@@ -186,7 +185,6 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake
-  appconfig
   coffee-rails (~> 3.1.0)
   gcal4ruby (~> 0.5.5)
   json
