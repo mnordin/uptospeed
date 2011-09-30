@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   private
-  def store_google_access_token(auth)
-    session[:access_token] = auth["extra"]["access_token"].token
+  def store_google_credentials(auth)
+    session[:credentials] = auth["credentials"]
   end
 end
