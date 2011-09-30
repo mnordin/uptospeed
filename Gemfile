@@ -13,7 +13,7 @@ end
 gem 'json'
 gem "pg", "0.11.0"
 
-gem "gcal4ruby", "~> 0.5.5"
+gem "gcal4ruby", "~> 0.5.5", :require => ["gcal4ruby/base", "gcal4ruby/calendar"]
 
 # Beta Omniauth with new specific gem for OpenId, https://github.com/intridea/omniauth
 #gem 'oa-openid', "~> 0.3.0"
