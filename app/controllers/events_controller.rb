@@ -2,14 +2,14 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    service = GCal4Ruby::Service.authenticate(AppConfig.calendar.stockholm.username, AppConfig.calendar.stockholm.password)
-    Rails.logger.info("****************")
-    Rails.logger.info("service: #{service}")
-    Rails.logger.info("********")
-    Rails.logger.info("calendars: #{service.calendars}")
-    Rails.logger.info("********")
-    Rails.logger.info("account: #{service.account}")
-    Rails.logger.info("****************")
+    #service = GCal4Ruby::Service.authenticate(AppConfig.calendar.stockholm.username, AppConfig.calendar.stockholm.password)
+    #Rails.logger.info("****************")
+    #Rails.logger.info("service: #{service}")
+    #Rails.logger.info("********")
+    #Rails.logger.info("calendars: #{service.calendars}")
+    #Rails.logger.info("********")
+    #Rails.logger.info("account: #{service.account}")
+    #Rails.logger.info("****************")
   end
 
   # GET /events/1
