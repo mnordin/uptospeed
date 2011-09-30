@@ -6,12 +6,9 @@ class AuthenticationsController < ApplicationController
   def create    
     auth = request.env["omniauth.auth"]
     Rails.logger.info("********#{auth}")
-    if params[:provider] == "google"
-      restrict_blocked_google_accounts
-      current_user = log_in(auth)
-    end
-    current_user.authentications.find_or_create_by_provider_and_uid(:provider => auth['provider'], :uid => auth['uid'])
-    redirect_to root_path, :notice => "Authentication successful."
+    user = Authentication.find_by_provider_and_uid(auth["provider"], auth["uid"]).user || User.create_with_omniauth(auth)
+    session[:user_id] = user.id
+    redirect_to root_url, :notice => "Signed in!"
   end
 
   def destroy
@@ -25,13 +22,12 @@ class AuthenticationsController < ApplicationController
     render :text => request.env["omniauth.auth"].to_yaml
   end
 
-  private
-  def log_in(omniauth_hash)
-    user = User.find_or_create_by_omniauth_hash(omniauth_hash)
-    session[:user_id] = user.id
-    return user
+  def log_out
+    session[:user_id] = nil
+    redirect_to root_path, :notice => "Signed out!"
   end
 
+  private
   def restrict_blocked_google_accounts
     blocked_accounts = %w(kundtjanst teknisk-support globalmarketing)
     username = request.env["omniauth.auth"]["user_info"]["email"].split("@").first

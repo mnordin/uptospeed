@@ -4,18 +4,12 @@ class User < ActiveRecord::Base
 
   validates :email, :presence => true, :uniqueness => true
 
-  def self.find_or_create_by_omniauth_hash(hash)
-    #omniauth_hash["user_info"]["email"]
-    return User.find_by_email(hash["user_info"]["email"]) || User.create_from_hash(hash)
-  end
-
-  private
-  def self.create_from_hash(hash)
-    User.create(
-      :first_name => hash["user_info"]["first_name"],
-      :last_name => hash["user_info"]["last_name"],
-      :email => hash["user_info"]["email"]
-    )
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["user_info"]["name"]
+    end
   end
 
 end
