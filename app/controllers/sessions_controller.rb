@@ -26,7 +26,16 @@ class SessionsController < ApplicationController
   def getAccessToken(oath_token, oath_verifier)
     sess = Patron::Session.new
     sess.timeout = 10
-    response = sess.post("https://www.google.com/accounts/OAuthGetAccessToken", {:oauth_consumer_key => "uptospeed.se", :oauth_token => oath_token, :oauth_verifier => oath_verifier, :oauth_signature_method => "HMAC-SHA1", :oauth_signature => "g_ysByjed_wnqipVx2bk8Quf", :oauth_timestamp => Time.now.to_i, :oauth_nonce => Digest::MD5.hexdigest(rand.to_s)})
+    sess.headers["Authorization"] = "OAuth"
+    response = sess.post("https://www.google.com/accounts/OAuthGetAccessToken", {
+      :oauth_consumer_key => "uptospeed.se",
+      :oauth_token => oath_token,
+      :oauth_verifier => oath_verifier,
+      :oauth_signature_method => "HMAC-SHA1",
+      :oauth_signature => "g_ysByjed_wnqipVx2bk8Quf",
+      :oauth_timestamp => Time.now.to_i,
+      :oauth_nonce => Digest::MD5.hexdigest(rand.to_s)
+    })
     Rails.logger.info("********#{response.inspect}")
   end
 
