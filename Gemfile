@@ -12,6 +12,7 @@ end
 
 gem 'json'
 gem "pg", "0.11.0"
+gem "patron", "~> 0.4.16"
 
 gem "gcal4ruby", :git => "https://github.com/h13ronim/gcal4ruby.git", :require => ["gcal4ruby/base", "gcal4ruby/calendar"]
 #gem "gcal4ruby", :require => ["gcal4ruby/base", "gcal4ruby/calendar"]
