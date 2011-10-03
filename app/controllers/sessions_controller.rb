@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(auth["user_info"]["email"]) || User.create_with_omniauth(auth)
     session[:user_id] = user.id
     store_google_credentials(auth)
-    getAccessToken(auth["credentials"]["token"])
+    getAccessToken(auth["credentials"]["token"], params[:oath_verifier])
     redirect_to root_url, :notice => "Signed in!"
   end
 
@@ -23,10 +23,10 @@ class SessionsController < ApplicationController
   end
 
   private
-  def getAccessToken(oath_token)
+  def getAccessToken(oath_token, oath_verifier)
     sess = Patron::Session.new
     sess.timeout = 10
-    response = sess.post("https://www.google.com/accounts/OAuthGetAccessToken", {:oauth_consumer_key => "g_ysByjed_wnqipVx2bk8Quf", :oauth_token => oath_token, :oauth_verifier => session["credentials"]["oauth_verifier"], :oauth_signature_method => "HMAC-SHA1", :oauth_signature => "g_ysByjed_wnqipVx2bk8Quf", :oauth_timestamp => Time.now.to_i, :oauth_nonce => Digest::MD5.hexdigest(rand.to_s)})
+    response = sess.post("https://www.google.com/accounts/OAuthGetAccessToken", {:oauth_consumer_key => "uptospeed.se", :oauth_token => oath_token, :oauth_verifier => oath_verifier, :oauth_signature_method => "HMAC-SHA1", :oauth_signature => "g_ysByjed_wnqipVx2bk8Quf", :oauth_timestamp => Time.now.to_i, :oauth_nonce => Digest::MD5.hexdigest(rand.to_s)})
     Rails.logger.info("********#{response.inspect}")
   end
 
