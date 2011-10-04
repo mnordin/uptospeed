@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     service = GCal4Ruby::Service.new
-    service.authenticate(session["credentials"]["token"], User.find(session[:user_id]).email)
+    service.authenticate(ENV['UPTOSPEED_USERNAME'], ENV['UPTOSPEED_PASSWORD'])
     Rails.logger.info("****************")
     Rails.logger.info("service: #{service}")
     Rails.logger.info("********")
