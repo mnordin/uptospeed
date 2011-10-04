@@ -2,9 +2,13 @@ class EventsController < ApplicationController
   #before_filter :require_authed_user, :only => [:index]
 
   def index
+    unless params[:week]
+      week = Time.now
+    end
+    Rails.logger.info("********#{ENV['UPTOSPEED_USERNAME']}")
+    Rails.logger.info("********#{ENV['UPTOSPEED_PASSWORD']}")
     @events = Event.all
-    @calendar = fetch_calendar
-    @events_from_google_cal = @calendar.events
+    @events_from_google = Event.fetch_week
   end
 
   # GET /events/1
@@ -76,12 +80,5 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url }
       format.json { head :ok }
     end
-  end
-
-  private
-  def fetch_calendar
-    service = GCal4Ruby::Service.new
-    service.authenticate(ENV['UPTOSPEED_USERNAME'], ENV['UPTOSPEED_PASSWORD'])
-    service.calendars.select {|cal| cal.title =~ /Up to Speed Stockholm/}.first
   end
 end
