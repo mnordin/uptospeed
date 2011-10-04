@@ -14,10 +14,10 @@
     <tr>
         <td><%= event.title %></td>
         <td><%= event.where %></td>
-        <td><%= event.google_id %></td>
+        <td><%= truncate(event.id, :length => 30) %></td>
         <td><%= event.start_time %></td>
         <td><%= event.end_time %></td>
-        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Show', "#" %></td>
     </tr>
 <% end %>
 </table>
