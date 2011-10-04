@@ -4,4 +4,5 @@ class Event < ActiveRecord::Base
   # TODO The calender object should probably be memcached for at least 30 min
   belongs_to :user
 
+  validate :google_id, :presence => true, :uniqueness => true
 end
