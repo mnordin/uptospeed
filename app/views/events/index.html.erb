@@ -4,7 +4,7 @@
     <tr>
         <th>Event</th>
         <th>Where</th>
-        <th>Google_id</th>
+        <th>Attending</th>
         <th>Start_time</th>
         <th>End_time</th>
         <th></th>
@@ -14,10 +14,18 @@
     <tr>
         <td><%= event.title %></td>
         <td><%= event.where %></td>
-        <td><%= truncate(event.id, :length => 30) %></td>
+        <td>
+            <ul>
+            <% event.attendees.each do |attendee| %>
+                <li><%= attendee[:name] %></li>
+            <% end %>
+            </ul>
+        </td>
         <td><%= event.start_time %></td>
         <td><%= event.end_time %></td>
         <td><%= link_to 'Show', "#" %></td>
     </tr>
 <% end %>
 </table>
+
+<%= link_to "Next week", events_url(next_link) %>

@@ -2,13 +2,11 @@ class EventsController < ApplicationController
   #before_filter :require_authed_user, :only => [:index]
 
   def index
-    unless params[:week]
-      week = Time.now
-    end
-    Rails.logger.info("********#{ENV['UPTOSPEED_USERNAME']}")
-    Rails.logger.info("********#{ENV['UPTOSPEED_PASSWORD']}")
+    start_at = params[:start_at].present? ? params[:start_at] : Time.now.beginning_of_week
+    end_at = params[:end_at].present? ? params[:end_at] : Time.now.end_of_week
+
     @events = Event.all
-    @events_from_google = Event.fetch_week
+    @events_from_google = Event.fetch_week(:start_at => start_at, :end_at => end_at)
   end
 
   # GET /events/1

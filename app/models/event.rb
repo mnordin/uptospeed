@@ -1,18 +1,28 @@
 class Event < ActiveRecord::Base
   # Events are (only?) stored when someone does something to them, e.g. attends
-  # This is to be able to add more actions on them, like comments
   belongs_to :user
 
   validate :google_id, :presence => true, :uniqueness => true
 
   def self.fetch_week(args = {})
-    start_at = args[:start_at] if args[:start_at].present?
-    end_at = args[:end_at] if args[:end_at].present?
-    #events = GCal4Ruby::Event.find(service, "", {'start_min' => Time.now.beginning_of_week.utc.xmlschema, 'start_max' => Time.now.end_of_week.utc.xmlschema})
-    calendar = fetch_google_calendar
-    calendar.events.select{|ev| ev.start_time > Time.now.beginning_of_week && ev.start_time < Time.now.end_of_week}.sort!{ |a,b| a.start_time <=> b.start_time }
-  end
+    start_at = args[:start_at].present? ? args[:start_at] : Time.now.beginning_of_week
+    end_at = args[:end_at].present? ? args[:end_at] : Time.now.end_of_week
 
+    service = Event.auth_google_service
+    events = GCal4Ruby::Event.find(service, "", {
+      "recurrence-expansion-start"  => start_at.utc.xmlschema,
+      "start-min"                   => start_at.utc.xmlschema,
+      "recurrence-expansion-end"    => end_at.utc.xmlschema,
+      "start-max"                   => end_at.utc.xmlschema,
+      "ctz"                         => "Europe/Stockholm",
+      "singleevents"                => true
+    })
+    calendar_id = Event.fetch_up_to_speed_calendar(service).id
+    events.select!{|e| e.calendar_id == CGI.escape("newsdesk.se_tr45ab3op4eh54497ko4073118@group.calendar.google.com")}.sort!{|a,b| a.start_time <=> b.start_time}
+    events.each do |event|
+      event.attendees.delete_if{|a| a[:name] =~ /Up to Speed Stockholm/}
+    end
+  end
 
   def self.auth_google_service
     service = GCal4Ruby::Service.new
@@ -20,10 +30,11 @@ class Event < ActiveRecord::Base
     return service
   end
 
-  def self.fetch_google_calendar(service = nil)
+  def self.fetch_up_to_speed_calendar(service = nil)
     unless service.present?
       service = auth_google_service
     end
-    service.calendars.select {|cal| cal.title =~ /Up to Speed Stockholm/}.first
+    service.calendars.select{|cal| cal.title =~ /Up to Speed Stockholm/}.first
+    # or id "newsdesk.se_tr45ab3op4eh54497ko4073118@group.calendar.google.com"
   end
 end
