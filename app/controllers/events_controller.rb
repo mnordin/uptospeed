@@ -3,15 +3,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    service = GCal4Ruby::Service.new
-    service.authenticate(ENV['UPTOSPEED_USERNAME'], ENV['UPTOSPEED_PASSWORD'])
-    Rails.logger.info("****************")
-    Rails.logger.info("service: #{service}")
-    Rails.logger.info("********")
-    Rails.logger.info("calendars: #{service.try(:calendars)}")
-    #Rails.logger.info("********")
-    #Rails.logger.info("account: #{service.account}")
-    Rails.logger.info("****************")
+    @calendar = fetch_calendar
+    @events_from_google_cal = @calendar.events
   end
 
   # GET /events/1
@@ -83,5 +76,12 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url }
       format.json { head :ok }
     end
+  end
+
+  private
+  def fetch_calendar
+    service = GCal4Ruby::Service.new
+    service.authenticate(ENV['UPTOSPEED_USERNAME'], ENV['UPTOSPEED_PASSWORD'])
+    service.calendar.select {|cal| cal.title =~ /Up to Speed Stockholm/}.first
   end
 end
