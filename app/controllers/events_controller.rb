@@ -82,6 +82,6 @@ class EventsController < ApplicationController
   def fetch_calendar
     service = GCal4Ruby::Service.new
     service.authenticate(ENV['UPTOSPEED_USERNAME'], ENV['UPTOSPEED_PASSWORD'])
-    service.calendar.select {|cal| cal.title =~ /Up to Speed Stockholm/}.first
+    service.calendars.select {|cal| cal.title =~ /Up to Speed Stockholm/}.first
   end
 end
