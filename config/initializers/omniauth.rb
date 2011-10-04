@@ -1,6 +1,3 @@
-OmniAuth.config.full_host = "http://uptospeed.se"
-
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :google, "uptospeed.se", "g_ysByjed_wnqipVx2bk8Quf", :scope => "https://www.google.com/calendar/feeds/", :domain => "newsdesk.se", :identifier => "https://www.google.com/accounts/o8/id", :callback_path => "/auth/google/callback"
-  provider :google_apps, nil, :scope => "http://www.google.com/calendar/feeds/default/allcalendars/full", :domain => "newsdesk.se", :identifier => "https://www.google.com/accounts/o8/id", :callback_path => "/auth/google_apps/callback"
+  provider :google_apps, nil, {:callback_path => "/auth/google_apps/callback", :domain => 'newsdesk.se'}
 end
