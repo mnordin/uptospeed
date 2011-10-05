@@ -10,7 +10,7 @@
         <%= csrf_meta_tags %>
         <%= render :partial => "/google_analytics" %>
     </head>
-    <body>
+    <body id="<%= params[:controller] %>" class="<%= params[:action] %>">
         <div data-role="page">
             <%= yield %>
             <div data-role="footer">
