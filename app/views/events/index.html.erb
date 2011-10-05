@@ -5,41 +5,26 @@
 <div class="content-primary">
     <div id="events">
         <ul data-role="listview" data-divider-theme="b">
-            <li data-role="list-divider" role="heading" class="monday ui-li-has-count">
-                Måndag
-                <span class="ui-li-count"><%= @events.select{|e| which_weekday?(e, "monday")}.count %></span>
-            </li>
+            <li data-role="list-divider" role="heading">Måndag</li>
             <% @events.select{|e| which_weekday?(e, "monday")}.each do |event| %>
                 <%= render :partial => "event_list", :locals => {:event => event} %>
             <% end %>
-            <li data-role="list-divider" role="heading" class="tuesday ui-li-has-count">
-                Tisdag
-                <span class="ui-li-count"><%= @events.select{|e| which_weekday?(e, "tuesday")}.count %></span>
-            </li>
+            <li data-role="list-divider" role="heading" class="tuesday">Tisdag</li>
             <% @events.select{|e| which_weekday?(e, "tuesday")}.each do |event| %>
                 <%= render :partial => "event_list", :locals => {:event => event} %>
             <% end %>
         
-            <li data-role="list-divider" role="heading" class="wednesday ui-li-has-count">
-                Onsdag
-                <span class="ui-li-count"><%= @events.select{|e| which_weekday?(e, "wednesday")}.count %></span>
-            </li>
+            <li data-role="list-divider" role="heading" class="wednesday">Onsdag</li>
             <% @events.select{|e| which_weekday?(e, "wednesday")}.each do |event| %>
                 <%= render :partial => "event_list", :locals => {:event => event} %>
             <% end %>
         
-            <li data-role="list-divider" role="heading" class="thursday ui-li-has-count">
-                Torsdag
-                <span class="ui-li-count"><%= @events.select{|e| which_weekday?(e, "thursday")}.count %></span>
-            </li>
+            <li data-role="list-divider" role="heading" class="thursday">Torsdag</li>
             <% @events.select{|e| which_weekday?(e, "thursday")}.each do |event| %>
                 <%= render :partial => "event_list", :locals => {:event => event} %>
             <% end %>
         
-            <li data-role="list-divider" role="heading" class="friday ui-li-has-count">
-                Fredag
-                <span class="ui-li-count"><%= @events.select{|e| which_weekday?(e, "friday")}.count %></span>
-            </li>
+            <li data-role="list-divider" role="heading" class="friday">Fredag</li>
             <% @events.select{|e| which_weekday?(e, "friday")}.each do |event| %>
                 <%= render :partial => "event_list", :locals => {:event => event} %>
             <% end %>
