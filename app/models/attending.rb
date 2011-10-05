@@ -3,5 +3,5 @@ class Attending < ActiveRecord::Base
   belongs_to :event
 
   # A user can't attend the same event more than once
-  validates :user_id, :uniqeuess => { :scope => :event_id }
+  validates :user_id, :uniqeuness => { :scope => :event_id }
 end
