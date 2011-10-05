@@ -14,4 +14,22 @@ module EventsHelper
     return {:start_at => start_at - 1.week, :end_at => end_at - 1.week}
   end
 
+
+  # Weekdays helpers
+  def which_weekday?(event, day)
+    weekdays = {
+      1 => "monday",
+      2 => "tuesday",
+      3 => "wednesday",
+      4 => "thursday",
+      5 => "friday"
+    }
+    event_day = weekdays[event.start_time.wday]
+    if event_day == day
+      return true
+    else
+      return false
+    end
+  end
+
 end
