@@ -4,6 +4,8 @@ UpToSpeed::Application.routes.draw do
   match "/auth/failure" => "sessions#failure"
   match "/signout" => "sessions#destroy", :as => :signout
 
+  match "/events/:id/attend" => "events#attend", :only => "post", :as => :event_attend
+
   resources :users, :events
 
   root :to => 'events#index'
