@@ -10,6 +10,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def attend
+    if Attending.create_or_destroy_by_params(params)
+      redirect_to events_path, notice: 'Event was successfully created.'
+    else
+      render action: "new"
     end
   end
 end

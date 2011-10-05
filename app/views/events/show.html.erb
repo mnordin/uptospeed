@@ -1,10 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div data-role="header" data-theme="a">
+    <h1><%= @event.title %></h1>
+</div>
+<div data-role="content" data-theme="b">
+    <h2><%= @event.where %></h2>
+    
+    <% if @event.users.present? %>
+        <h3>Anmälda</h3>
+        <ul data-role="listview" data-inset="true" class="ui-listview">
+            <% @event.users.each do |user| %>
+                <li><%= user.name %></li>
+            <% end %>
+        </ul>
+    <% else %>
+        <h3>Inga anmälda ännu</h3>
+    <% end %>
 
-<p>
-  <b>Google:</b>
-  <%= @event.google_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    <%= form_tag event_attend_url(@event.id) do %>
+    
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <legend>Kommer du?</legend>
+                <%= hidden_field_tag :user_id, current_user.id.to_s %>
+                <%= label_tag :attending, "Ja, jag kommer!" %>
+                <%= check_box_tag :attending, "attend", @event.users.include?(current_user) %>
+            </fieldset>
+        </div>
+        <%= submit_tag "Spara" %>
+    </fieldset>
+    <% end %>
+</div>
