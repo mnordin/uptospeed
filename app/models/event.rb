@@ -1,8 +1,7 @@
 class Event < ActiveRecord::Base
-  # Events are (only?) stored when someone does something to them, e.g. attends
-  belongs_to :user
+  has_many :users, :through => :attendings
 
-  validate :google_id, :presence => true, :uniqueness => true
+  validates :google_id, :presence => true, :uniqueness => true
 
   def self.fetch_week(args = {})
     start_at = args[:start_at].present? ? args[:start_at] : Time.now.beginning_of_week

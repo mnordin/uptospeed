@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :events
+  has_many :events, :through => :attendings
 
   validates :email, :presence => true, :uniqueness => true
 
