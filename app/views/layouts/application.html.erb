@@ -12,9 +12,7 @@
     <body id="<%= params[:controller] %>" class="<%= params[:action] %>">
         <div data-role="page">
             <%= yield %>
-            <div data-role="footer">
-                <%= session.inspect %>
-            </div>
         </div>
+        <div><%= session.inspect %></div>
     </body>
 </html>

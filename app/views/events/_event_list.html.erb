@@ -1,7 +1,10 @@
 <li>
-    <%= link_to "#", :'data-rel' => "dialog" do %>
+    <%= link_to event_path(event.id), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
         <h3><%= event.title %></h3>
-        <p><strong><%= event.where %></strong></p>
-        <p class="ui-li-aside"><strong><%= event.start_time.to_s(:time) %></strong></p>
+        <p><%= event.where %></p>
+        <p class="ui-li-aside event-time"><strong><%= event.start_time.to_s(:time) %> - <%= event.end_time.to_s(:time) %></strong></p>
+        <% if event.users.present? %>
+            <span class="ui-li-count attending-amount"><%= event.users.count %></span>
+        <% end %>
     <% end %>
 </li>
