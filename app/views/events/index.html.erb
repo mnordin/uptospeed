@@ -1,5 +1,55 @@
-<h1>Listing events</h1>
+<div data-role="header">
+    <h1>Träningar</h1>
+</div>
 
+<div class="content-primary">
+    <div id="events">
+        <ul data-role="listview">
+            <li data-role="list-divider" role="heading" class="monday ui-li-has-count">
+                Måndag
+                <span class="ui-li-count"><%= @events_from_google.select{|e| which_weekday?(e, "monday")}.count %></span>
+            </li>
+            <% @events_from_google.select{|e| which_weekday?(e, "monday")}.each do |event| %>
+                <%= render :partial => "event_list", :locals => {:event => event} %>
+            <% end %>
+            <li data-role="list-divider" role="heading" class="tuesday ui-li-has-count">
+                Tisdag
+                <span class="ui-li-count"><%= @events_from_google.select{|e| which_weekday?(e, "tuesday")}.count %></span>
+            </li>
+                <% @events_from_google.select{|e| which_weekday?(e, "tuesday")}.each do |event| %>
+                    <%= render :partial => "event_list", :locals => {:event => event} %>
+                <% end %>
+            
+            <li data-role="list-divider" role="heading" class="wednesday ui-li-has-count">
+                Onsdag
+                <span class="ui-li-count"><%= @events_from_google.select{|e| which_weekday?(e, "wednesday")}.count %></span>
+            </li>
+                <% @events_from_google.select{|e| which_weekday?(e, "wednesday")}.each do |event| %>
+                    <%= render :partial => "event_list", :locals => {:event => event} %>
+                <% end %>
+            
+            <li data-role="list-divider" role="heading" class="thursday ui-li-has-count">
+                Torsdag
+                <span class="ui-li-count"><%= @events_from_google.select{|e| which_weekday?(e, "thursday")}.count %></span>
+            </li>
+                <% @events_from_google.select{|e| which_weekday?(e, "thursday")}.each do |event| %>
+                    <%= render :partial => "event_list", :locals => {:event => event} %>
+                <% end %>
+            
+            <li data-role="list-divider" role="heading" class="friday ui-li-has-count">
+                Fredag
+                <span class="ui-li-count"><%= @events_from_google.select{|e| which_weekday?(e, "friday")}.count %></span>
+            </li>
+                <% @events_from_google.select{|e| which_weekday?(e, "friday")}.each do |event| %>
+                    <%= render :partial => "event_list", :locals => {:event => event} %>
+                <% end %>
+        </ul>
+    </div>
+</div>
+
+<%= link_to "Next week", events_url(next_link) %>
+
+<!--
 <table>
     <tr>
         <th>Event</th>
@@ -27,5 +77,4 @@
     </tr>
 <% end %>
 </table>
-
-<%= link_to "Next week", events_url(next_link) %>
+-->
