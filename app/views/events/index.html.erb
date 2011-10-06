@@ -33,6 +33,7 @@
 </div>
 
 <div data-role="footer">
+    <p>Inloggad som: <%= current_user.name %></p>
     <%= link_to "Föregående vecka", events_url(prev_link_params) %>
     <%= link_to "Nästa vecka", events_url(next_link_params) %>
 </div>
