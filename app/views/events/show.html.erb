@@ -9,26 +9,34 @@
         <h3>Anmälda</h3>
         <ul data-role="listview" data-inset="true" class="ui-listview">
             <% @event.users.each do |user| %>
-                <li><%= user.name %></li>
+                <li<%= user == current_user ? ' class="you"' : '' %>><%= user.name %></li>
             <% end %>
         </ul>
     <% else %>
         <h3>Inga anmälda ännu</h3>
     <% end %>
     
-    <% if @event.users.include?(current_user) %>
-        <h4>Du är anmäld. Vill du ta tillbaka din anmälan?</h4>
-    <% else %>
-        <h4>Kommer du?</h4>
-    <% end %>
-    <%= form_tag event_attend_url(@event.id) do %>
+    <%= form_tag event_attend_url(@event.id), :'data-transition' => "pop", :'data-direction' => "reverse", :'data-ajax' => "false" do %>
         <%= hidden_field_tag :user_id, current_user.id.to_s %>
         <%= hidden_field_tag :attending, !@event.users.include?(current_user) %>
         <% if @event.users.include?(current_user) %>
-            <%= submit_tag "Ja, jag ångrar mig!", :'data-theme' => "c" %>
+            <p><strong>Du är anmäld. Vill du ta tillbaka din anmälan?</strong></p>
         <% else %>
-            <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b" %>
+            <p><strong>Kommer du?</strong></p>
         <% end %>
-    </fieldset>
+        <div class="ui-body ui-body-b">
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">
+                    <button data-theme="d">Avbryt</button>
+                </div>
+                <div class="ui-block-b">
+                    <% if @event.users.include?(current_user) %>
+                        <%= submit_tag "Ja, jag ångrar mig!", :'data-theme' => "b" %>
+                    <% else %>
+                        <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b" %>
+                    <% end %>
+                </div>
+            </fieldset>
+        </div>
     <% end %>
 </div>
