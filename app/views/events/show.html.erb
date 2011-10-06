@@ -6,16 +6,15 @@
     <h3><%= @event.where %></h3>
     
     <% if @event.users.present? %>
-        <h3>Anmälda</h3>
-        <ul data-role="listview" data-inset="true" class="ui-listview">
-            <% @event.users.each do |user| %>
+        <ul data-role="listview" data-inset="true" data-theme="d">
+            <li data-role="list-divider" role="heading" data-theme="a">Anmälda</li>
+            <% @event.users.reverse.each do |user| %>
                 <li<%= user == current_user ? ' class="you"' : '' %>><%= user.name %></li>
             <% end %>
         </ul>
     <% else %>
         <h3>Inga anmälda ännu</h3>
     <% end %>
-    
     <%= form_tag event_attend_url(@event.id), :'data-ajax' => "false" do %>
         <%= hidden_field_tag :user_id, current_user.id.to_s %>
         <%= hidden_field_tag :attending, !@event.users.include?(current_user) %>
