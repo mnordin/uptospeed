@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
 
   def index
-    start_at = params[:start_at].present? ? params[:start_at] : Time.now.beginning_of_week
-    @events = Event.all
+    start_at = params[:start_at].present? ? Time.parse(params[:start_at]) : Time.now
+    @events = Event.where("start_time > ? and end_time < ?", start_at.beginning_of_week, start_at.end_of_week)
   end
 
   def show
