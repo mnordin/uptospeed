@@ -23,19 +23,21 @@
         <% else %>
             <p><strong>Kommer du?</strong></p>
         <% end %>
-        <div class="ui-body ui-body-b">
-            <fieldset class="ui-grid-a">
-                <div class="ui-block-a">
-                    <%= link_to "Avbryt", events_path(:start_at => @event.start_time.strftime("%Y-%m-%d")), :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse" %>
-                </div>
-                <div class="ui-block-b">
-                    <% if @event.users.include?(current_user) %>
-                        <%= submit_tag "Nej, jag ångrar mig!", :'data-theme' => "a", :'data-icon' => "delete" %>
-                    <% else %>
-                        <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b", :'data-icon' => "check" %>
-                    <% end %>
-                </div>
-            </fieldset>
-        </div>
+        <ul data-role="listview" data-inset="true" data-theme="c">
+            <li class="ui-body ui-body-b">
+                <fieldset class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <%= link_to "Avbryt", events_path(:start_at => @event.start_time.strftime("%Y-%m-%d")), :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse" %>
+                    </div>
+                    <div class="ui-block-b">
+                        <% if @event.users.include?(current_user) %>
+                            <%= submit_tag "Nej, jag ångrar mig!", :'data-theme' => "a", :'data-icon' => "delete" %>
+                        <% else %>
+                            <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b", :'data-icon' => "check" %>
+                        <% end %>
+                    </div>
+                </fieldset>
+            </li>
+        </ul>
     <% end %>
 </div>
