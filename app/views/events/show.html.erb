@@ -31,7 +31,7 @@
                 </div>
                 <div class="ui-block-b">
                     <% if @event.users.include?(current_user) %>
-                        <%= submit_tag "Ja, jag ångrar mig!", :'data-theme' => "b", :'data-icon' => "delete" %>
+                        <%= submit_tag "Ja, jag ångrar mig!", :'data-theme' => "a", :'data-icon' => "delete" %>
                     <% else %>
                         <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b", :'data-icon' => "check" %>
                     <% end %>
