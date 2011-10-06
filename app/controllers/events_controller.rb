@@ -12,9 +12,9 @@ class EventsController < ApplicationController
 
   def attend
     if Attending.create_or_destroy_by_params(params)
-      redirect_to events_path, notice: 'Event was successfully created.'
+      redirect_to events_path, notice: 'Din anmalan ar registrerad'
     else
-      render action: "new"
+      redirect_to events_path, notice: 'Nagot gick fel, forsok igen'
     end
   end
 end
