@@ -1,7 +1,9 @@
 <div data-role="header" data-theme="a">
     <h1><%= @event.title %></h1>
 </div>
-<div data-role="content" data-theme="b">
+<div class="single-event" data-role="content" data-theme="b">
+    <p class="time"><strong><%= @event.start_time.to_s(:time) %> - <%= @event.end_time.to_s(:time) %></strong></p>
+    <h1><%= @event.title %></h1>
     <h2><%= @event.where %></h2>
     
     <% if @event.users.present? %>
@@ -17,7 +19,7 @@
 
     <%= form_tag event_attend_url(@event.id) do %>
     
-        <div data-role="fieldcontain">
+        <div data-role="fieldcontain" class="single-row">
             <fieldset data-role="controlgroup">
                 <legend>Kommer du?</legend>
                 <%= hidden_field_tag :user_id, current_user.id.to_s %>
