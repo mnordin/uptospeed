@@ -18,7 +18,7 @@ class Attending < ActiveRecord::Base
 
   def self.create_or_destroy_by_params(params)
     service = Event.auth_google_service
-    if params[:attending].present?
+    if params[:attending] == "true"
       unless Attending.already_exists?(params)
         Attending.create(:user_id => params[:user_id], :event_id => params[:id])
       end

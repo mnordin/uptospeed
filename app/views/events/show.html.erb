@@ -15,18 +15,20 @@
     <% else %>
         <h3>Inga anmälda ännu</h3>
     <% end %>
-
-    <%= form_tag event_attend_url(@event.id) do %>
     
-        <div data-role="fieldcontain" class="single-row">
-            <fieldset data-role="controlgroup">
-                <legend>Kommer du?</legend>
-                <%= hidden_field_tag :user_id, current_user.id.to_s %>
-                <%= label_tag :attending, "Ja, jag kommer!" %>
-                <%= check_box_tag :attending, "attend", @event.users.include?(current_user) %>
-            </fieldset>
-        </div>
-        <%= submit_tag "Spara" %>
+    <% if @event.users.include?(current_user) %>
+        <h4>Du är anmäld. Vill du ta tillbaka din anmälan?</h4>
+    <% else %>
+        <h4>Kommer du?</h4>
+    <% end %>
+    <%= form_tag event_attend_url(@event.id) do %>
+        <%= hidden_field_tag :user_id, current_user.id.to_s %>
+        <%= hidden_field_tag :attending, !@event.users.include?(current_user) %>
+        <% if @event.users.include?(current_user) %>
+            <%= submit_tag "Ja, jag ångrar mig!", :'data-theme' => "c" %>
+        <% else %>
+            <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b" %>
+        <% end %>
     </fieldset>
     <% end %>
 </div>
