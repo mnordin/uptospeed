@@ -11,9 +11,9 @@ class EventsController < ApplicationController
 
   def attend
     if Attending.create_or_destroy_by_params(params)
-      redirect_to events_path(:start_at => Event.find(params[:event_id]).start_time.strftime("%Y-%m-%d")), notice: 'Din anmalan ar registrerad'
+      redirect_to events_path(:start_at => Event.find(params[:id]).start_time.strftime("%Y-%m-%d")), notice: 'Din anmalan ar registrerad'
     else
-      redirect_to events_path(:start_at => Event.find(params[:event_id]).start_time.strftime("%Y-%m-%d")), notice: 'Nagot gick fel, forsok igen'
+      redirect_to events_path(:start_at => Event.find(params[:id]).start_time.strftime("%Y-%m-%d")), notice: 'Nagot gick fel, forsok igen'
     end
   end
 end
