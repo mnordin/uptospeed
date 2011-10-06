@@ -7,4 +7,5 @@
             <span class="ui-li-count attending-amount"><%= event.users.count %></span>
         <% end %>
     <% end %>
+    <%= link_to "Se!", event_path(event.id), :'data-rel' => "dialog", :'data-transition' => "pop" %>
 </li>
