@@ -16,7 +16,7 @@
         <h3>Inga anmälda ännu</h3>
     <% end %>
     
-    <%= form_tag event_attend_url(@event.id), :'data-transition' => "pop", :'data-direction' => "reverse", :'data-ajax' => "false" do %>
+    <%= form_tag event_attend_url(@event.id), :'data-ajax' => "false" do %>
         <%= hidden_field_tag :user_id, current_user.id.to_s %>
         <%= hidden_field_tag :attending, !@event.users.include?(current_user) %>
         <% if @event.users.include?(current_user) %>
@@ -27,13 +27,13 @@
         <div class="ui-body ui-body-b">
             <fieldset class="ui-grid-a">
                 <div class="ui-block-a">
-                    <button data-theme="d">Avbryt</button>
+                    <%= link_to "Avbryt", events_path(:start_at => @event.start_time.strftime("%Y-%m-%d")), :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse" %>
                 </div>
                 <div class="ui-block-b">
                     <% if @event.users.include?(current_user) %>
-                        <%= submit_tag "Ja, jag ångrar mig!", :'data-theme' => "b" %>
+                        <%= submit_tag "Ja, jag ångrar mig!", :'data-theme' => "b", :'data-icon' => "delete" %>
                     <% else %>
-                        <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b" %>
+                        <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b", :'data-icon' => "check" %>
                     <% end %>
                 </div>
             </fieldset>
