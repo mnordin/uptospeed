@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111005205258) do
+ActiveRecord::Schema.define(:version => 20111006084436) do
 
   create_table "attendings", :force => true do |t|
     t.integer  "user_id"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(:version => 20111005205258) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.text     "locked_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
