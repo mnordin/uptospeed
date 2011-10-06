@@ -35,11 +35,16 @@
 
 <div data-role="footer">
     <div class="footer-navigation">
-        <div class="float-left">
-            <%= link_to "Föregående vecka", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
-        </div>
-        <div class="float-right">
-            <%= link_to "Nästa vecka", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right" %>
+        <div class="ui-grid-b">
+            <div class="ui-block-a">
+                <%= link_to "Föregående vecka", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l", :class => "float-left" %>
+            </div>
+            <div class="ui-block-b center-content">
+                <%= link_to "Aktuell vecka", events_url, :'data-role' => "button", :'data-transition' => "slideup" %>
+            </div>
+            <div class="ui-block-c">
+                <%= link_to "Nästa vecka", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right", :class => "float-right" %>
+            </div>
         </div>
     </div>
 </div>
