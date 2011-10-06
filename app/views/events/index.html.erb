@@ -5,7 +5,7 @@
 
 <div class="content-primary">
     <div id="events">
-        <ul data-role="listview" data-divider-theme="b">
+        <ul data-role="listview" data-divider-theme="b" data-split-icon="arrow-r">
             <li data-role="list-divider" role="heading">Måndag</li>
             <% @events.select{|e| which_weekday?(e, "monday")}.each do |event| %>
                 <%= render :partial => "event_list", :locals => {:event => event} %>
