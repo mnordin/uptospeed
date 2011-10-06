@@ -5,3 +5,19 @@
  *= require_self
  *= require_tree . 
 */
+
+.footer-navigation{
+    padding: 1em 1em 2em 1em;
+    overflow:hidden;
+}
+.main-navigation{
+    padding:1em;
+    overflow:hidden;
+}
+
+.float-left{
+    float:left;
+}
+.float-right{
+    float:right;
+}
