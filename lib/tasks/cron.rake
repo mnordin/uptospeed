@@ -15,7 +15,7 @@ task :cron => :environment do
     end
     event_from_google.attendees.each do |attendee|
       if user = User.find_by_email(attendee[:email])
-        Attending.find_or_create_by_user_id_and_event_id(:user_id => user.id, :event_id => local_event.id)
+        Attending.find_or_create_by_user_id_and_event_id(user.id, local_event.id)
       end
     end
   end
