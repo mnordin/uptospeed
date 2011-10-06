@@ -9,11 +9,11 @@ class Attending < ActiveRecord::Base
   validates :user_id, :uniqueness => { :scope => :event_id }
 
   def enqueue_attend_on_google
-    Event.send_later(:attend_on_google, event.google_id, user)
+    Event.delay.attend_on_google(event.google_id, user)
   end
 
   def enqueue_unattend_on_google
-    Event.send_later(:unattend_on_google, event.google_id, user)
+    Event.delay.unattend_on_google(event.google_id, user)
   end
 
   def self.create_or_destroy_by_params(params)
