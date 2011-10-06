@@ -20,7 +20,7 @@
         <%= hidden_field_tag :user_id, current_user.id.to_s %>
         <%= hidden_field_tag :attending, !@event.users.include?(current_user) %>
         <% if @event.users.include?(current_user) %>
-            <p><strong>Du är anmäld. Vill du ta tillbaka din anmälan?</strong></p>
+            <p><strong>Du är anmäld.</strong></p>
         <% else %>
             <p><strong>Kommer du?</strong></p>
         <% end %>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="ui-block-b">
                     <% if @event.users.include?(current_user) %>
-                        <%= submit_tag "Ja, jag ångrar mig!", :'data-theme' => "a", :'data-icon' => "delete" %>
+                        <%= submit_tag "Nej, jag ångrar mig!", :'data-theme' => "a", :'data-icon' => "delete" %>
                     <% else %>
                         <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b", :'data-icon' => "check" %>
                     <% end %>
