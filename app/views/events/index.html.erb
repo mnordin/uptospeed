@@ -1,4 +1,4 @@
-<div data-role="header">
+<div data-role="header" data-position="fixed">
     <%= link_to "Förra", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
     <h1><%= link_to "Träningar", events_url, :'data-transition' => "slideup", :class => "header-link" %></h1>
     <%= link_to "Nästa", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right" %>

@@ -1,4 +1,4 @@
-<div data-role="footer" data-id="footer">
+<div data-role="footer" data-id="footer" data-position="fixed">
     <div data-role="navbar">
         <ul>
             <li<%= params[:controller] == "events" ? ' class="ui-btn-active ui-state-persist"' : "" %>><%= link_to "Träningar", events_url, :'data-role' => "button",  :'data-icon' => "home", :'data-transition' => "slidedown" %></li>
