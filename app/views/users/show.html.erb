@@ -1,0 +1,26 @@
+<div data-role="header" data-theme="a">
+    <h1><%= @user.name %></h1>
+</div>
+
+<div data-role="content" data-theme="b">
+
+    <ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="b">
+        <li data-role="list-divider" role="heading">Dina träningar</li>
+        <% @user.points.each do |event| %>
+            <li>
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <%= event.title %>
+                    </div>
+                    <div class="ui-block-b center-content">
+                        <%= event.start_time.strftime("%d %b") %>
+                    </div>
+                    <div class="ui-block-c right-content">
+                        1 poäng
+                    </div>
+            </li>
+        <% end %>
+    </ul>
+</div>
+
+<%= render :partial => "/main_navigation" %>
