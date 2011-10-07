@@ -18,7 +18,7 @@ h1 a.header-link.ui-link{
     text-decoration:none;
 }
 
-.single-event .you a{
+.you a{
     background-image: -webkit-gradient(linear, left top, left bottom, from(#c8edc2), to(#adcca7)) !important;
     background-image: -webkit-linear-gradient(top, #c8edc2, #adcca7) !important;
     background-image: -moz-linear-gradient(top, #c8edc2, #adcca7) !important;
@@ -27,8 +27,8 @@ h1 a.header-link.ui-link{
     background-image: linear-gradient(top, #c8edc2, #adcca7) !important;
     border-top: 1px solid #ccc !important;
 }
-.single-event .you .ui-btn-inner{
-    border-top:none;
+.you .ui-btn-inner{
+    border-top:none !important;
 }
 
 .ui-bar-b.old{
