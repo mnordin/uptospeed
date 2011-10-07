@@ -4,7 +4,7 @@
     <%= link_to "Nästa", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right" %>
 </div>
 
-<div class="content-primary">
+<div data-role="content">
     <div id="events">
         <ul data-role="listview" data-divider-theme="b" data-split-theme="c" data-split-icon="arrow-r">
             <li data-role="list-divider" role="heading" class="monday">Måndag <%= Time.parse(monday_param).strftime("%d %b") %></li>
