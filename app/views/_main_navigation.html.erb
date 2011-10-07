@@ -1,8 +1,8 @@
 <div data-role="footer" data-id="footer" data-position="fixed">
     <div data-role="navbar">
         <ul>
-            <li<%= params[:controller] == "events" ? ' class="ui-btn-active ui-state-persist"' : "" %>><%= link_to "Träningar", events_url, :'data-role' => "button",  :'data-icon' => "home", :'data-transition' => "slidedown" %></li>
-            <li<%= params[:controller] == "users" ? ' class="ui-btn-active ui-state-persist"' : "" %>><%= link_to "Statistik", user_url(current_user.id), :'data-role' => "button",  :'data-icon' => "grid", :'data-transition' => "slidedown" %></li>
+            <li><%= link_to "Träningar", events_url, :'data-role' => "button",  :'data-icon' => "home", :'data-transition' => "slidedown", :class => highlight_current_tab("events") %></li>
+            <li><%= link_to "Statistik", user_url(current_user.id), :'data-role' => "button",  :'data-icon' => "grid", :'data-transition' => "slidedown", :class => highlight_current_tab("users") %></li>
         </ul>
     </div>
 </div>
