@@ -8,8 +8,22 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def points
-    events.select{|e| e.end_time > Time.now }
+  def total_score
+    score = []
+    attendings.each do |a|
+      if past_events.include?(a.event)
+        score << a.score
+      end
+    end
+    return score.sum
+  end
+
+  def future_events
+    events.select{|e| e.start_time > Time.now }
+  end
+
+  def past_events
+    events.select{|e| e.start_time < Time.now }
   end
 
   def self.create_with_omniauth(auth)
