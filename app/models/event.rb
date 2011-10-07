@@ -4,6 +4,10 @@ class Event < ActiveRecord::Base
 
   validates :google_id, :presence => true, :uniqueness => true
 
+  def score
+    1
+  end
+
   def self.fetch_events_from_google(args = {})
     start_at = args[:start_at].present? ? args[:start_at] : Time.now.beginning_of_week
     end_at = args[:end_at].present? ? args[:end_at] : Time.now.end_of_week

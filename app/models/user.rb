@@ -9,13 +9,7 @@ class User < ActiveRecord::Base
   end
 
   def total_score
-    score = []
-    attendings.each do |a|
-      if past_events.include?(a.event)
-        score << a.score
-      end
-    end
-    return score.sum
+    past_events.map(&:score).sum
   end
 
   def future_events
