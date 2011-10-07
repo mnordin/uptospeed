@@ -1,8 +1,7 @@
-<%= render :partial => "/main_navigation" %>
 <div data-role="header">
-    <%= link_to "Förra", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l", :'data-iconpos' => "notext" %>
-    <h1>Träningar</h1>
-    <%= link_to "Nästa", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right", :'data-iconpos' => "notext" %>
+    <%= link_to "Förra", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
+    <h1><%= link_to "Träningar", events_url, :'data-transition' => "slideup", :class => "header-link" %></h1>
+    <%= link_to "Nästa", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right" %>
 </div>
 
 <div class="content-primary">
@@ -34,13 +33,4 @@
         </ul>
     </div>
 </div>
-
-<div data-role="footer">
-    <div class="footer-navigation">
-        <div data-role="controlgroup"  data-type="horizontal" class="center-content">
-            <%= link_to "Förra", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
-            <%= link_to "Nu", events_url, :'data-role' => "button", :'data-transition' => "slideup" %>
-            <%= link_to "Nästa", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right" %>
-        </div>
-    </div>
-</div>
+<%= render :partial => "/main_navigation" %>
