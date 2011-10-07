@@ -1,5 +1,5 @@
 <li class="single-event<%= event.users.include?(current_user) ? " you" : "" %>">
-    <%= link_to event_path(event.id, :index_start_at => monday_param), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+    <%= link_to event_path(event.id, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
         <h3><%= event.title %></h3>
         <p><%= event.where %></p>
         <p class="ui-li-aside event-time"><strong><%= event.start_time.to_s(:time) %> - <%= event.end_time.to_s(:time) %></strong></p>
@@ -7,5 +7,5 @@
             <span class="ui-li-count attending-amount"><%= event.users.count %></span>
         <% end %>
     <% end %>
-    <%= link_to "Se!", event_path(event.id, :index_start_at => monday_param), :'data-rel' => "dialog", :'data-transition' => "pop" %>
+    <%= link_to "Se!", event_path(event.id, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" %>
 </li>

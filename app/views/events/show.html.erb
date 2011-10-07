@@ -17,7 +17,7 @@
     <%= form_tag event_attend_url(@event.id), :'data-ajax' => "false" do %>
         <%= hidden_field_tag :user_id, current_user.id.to_s %>
         <%= hidden_field_tag :attending, !@event.users.include?(current_user) %>
-        <%= hidden_field_tag :index_start_at, params[:index_start_at] %>
+        <%= hidden_field_tag :url, params[:url] %>
         <% if @event.users.include?(current_user) %>
             <p><strong>Du är anmäld.</strong></p>
         <% else %>
@@ -28,6 +28,6 @@
         <% else %>
             <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b", :'data-icon' => "check" %>
         <% end %>
-        <%= link_to "Avbryt", events_path(:start_at => @event.start_time.strftime("%Y-%m-%d")), :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse" %>
+        <%= link_to "Avbryt", params[:url], :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse" %>
     <% end %>
 </div>
