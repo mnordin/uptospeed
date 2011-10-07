@@ -19,7 +19,12 @@ h1 a.header-link.ui-link{
 }
 
 .you a{
-    background: #bed9ba !important;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#c8edc2), to(#adcca7)) !important;
+    background-image: -webkit-linear-gradient(top, #c8edc2, #adcca7) !important;
+    background-image: -moz-linear-gradient(top, #c8edc2, #adcca7) !important;
+    background-image: -ms-linear-gradient(top, #c8edc2, #adcca7) !important;
+    background-image: -o-linear-gradient(top, #c8edc2, #adcca7) !important;
+    background-image: linear-gradient(top, #c8edc2, #adcca7) !important;
 }
 
 .ui-bar-b.old{
