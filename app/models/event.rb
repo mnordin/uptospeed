@@ -8,6 +8,14 @@ class Event < ActiveRecord::Base
     1
   end
 
+  def self.exists_before?(time)
+    Event.order(:start_time).limit(1).first.start_time < Time.parse(time).beginning_of_week
+  end
+
+  def self.exists_after?(time)
+    Event.order(:start_time).reverse_order.limit(1).first.start_time > Time.parse(time).end_of_week
+  end
+
   def self.fetch_events_from_google(args = {})
     start_at = args[:start_at].present? ? args[:start_at] : Time.now.beginning_of_week
     end_at = args[:end_at].present? ? args[:end_at] : Time.now.end_of_week

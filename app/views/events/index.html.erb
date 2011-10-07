@@ -1,7 +1,11 @@
 <div data-role="header" data-position="fixed">
-    <%= link_to "Förra", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
+    <% if Event.exists_before?(monday_param) %>
+        <%= link_to "Förra", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
+    <% end %>
     <h1><%= link_to "Träningar", events_url, :'data-transition' => "slideup", :class => "header-link" %></h1>
-    <%= link_to "Nästa", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right" %>
+    <% if Event.exists_after?(monday_param) %>
+        <%= link_to "Nästa", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right", :class => "ui-btn-right" %>
+    <% end %>
 </div>
 
 <div data-role="content">
