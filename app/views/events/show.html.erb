@@ -4,7 +4,6 @@
 <div class="single-event" data-role="content" data-theme="b">
     <p class="time"><strong><%= @event.start_time.to_s(:time) %> - <%= @event.end_time.to_s(:time) %></strong></p>
     <h3><%= @event.where %></h3>
-    
     <% if @event.users.present? %>
         <ul data-role="listview" data-inset="true" data-theme="d">
             <li data-role="list-divider" role="heading" data-theme="a">Anmälda</li>
@@ -18,26 +17,17 @@
     <%= form_tag event_attend_url(@event.id), :'data-ajax' => "false" do %>
         <%= hidden_field_tag :user_id, current_user.id.to_s %>
         <%= hidden_field_tag :attending, !@event.users.include?(current_user) %>
+        <%= hidden_field_tag :index_start_at, params[:index_start_at] %>
         <% if @event.users.include?(current_user) %>
             <p><strong>Du är anmäld.</strong></p>
         <% else %>
             <p><strong>Kommer du?</strong></p>
         <% end %>
-        <ul data-role="listview" data-inset="true" data-theme="c">
-            <li class="ui-body ui-body-b">
-                <fieldset class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <%= link_to "Avbryt", events_path(:start_at => @event.start_time.strftime("%Y-%m-%d")), :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse" %>
-                    </div>
-                    <div class="ui-block-b">
-                        <% if @event.users.include?(current_user) %>
-                            <%= submit_tag "Nej, jag ångrar mig!", :'data-theme' => "a", :'data-icon' => "delete" %>
-                        <% else %>
-                            <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b", :'data-icon' => "check" %>
-                        <% end %>
-                    </div>
-                </fieldset>
-            </li>
-        </ul>
+        <% if @event.users.include?(current_user) %>
+            <%= submit_tag "Nej, jag ångrar mig!", :'data-theme' => "a", :'data-icon' => "delete" %>
+        <% else %>
+            <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b", :'data-icon' => "check" %>
+        <% end %>
+        <%= link_to "Avbryt", events_path(:start_at => @event.start_time.strftime("%Y-%m-%d")), :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse" %>
     <% end %>
 </div>
