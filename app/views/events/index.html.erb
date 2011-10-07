@@ -1,8 +1,8 @@
 <%= render :partial => "/main_navigation" %>
 <div data-role="header">
-    <%= link_to "Förra veckan", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
+    <%= link_to "Förra", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l", :'data-iconpos' => "notext" %>
     <h1>Träningar</h1>
-    <%= link_to "Nästa vecka", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right" %>
+    <%= link_to "Nästa", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right", :'data-iconpos' => "notext" %>
 </div>
 
 <div class="content-primary">
@@ -38,9 +38,9 @@
 <div data-role="footer">
     <div class="footer-navigation">
         <div data-role="controlgroup"  data-type="horizontal" class="center-content">
-            <%= link_to "Förra veckan", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
-            <%= link_to "Denna vecka", events_url, :'data-role' => "button", :'data-transition' => "slideup" %>
-            <%= link_to "Nästa vecka", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right" %>
+            <%= link_to "Förra", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
+            <%= link_to "Nu", events_url, :'data-role' => "button", :'data-transition' => "slideup" %>
+            <%= link_to "Nästa", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right" %>
         </div>
     </div>
 </div>
