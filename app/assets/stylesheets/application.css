@@ -21,6 +21,12 @@
 .float-right{
     float:right;
 }
+.left-content{
+    text-align:left;
+}
 .center-content{
     text-align:center;
+}
+.right-content{
+    text-align:right;
 }
