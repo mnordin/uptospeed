@@ -6,7 +6,12 @@ class Attending < ActiveRecord::Base
   after_destroy :enqueue_unattend_on_google
 
   # A user can't attend the same event more than once
-  validates :user_id, :uniqueness => { :scope => :event_id }
+  validates :user_id, :presence => true, :uniqueness => { :scope => :event_id }
+  validates :event_id, :presence => true
+
+  def score
+    1
+  end
 
   def enqueue_attend_on_google
     Event.delay.attend_on_google(event.google_id, user)
