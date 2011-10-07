@@ -11,9 +11,9 @@ class EventsController < ApplicationController
 
   def attend
     if Attending.create_or_destroy_by_params(params)
-      redirect_to events_path(:start_at => params[:index_start_at]), notice: 'Din anmalan ar registrerad'
+      redirect_to params[:url]
     else
-      redirect_to events_path(:start_at => params[:index_start_at]), notice: 'Nagot gick fel, forsok igen'
+      redirect_to params[:url], notice: 'Nagot gick fel, forsok igen'
     end
   end
 end
