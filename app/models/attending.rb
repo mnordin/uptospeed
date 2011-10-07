@@ -9,10 +9,6 @@ class Attending < ActiveRecord::Base
   validates :user_id, :presence => true, :uniqueness => { :scope => :event_id }
   validates :event_id, :presence => true
 
-  def score
-    1
-  end
-
   def enqueue_attend_on_google
     Event.delay.attend_on_google(event.google_id, user)
   end
