@@ -11,26 +11,26 @@
 <div data-role="content">
     <div id="events">
         <ul data-role="listview" data-divider-theme="b" data-split-theme="c" data-split-icon="arrow-r">
-            <li data-role="list-divider" role="heading" class="monday<%= Time.parse(monday_param).end_of_day < Time.now ? " old" : "" %>">Måndag <%= Time.parse(monday_param).strftime("%d %b") %></li>
+            <li data-role="list-divider" role="heading" class="monday<%= old?(monday_param, 0) ? " old" : "" %>">Måndag <%= Time.parse(monday_param).strftime("%d %b") %></li>
             <% @events.select{|e| which_weekday?(e, "monday")}.each do |event| %>
                 <%= render :partial => "event_list", :locals => {:event => event} %>
             <% end %>
-            <li data-role="list-divider" role="heading" class="tuesday<%= Time.parse(monday_param).end_of_day + 1.days < Time.now ? " old" : "" %>">Tisdag <%= (Time.parse(monday_param) + 1.days).strftime("%d %b") %></li>
+            <li data-role="list-divider" role="heading" class="tuesday<%= old?(monday_param, 1) ? " old" : "" %>">Tisdag <%= (Time.parse(monday_param) + 1.days).strftime("%d %b") %></li>
             <% @events.select{|e| which_weekday?(e, "tuesday")}.each do |event| %>
                 <%= render :partial => "event_list", :locals => {:event => event} %>
             <% end %>
         
-            <li data-role="list-divider" role="heading" class="wednesday<%= Time.parse(monday_param).end_of_day + 2.days < Time.now ? " old" : "" %>">Onsdag <%= (Time.parse(monday_param) + 2.days).strftime("%d %b") %></li>
+            <li data-role="list-divider" role="heading" class="wednesday<%= old?(monday_param, 2) ? " old" : "" %>">Onsdag <%= (Time.parse(monday_param) + 2.days).strftime("%d %b") %></li>
             <% @events.select{|e| which_weekday?(e, "wednesday")}.each do |event| %>
                 <%= render :partial => "event_list", :locals => {:event => event} %>
             <% end %>
         
-            <li data-role="list-divider" role="heading" class="thursday<%= Time.parse(monday_param).end_of_day + 3.days < Time.now ? " old" : "" %>">Torsdag <%= (Time.parse(monday_param) + 3.days).strftime("%d %b") %></li>
+            <li data-role="list-divider" role="heading" class="thursday<%= old?(monday_param, 3) ? " old" : "" %>">Torsdag <%= (Time.parse(monday_param) + 3.days).strftime("%d %b") %></li>
             <% @events.select{|e| which_weekday?(e, "thursday")}.each do |event| %>
                 <%= render :partial => "event_list", :locals => {:event => event} %>
             <% end %>
         
-            <li data-role="list-divider" role="heading" class="friday<%= Time.parse(monday_param).end_of_day + 4.days < Time.now ? " old" : "" %>">Fredag <%= (Time.parse(monday_param) + 4.days).strftime("%d %b") %></li>
+            <li data-role="list-divider" role="heading" class="friday<%= old?(monday_param, 4) ? " old" : "" %>">Fredag <%= (Time.parse(monday_param) + 4.days).strftime("%d %b") %></li>
             <% @events.select{|e| which_weekday?(e, "friday")}.each do |event| %>
                 <%= render :partial => "event_list", :locals => {:event => event} %>
             <% end %>
