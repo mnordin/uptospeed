@@ -21,3 +21,12 @@ h1 a.header-link.ui-link{
 .you a{
     background: #bed9ba !important;
 }
+
+.ui-bar-b.old{
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#c2cfcf), to(#8e9191)) !important; /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #c2cfcf, #8e9191) !important; /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient(top, #c2cfcf, #8e9191) !important; /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, #c2cfcf, #8e9191) !important; /* IE10 */
+    background-image:      -o-linear-gradient(top, #c2cfcf, #8e9191) !important; /* Opera 11.10+ */
+    background-image:         linear-gradient(top, #c2cfcf, #8e9191) !important;
+}
