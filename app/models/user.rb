@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def points
+    events.select{|e| e.end_time > Time.now }
+  end
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.first_name = auth["user_info"]["first_name"]
