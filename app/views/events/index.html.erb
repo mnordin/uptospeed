@@ -8,7 +8,7 @@
     <% end %>
 </div>
 
-<div data-role="content">
+<div data-role="content" data-theme="b">
     <div id="events">
         <ul data-role="listview" data-divider-theme="b" data-split-theme="c" data-split-icon="arrow-r">
             <li data-role="list-divider" role="heading" class="monday<%= old?(monday_param, 0) ? " old" : "" %>">Måndag <%= Time.parse(monday_param).strftime("%d %b") %></li>
