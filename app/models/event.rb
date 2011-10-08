@@ -8,6 +8,10 @@ class Event < ActiveRecord::Base
     1
   end
 
+  def old?
+    start_time < Time.now
+  end
+
   def self.exists_before?(time)
     Event.order(:start_time).limit(1).first.start_time < Time.parse(time).beginning_of_week
   end
