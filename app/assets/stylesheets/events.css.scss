@@ -9,9 +9,12 @@
     font-size:15px !important;
 }
 
-.single-event .time{
+li.single-event .time{
     float:right;
     font-size:18px !important;
+}
+li.single-event a{
+    border-left:none !important;
 }
 h1 a.header-link.ui-link{
     color:#fff;
@@ -25,7 +28,7 @@ h1 a.header-link.ui-link{
     background-image: -ms-linear-gradient(top, #c8edc2, #adcca7) !important;
     background-image: -o-linear-gradient(top, #c8edc2, #adcca7) !important;
     background-image: linear-gradient(top, #c8edc2, #adcca7) !important;
-    border-top: 1px solid #ccc !important;
+    border-top:none !important;
 }
 .you .ui-btn-inner{
     border-top:none !important;
@@ -38,4 +41,5 @@ h1 a.header-link.ui-link{
     background-image:     -ms-linear-gradient(top, #c2cfcf, #8e9191) !important; /* IE10 */
     background-image:      -o-linear-gradient(top, #c2cfcf, #8e9191) !important; /* Opera 11.10+ */
     background-image:         linear-gradient(top, #c2cfcf, #8e9191) !important;
+    border-top: #444 !important;
 }
