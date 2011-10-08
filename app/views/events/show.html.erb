@@ -19,7 +19,11 @@
         <%= hidden_field_tag :attending, !@event.users.include?(current_user) %>
         <%= hidden_field_tag :url, params[:url] %>
         <% if @event.users.include?(current_user) %>
-            <p><strong>Du är anmäld.</strong></p>
+            <% if @event.old? %>
+                <p><strong>Du har fått poäng för denna träning.</strong></p>
+            <% else %>
+                <p><strong>Du är anmäld.</strong></p>
+            <% end %>
         <% else %>
             <p><strong>Kommer du?</strong></p>
         <% end %>
