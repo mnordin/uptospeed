@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def attend
-    if Attending.create_or_destroy_by_params(params)
+    if Attendance.create_or_destroy_by_params(params)
       redirect_to params[:url]
     else
       redirect_to params[:url], notice: 'Nagot gick fel, forsok igen'
