@@ -1,0 +1,39 @@
+<div data-role="header" class="remove-back-button">
+    <%= link_to "Tillbaka", circles_url, :'data-role' => "button", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
+    <h1><%= @circle.title %></h1>
+    <% if @circle.users.include?(current_user) %>
+        <%= link_to "Inställningar", circle_settings_url(@circle), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "gear", :class => "ui-btn-right" %>
+    <% end %>
+</div>
+<div data-role="content" data-theme="b">
+    <ul data-role="listview" data-inset="true" data-theme="d">
+        <li data-role="list-divider" role="heading" data-theme="a">Medlemmar <span class="ui-li-count"><%= @circle.users.count %></span></li>
+        <% @circle.users.sort!{ |a,b| a.total_score <=> b.total_score}.reverse.each do |user| %>
+            <li<%= user == current_user ? ' class="you"' : '' %>>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <%= user.name %>
+                    </div>
+                    <div class="ui-block-b right-content">
+                        <%= user.total_score  %>
+                    </div>
+                </div>
+            </li>
+        <% end %>
+    </ul>
+    <% if @circle.users.include?(current_user) %>
+        <%= form_tag remove_circle_membership_url, :method => "post" do %>
+            <%= hidden_field_tag "user_id", current_user.id %>
+            <div class="actions">
+                <%= submit_tag "Gå ur cirkeln", :'data-theme' => "a", :'data-direction' => "reverse" %>
+            </div>
+        <% end %>
+    <% else %>
+        <%= form_for(@circle) do |f| %>
+            <%= hidden_field_tag "circle[circle_memberships_attributes][][user_id]", current_user.id %>
+            <div class="actions">
+                <%= f.submit "Gå med i cirkeln", :'data-theme' => "b", :'data-direction' => "reverse" %>
+            </div>
+        <% end %>
+    <% end %>
+</div>
