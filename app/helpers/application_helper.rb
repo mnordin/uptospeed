@@ -8,7 +8,7 @@ module ApplicationHelper
     if controller_name == params[:controller]
       return "ui-btn-active"
     else
-      ""
+      return ""
     end
   end
 
