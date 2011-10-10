@@ -30,3 +30,14 @@
 .right-content{
     text-align:right;
 }
+.bottom-space{
+    padding-bottom:10px;
+}
+.remove-text{
+    text-indent: -9999px;
+}
+.left-close-button{
+    left:10px !important;
+    position:absolute !important;
+    top:.4em !important;
+}
