@@ -1,0 +1,16 @@
+<div data-role="header" data-position="inline" class="remove-back-button">
+    <%= link_to "Ångra", circle_url(@circle), :'data-role' => "button", :'data-rel' => "back", :'data-transition' => "flip", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
+    <h1>Inställningar för <%= @circle.title %></h1>
+</div>
+<div data-role="content" data-theme="b">
+    
+    <div data-role="fieldcontain">
+        <%= label_tag "circle[circle_memberships_attributes][color_id]" %>
+        <%= select_tag "circle[circle_memberships_attributes][color_id]", options_from_collection_for_select(Color.all, "id", "color"), :prompt => "Ingen färg" %>
+    </div>
+    
+    <div data-role="fieldcontain">
+        <%= label_tag "circle[circle_memberships_attributes][share_score]", "Dela med dig av din poäng?" %>
+        <%= select_tag "circle[circle_memberships_attributes][share_score]", [["Visa min poäng", 1], ["Visa inte min poäng", 0]], :'data-role' => "slider" %>
+    </div>
+</div>
