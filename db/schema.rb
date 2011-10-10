@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111010084850) do
+ActiveRecord::Schema.define(:version => 20111010173955) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "user_id"
@@ -24,6 +24,31 @@ ActiveRecord::Schema.define(:version => 20111010084850) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "circle_memberships", :force => true do |t|
+    t.boolean  "share_score", :default => false
+    t.boolean  "favorite"
+    t.boolean  "pending"
+    t.integer  "circle_id"
+    t.integer  "user_id"
+    t.integer  "color_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "circles", :force => true do |t|
+    t.string   "title"
+    t.boolean  "public"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "colors", :force => true do |t|
+    t.string   "hex"
+    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
