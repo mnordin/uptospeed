@@ -2,6 +2,7 @@
     <div data-role="navbar">
         <ul>
             <li><%= link_to "Träningar", events_url, :'data-role' => "button",  :'data-icon' => "home", :'data-transition' => "slidedown", :class => highlight_current_tab("events") %></li>
+            <li><%= link_to "Cirklar", circles_url, :'data-role' => "button",  :'data-icon' => "grid", :'data-transition' => "slidedown", :class => highlight_current_tab("circles") %></li>
             <li><%= link_to "Statistik", user_url(current_user.id), :'data-role' => "button",  :'data-icon' => "grid", :'data-transition' => "slidedown", :class => highlight_current_tab("users") %></li>
         </ul>
     </div>
