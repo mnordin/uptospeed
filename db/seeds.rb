@@ -8,7 +8,7 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 
-
+Color.create(:hex => nil, :color => "Ingen färg")
 Color.create(:hex => "f52a2a", :color => "Röd")
 Color.create(:hex => "ffb545", :color => "Orange")
 Color.create(:hex => "fce917", :color => "Gul")
