@@ -6,6 +6,27 @@
  *= require_tree . 
 */
 
+.ring{
+    float:right;
+    width:8px;
+    height:8px;
+    border: 1px solid #2F3E46;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+    margin:-.5em 0 0 .2em;
+}
+#events .ring, #event .ring{
+    float:right;
+    margin:-.3em 0 0 .2em;
+}
+#circles .ring{
+    float:left;
+    margin: .3em .2em 0 0;
+}
+.ui-li-desc{
+    float:left;
+}
 .footer-navigation{
     padding: 1em 0 3em 0;
     overflow:hidden;
@@ -31,6 +52,9 @@
 }
 .bottom-space{
     padding-bottom:10px;
+}
+.top-space{
+    padding-top:10px;
 }
 .remove-text{
     text-indent: -9999px;
