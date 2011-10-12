@@ -1,16 +1,22 @@
 <div data-role="header" data-position="inline" class="remove-back-button">
-    <%= link_to "Ångra", circle_url(@circle), :'data-role' => "button", :'data-rel' => "back", :'data-transition' => "flip", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
+    <%= link_to "Ångra", circles_url, :'data-role' => "button", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
     <h1>Inställningar för <%= @circle.title %></h1>
 </div>
-<div data-role="content" data-theme="b">
-    
-    <div data-role="fieldcontain">
-        <%= label_tag "circle[circle_memberships_attributes][color_id]" %>
-        <%= select_tag "circle[circle_memberships_attributes][color_id]", options_from_collection_for_select(Color.all, "id", "color"), :prompt => "Ingen färg" %>
-    </div>
-    
-    <div data-role="fieldcontain">
-        <%= label_tag "circle[circle_memberships_attributes][share_score]", "Dela med dig av din poäng?" %>
-        <%= select_tag "circle[circle_memberships_attributes][share_score]", [["Visa min poäng", 1], ["Visa inte min poäng", 0]], :'data-role' => "slider" %>
-    </div>
+<div data-role="content" data-theme="b" class="ui-body-c">
+    <%= form_for @circle, :'data-ajax' => "false" do |f| %>
+        <%= f.fields_for :circle_memberships do |cm| %>
+            <% if cm.object.user == current_user %>
+                <%= cm.hidden_field :user_id %>
+                <div data-role="fieldcontain">
+                    <%= cm.label :share_score, "Visa din poäng inom cirkeln?" %>
+                    <%= cm.select :share_score, options_for_select([["Nej", false], ["Ja", true]], cm.object.share_score), {}, :'data-role' => "slider" %>
+                </div>
+                <div data-role="fieldcontain">
+                    <%= cm.label :color_id, "Cirkelfärg" %>
+                    <%= cm.select :color_id, options_from_collection_for_select(@colors, "id", "color", cm.object.color_id) %>
+                </div>
+            <% end %>
+        <% end %>
+        <%= f.submit "Spara", :'data-theme' => "b" %>
+    <% end %>
 </div>
