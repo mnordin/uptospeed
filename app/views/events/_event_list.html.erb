@@ -5,6 +5,7 @@
         <p class="ui-li-aside event-time"><strong><%= event.start_time.to_s(:time) %> - <%= event.end_time.to_s(:time) %></strong></p>
         <% if event.users.present? %>
             <span class="ui-li-count attending-amount"><%= event.users.count %></span>
+            <%= ring(:event => event) %>
         <% end %>
     <% end %>
     <%= link_to "Se!", event_path(event.id, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" %>
