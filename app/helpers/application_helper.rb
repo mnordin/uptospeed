@@ -12,4 +12,35 @@ module ApplicationHelper
     end
   end
 
+  def ring(args = {})
+    if args[:user].present?
+      user = args[:user]
+      rings = []
+      user.circles.each do |circle|
+        rings << ring(:circle => circle)
+      end
+      rings.join("").html_safe
+    elsif args[:event].present?
+      event = args[:event]
+      rings = []
+      event.users.each do |user|
+        user.circles.each do |circle|
+          rings << ring(:circle => circle)
+        end
+      end
+      rings.uniq.join("").html_safe
+    elsif args[:circle].present?
+      circle = args[:circle]
+      if current_user.circles.include?(circle)
+        membership = current_user.circle_memberships.select{|cm| cm.circle == circle}.first
+        color = membership.color.hex rescue "transparent"
+        print_ring_html(color).html_safe
+      end
+    end
+  end
+
+  private
+  def print_ring_html(color)
+    "<div class=\"ring\" style=\"background:#{color}\"></div>"
+  end
 end
