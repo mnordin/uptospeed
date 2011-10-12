@@ -1,7 +1,7 @@
 <div data-role="header">
     <h1>Ny cirkel</h1>
 </div>
-<div data-role="content" data-theme="b">
+<div data-role="content" data-theme="b" class="ui-body-c">
     <%= form_for(@circle) do |f| %>
         <% if @circle.errors.any? %>
         <div id="error_explanation">
@@ -17,29 +17,31 @@
 
         <div data-role="fieldcontain">
             <%= f.label :title, "Titel" %>
-            <%= f.text_field :title %>
+            <%= f.text_field :title, :'data-theme' => "d" %>
         </div>
 
         <div data-role="fieldcontain">
             <%= f.label :public, "Publik cirkel?" %>
-            <%= f.select :public, [["Publik", 1], ["Hemlig", 0]], {}, :'data-role' => "slider" %>
+            <%= f.select :public, options_for_select([["Hemlig", 0], ["Publik", 1]], 1), {}, :'data-role' => "slider" %>
         </div>
 
-        <p class="bottom-space">Lägg till personer</p>
-        <ul data-role="listview" data-filter="true" data-filter-placeholder="Sök personer..." data-filter-theme="b">
-            <% @users_grouped.each do |letter, users| %>
-                <li data-role="list-divider"><%= letter %></li>
-                <li>
-                <% users.each do |user| %>
-                    <%= check_box_tag "circle[circle_memberships_attributes][][user_id]", user.id, @circle.circle_memberships.include?(user) || user == current_user, :id => "circle_membership_#{user.id}" %>
-                    <%= label_tag "circle_membership_#{user.id}", user.name %>
+        <div data-role="fieldcontain">
+            <p class="bottom-space">Lägg till personer</p>
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="Sök personer..." data-filter-theme="c" data-theme="c">
+                <% @users_grouped.each do |letter, users| %>
+                    <li data-role="list-divider"><%= letter %></li>
+                    <li>
+                    <% users.each do |user| %>
+                        <%= check_box_tag "circle[circle_memberships_attributes][][user_id]", user.id, @circle.circle_memberships.include?(user) || user == current_user, :id => "circle_membership_#{user.id}" %>
+                        <%= label_tag "circle_membership_#{user.id}", user.name %>
+                    <% end %>
+                    </li>
                 <% end %>
-                </li>
-            <% end %>
-        </ul>
+            </ul>
+        </div>
 
-        <div class="actions">
-            <%= f.submit "Skapa cirkel" %>
+        <div class="actions top-space">
+            <%= f.submit "Skapa cirkel", :'data-theme' => "b" %>
         </div>
     <% end %>
 </div>
