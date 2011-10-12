@@ -8,14 +8,14 @@
 <div data-role="content" data-theme="b">
     <ul data-role="listview" data-inset="true" data-theme="d">
         <li data-role="list-divider" role="heading" data-theme="a">Medlemmar <span class="ui-li-count"><%= @circle.users.count %></span></li>
-        <% @circle.users.sort!{ |a,b| a.total_score <=> b.total_score}.reverse.each do |user| %>
+        <% @circle.users.each do |user| %>
             <li<%= user == current_user ? ' class="you"' : '' %>>
                 <div class="ui-grid-a">
                     <div class="ui-block-a">
                         <%= user.name %>
                     </div>
                     <div class="ui-block-b right-content">
-                        <%= user.total_score  %>
+                        <%= user_score(@circle.circle_memberships, user) %>
                     </div>
                 </div>
             </li>
@@ -31,6 +31,7 @@
     <% else %>
         <%= form_for(@circle) do |f| %>
             <%= hidden_field_tag "circle[circle_memberships_attributes][][user_id]", current_user.id %>
+            <%= hidden_field_tag "circle[circle_memberships_attributes][][pending]", 0 %>
             <div class="actions">
                 <%= f.submit "Gå med i cirkeln", :'data-theme' => "b", :'data-direction' => "reverse" %>
             </div>
