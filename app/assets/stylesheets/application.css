@@ -14,7 +14,6 @@
     padding:1em;
     overflow:hidden;
 }
-
 .float-left{
     float:left;
 }
@@ -40,4 +39,10 @@
     left:10px !important;
     position:absolute !important;
     top:.4em !important;
+}
+.ui-icon-network{
+    background-image: url(jquery-mobile/icon-network.png) !important;
+}
+.ui-icon-stats{
+    background-image: url(jquery-mobile/icon-stats.png) !important;
 }
