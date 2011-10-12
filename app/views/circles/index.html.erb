@@ -1,42 +1,46 @@
 <div data-role="header">
     <h1>Cirklar</h1>
-    <%= link_to "Skapa ny cirkel", new_circle_url, :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "pop", :'data-icon' => "plus", :class => "ui-btn-right" %>
+    <%= link_to "Ny cirkel", new_circle_url, :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "pop", :'data-icon' => "plus", :class => "ui-btn-right" %>
 </div>
 <div data-role="content" data-theme="b">
-    <ul data-role="listview" data-inset="true" data-theme="d">
-        <li data-role="list-divider">Dina cirklar <span class="ui-li-count"><%= @user.circles.count %></span></li>
-        <% @user.circles.each do |circle| %>
-            <li>
-                <%= link_to circle_url(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
-                    <div class="ui-grid-a">
-                        <div class="ui-block-a">
-                            <%= circle.title %>
+    <div id="circles">
+        <ul data-role="listview" data-inset="true" data-theme="d">
+            <li data-role="list-divider">Dina cirklar <span class="ui-li-count"><%= current_user.circles.count %></span></li>
+            <% current_user.circles.each do |circle| %>
+                <li>
+                    <%= link_to circle_url(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <%= ring(:circle => circle) %>
+                                <%= circle.title %>
+                            </div>
+                            <div class="ui-block-b right-content">
+                                <span class="ui-li-count"><%= circle.users.count %></span>
+                            </div>
                         </div>
-                        <div class="ui-block-b right-content">
-                            <%= circle.users.count %> användare
+                    <% end %>
+                </li>
+            <% end %>
+        </ul>
+        
+        <ul data-role="listview" data-inset="true" data-theme="d">
+            <li data-role="list-divider">Alla publika cirklar <span class="ui-li-count"><%= @public_circles.count %></span></li>
+            <% @public_circles.each do |circle| %>
+                <li>
+                    <%= link_to circle_url(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <%= ring(:circle => circle) %>
+                                <%= circle.title %>
+                            </div>
+                            <div class="ui-block-b right-content">
+                                <span class="ui-li-count"><%= circle.users.count %></span>
+                            </div>
                         </div>
-                    </div>
-                <% end %>
-            </li>
-        <% end %>
-    </ul>
-
-    <ul data-role="listview" data-inset="true" data-theme="d">
-        <li data-role="list-divider">Alla publika cirklar <span class="ui-li-count"><%= @circles.count %></span></li>
-        <% @circles.each do |circle| %>
-            <li>
-                <%= link_to circle_url(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
-                    <div class="ui-grid-a">
-                        <div class="ui-block-a">
-                            <%= circle.title %>
-                        </div>
-                        <div class="ui-block-b right-content">
-                            <%= circle.users.count %> användare
-                        </div>
-                    </div>
-                <% end %>
-            </li>
-        <% end %>
-    </ul>
+                    <% end %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
 </div>
 <%= render :partial => "/main_navigation" %>
