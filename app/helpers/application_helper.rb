@@ -18,7 +18,9 @@ module ApplicationHelper
       rings = []
       return "" if user == current_user
       user.circles.each do |circle|
-        rings << ring(:circle => circle)
+        if user.has_accepted_membership?(circle)
+          rings << ring(:circle => circle)
+        end
       end
       rings.join("").html_safe
     elsif args[:event].present?
@@ -26,19 +28,15 @@ module ApplicationHelper
       rings = []
       event.users.delete_if{|u| u == current_user}
       event.users.each do |user|
-        user.circles.each do |circle|
-          rings << ring(:circle => circle)
-        end
+        rings << ring(:user => user)
       end
-      rings.uniq.join("").html_safe
+      rings.flatten.uniq.join("").html_safe
     elsif args[:circle].present?
       circle = args[:circle]
-      if current_user.circles.include?(circle)
-        if current_user.has_accepted_membership?(circle)
-          membership = current_user.circle_memberships.select{|cm| cm.circle == circle}.first
-          color = membership.color.hex rescue "transparent"
-          print_ring_html(color).html_safe
-        end
+      if current_user.circles.include?(circle) && current_user.has_accepted_membership?(circle)
+        membership = current_user.circle_memberships.select{|cm| cm.circle == circle}.first
+        color = membership.color.hex rescue "transparent"
+        print_ring_html(color).html_safe
       end
     end
   end
