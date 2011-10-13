@@ -16,6 +16,7 @@ module ApplicationHelper
     if args[:user].present?
       user = args[:user]
       rings = []
+      return "" if user == current_user
       user.circles.each do |circle|
         rings << ring(:circle => circle)
       end
@@ -23,6 +24,7 @@ module ApplicationHelper
     elsif args[:event].present?
       event = args[:event]
       rings = []
+      event.users.delete_if{|u| u == current_user}
       event.users.each do |user|
         user.circles.each do |circle|
           rings << ring(:circle => circle)
