@@ -33,6 +33,14 @@ h1 a.header-link.ui-link{
 .you .ui-btn-inner{
     border-top:none !important;
 }
+.you.old a{
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#fdfdfd)) !important;
+    background-image: -webkit-linear-gradient(top, #eeeeee, #fdfdfd) !important;
+    background-image: -moz-linear-gradient(top, #eeeeee, #fdfdfd) !important;
+    background-image: -ms-linear-gradient(top, #eeeeee, #fdfdfd) !important;
+    background-image: -o-linear-gradient(top, #eeeeee, #fdfdfd) !important;
+    background-image: linear-gradient(top, #eeeeee, #fdfdfd) !important;
+}
 
 .ui-bar-b.old{
     background-image: -webkit-gradient(linear, left top, left bottom, from(#c2cfcf), to(#8e9191)) !important; /* Saf4+, Chrome */
