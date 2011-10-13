@@ -22,6 +22,14 @@ class User < ActiveRecord::Base
     events.select{|e| e.start_time < Time.now }
   end
 
+  def has_accepted_membership?(circle)
+    circle_memberships.select{|cm| cm.circle == circle }.map(&:accepted?).first == true
+  end
+
+  def hasnt_accepted_membership?(circle)
+    circle_memberships.select{|cm| cm.circle == circle }.map(&:accepted?).first == false
+  end
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.first_name = auth["user_info"]["first_name"]
