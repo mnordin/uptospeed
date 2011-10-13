@@ -32,9 +32,11 @@ module ApplicationHelper
     elsif args[:circle].present?
       circle = args[:circle]
       if current_user.circles.include?(circle)
-        membership = current_user.circle_memberships.select{|cm| cm.circle == circle}.first
-        color = membership.color.hex rescue "transparent"
-        print_ring_html(color).html_safe
+        if current_user.has_accepted_membership?(circle)
+          membership = current_user.circle_memberships.select{|cm| cm.circle == circle}.first
+          color = membership.color.hex rescue "transparent"
+          print_ring_html(color).html_safe
+        end
       end
     end
   end

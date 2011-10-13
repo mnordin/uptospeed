@@ -1,14 +1,14 @@
 <div data-role="header" class="remove-back-button">
     <%= link_to "Tillbaka", circles_url, :'data-role' => "button", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
     <h1><%= @circle.title %></h1>
-    <% if @circle.users.include?(current_user) %>
+    <% if current_user.has_accepted_membership?(@circle) %>
         <%= link_to "Inställningar", circle_settings_url(@circle), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "gear", :class => "ui-btn-right" %>
     <% end %>
 </div>
 <div data-role="content" data-theme="b">
     <ul data-role="listview" data-inset="true" data-theme="d">
-        <li data-role="list-divider" role="heading" data-theme="a">Medlemmar <span class="ui-li-count"><%= @circle.users.count %></span></li>
-        <% @circle.users.each do |user| %>
+        <li data-role="list-divider" role="heading" data-theme="a">Medlemmar <span class="ui-li-count"><%= @circle.accepted_users.count %></span></li>
+        <% @circle.accepted_users.each do |user| %>
             <li<%= user == current_user ? ' class="you"' : '' %>>
                 <div class="ui-grid-a">
                     <div class="ui-block-a">
@@ -21,18 +21,51 @@
             </li>
         <% end %>
     </ul>
-    <% if @circle.users.include?(current_user) %>
-        <%= form_tag remove_circle_membership_url, :method => "post" do %>
-            <%= hidden_field_tag "user_id", current_user.id %>
-            <div class="actions">
-                <%= submit_tag "Gå ur cirkeln", :'data-theme' => "a", :'data-direction' => "reverse" %>
-            </div>
+    <% if @circle.pending_users.present? %>
+    <ul data-role="listview" data-inset="true" data-theme="d">
+        <li data-role="list-divider" role="heading" data-theme="a">Väntar på svar <span class="ui-li-count"><%= @circle.pending_users.count %></span></li>
+        <% @circle.pending_users.each do |user| %>
+            <li<%= user == current_user ? ' class="you"' : '' %>>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <%= user.name %>
+                    </div>
+                    <div class="ui-block-b right-content">
+                        <%= user_score(@circle.circle_memberships, user) %>
+                    </div>
+                </div>
+            </li>
         <% end %>
-    <% else %>
-        <%= form_for(@circle) do |f| %>
-            <%= hidden_field_tag "circle[circle_memberships_attributes][][user_id]", current_user.id %>
-            <%= hidden_field_tag "circle[circle_memberships_attributes][][pending]", 0 %>
+    </ul>
+    <% end %>
+    <% if current_user.hasnt_accepted_membership?(@circle) %>
             <div class="actions">
+                <%= form_for @circle, :'data-ajax' => "false" do |f| %>
+                    <%= f.fields_for :circle_memberships do |cm| %>
+                        <% if cm.object.user == current_user %>
+                            <%= cm.hidden_field :user_id %>
+                            <%= cm.hidden_field :accepted, value: true %>
+                        <% end %>
+                    <% end %>
+                    <%= f.submit "Acceptera inbjudan", :'data-theme' => "b", :'data-icon' => "check", :'data-direction' => "reverse" %>
+                <% end %>
+                <%= form_tag remove_circle_membership_url, :method => "post", :'data-ajax' => false do %>
+                    <%= hidden_field_tag "user_id", current_user.id %>
+                    <%= submit_tag "Tacka nej", :'data-theme' => "a", :'data-icon' => "delete", :'data-direction' => "reverse" %>
+                <% end %>
+            </div>
+    <% elsif current_user.has_accepted_membership?(@circle) %>
+            <div class="actions">
+                <%= form_tag remove_circle_membership_url, :method => "post" do %>
+                    <%= hidden_field_tag "user_id", current_user.id %>
+                    <%= submit_tag "Gå ur cirkeln", :'data-theme' => "a", :'data-direction' => "reverse" %>
+                <% end %>
+            </div>
+    <% else %>
+            <div class="actions">
+                <%= form_for @circle do |f| %>
+                    <%= hidden_field_tag "circle[circle_memberships_attributes][][user_id]", current_user.id %>
+                    <%= hidden_field_tag "circle[circle_memberships_attributes][][accepted]", "true" %>
                 <%= f.submit "Gå med i cirkeln", :'data-theme' => "b", :'data-direction' => "reverse" %>
             </div>
         <% end %>
