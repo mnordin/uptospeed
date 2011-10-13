@@ -2,7 +2,7 @@
     <%= link_to "Tillbaka", circles_url, :'data-role' => "button", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
     <h1><%= @circle.title %></h1>
     <% if current_user.has_accepted_membership?(@circle) %>
-        <%= link_to "Inställningar", circle_settings_url(@circle), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "gear", :class => "ui-btn-right" %>
+        <%= link_to "Inställningar", circle_settings_url(@circle), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "gear", :'data-iconpos' => "notext", :class => "ui-btn-right" %>
     <% end %>
 </div>
 <div data-role="content" data-theme="b">
