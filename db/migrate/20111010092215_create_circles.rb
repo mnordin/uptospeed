@@ -9,7 +9,7 @@ class CreateCircles < ActiveRecord::Migration
     create_table :circle_memberships do |t|
       t.boolean :share_score, :default => false
       t.boolean :favorite
-      t.boolean :pending, :default => true
+      t.boolean :accepted, :default => false
       t.references :circle
       t.references :user
       t.references :color
