@@ -4,9 +4,30 @@
 </div>
 <div data-role="content" data-theme="b">
     <div id="circles">
+        
+        <% if @pending_circles.present? %>
         <ul data-role="listview" data-inset="true" data-theme="d">
-            <li data-role="list-divider">Dina cirklar <span class="ui-li-count"><%= current_user.circles.count %></span></li>
-            <% current_user.circles.each do |circle| %>
+            <li data-role="list-divider">Inbjudningar <span class="ui-li-count"><%= @pending_circles.count %></span></li>
+            <% @pending_circles.each do |circle| %>
+                <li>
+                    <%= link_to circle_url(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <%= circle.title %>
+                            </div>
+                            <div class="ui-block-b right-content">
+                                <span class="ui-li-count"><%= circle.users.count %></span>
+                            </div>
+                        </div>
+                    <% end %>
+                </li>
+            <% end %>
+        </ul>
+        <% end %>
+
+        <ul data-role="listview" data-inset="true" data-theme="d">
+            <li data-role="list-divider">Dina cirklar <span class="ui-li-count"><%= @user_circles.count %></span></li>
+            <% @user_circles.each do |circle| %>
                 <li>
                     <%= link_to circle_url(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
                         <div class="ui-grid-a">
@@ -22,7 +43,7 @@
                 </li>
             <% end %>
         </ul>
-        
+
         <ul data-role="listview" data-inset="true" data-theme="d">
             <li data-role="list-divider">Alla publika cirklar <span class="ui-li-count"><%= @public_circles.count %></span></li>
             <% @public_circles.each do |circle| %>
@@ -30,7 +51,7 @@
                     <%= link_to circle_url(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
                         <div class="ui-grid-a">
                             <div class="ui-block-a">
-                                <%= ring(:circle => circle) %>
+                                <%= ring(:circle => circle) if current_user.has_accepted_membership?(circle) %>
                                 <%= circle.title %>
                             </div>
                             <div class="ui-block-b right-content">

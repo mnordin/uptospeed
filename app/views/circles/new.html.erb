@@ -2,7 +2,7 @@
     <h1>Ny cirkel</h1>
 </div>
 <div data-role="content" data-theme="b" class="ui-body-c">
-    <%= form_for(@circle) do |f| %>
+    <%= form_for @circle, :'data-ajax' => "false" do |f| %>
         <% if @circle.errors.any? %>
         <div id="error_explanation">
             <h2><%= pluralize(@circle.errors.count, "error") %> prohibited this circle from being saved:</h2>

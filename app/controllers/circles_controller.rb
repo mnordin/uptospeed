@@ -1,12 +1,16 @@
 class CirclesController < ApplicationController
 
   def index
+    @pending_circles = current_user.circles.select{|c| c.accepted?(current_user) == false }
+    @user_circles = current_user.circles.select{|c| c.accepted?(current_user) == true }
     @public_circles = Circle.order(:title).select{|c| c.public? }
   end
 
   def show
     @circle = Circle.find(params[:id])
-    @circle.users.sort!{ |a,b| a.name <=> b.name}
+    #@circle.users.sort!{ |a,b| a.name <=> b.name}
+    @accepted_users = @circle.accepted_users
+    @pending_users = @circle.pending_users
   end
 
   def new
