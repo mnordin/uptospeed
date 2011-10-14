@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     circle_memberships.select{|cm| cm.circle == circle }.map(&:accepted?).first == false
   end
 
+  def pending_memberships
+    circle_memberships.select{|cm| cm.accepted? == false }
+  end
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.first_name = auth["user_info"]["first_name"]
