@@ -16,8 +16,8 @@ module EventsHelper
     params[:start_at].present? ? params[:start_at] : Time.now.beginning_of_week.strftime("%Y-%m-%d")
   end
 
-  def old?(param, wday)
-    (Time.parse(param).end_of_day + wday.days) < Time.now
+  def old?(date)
+    date.end_of_day < Time.now
   end
 
 end
