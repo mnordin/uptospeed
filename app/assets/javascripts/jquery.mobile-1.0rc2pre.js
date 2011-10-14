@@ -1774,7 +1774,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 
 		// Show loading message during Ajax requests
 		// if false, message will not appear, but loading classes will still be toggled on html el
-		loadingMessage: "loading",
+		loadingMessage: "laddar",
 
 		// Error response message - appears when an Ajax page request fails
 		pageLoadErrorMessage: "Error Loading Page",
