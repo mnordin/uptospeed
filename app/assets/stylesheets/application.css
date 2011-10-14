@@ -68,3 +68,16 @@
 .ui-icon-stats{
     background-image: url(jquery-mobile/icon-stats.png) !important;
 }
+.pending-memberships{
+    float:right;
+    font-weight:bold;
+    background:red;
+    padding:2px 4px;
+    font-size:9px;
+    border:2px solid #fff;
+    -moz-border-radius:14px;
+    -webkit-border-radius:14px;
+    border-radius:14px;
+    margin-top:-25px;
+    margin-right:0;
+}
