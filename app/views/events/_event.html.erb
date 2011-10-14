@@ -1,4 +1,4 @@
-<li class="event<%= (event.users.include?(current_user) and event.start_time > Time.now) ? " you" : "" %>">
+<li class="event<%= (event.users.include?(current_user) and event.start_time.end_of_day > Time.now) ? " you" : "" %>">
     <%= link_to event_path(event.id, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
         <h3><%= event.title %></h3>
         <p><%= event.where %></p>
