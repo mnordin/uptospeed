@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111013122402) do
+ActiveRecord::Schema.define(:version => 20111014112335) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "user_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20111013122402) do
     t.integer  "color_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "owner",       :default => false
   end
 
   create_table "circles", :force => true do |t|
