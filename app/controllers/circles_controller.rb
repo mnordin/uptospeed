@@ -8,7 +8,6 @@ class CirclesController < ApplicationController
 
   def show
     @circle = Circle.find(params[:id])
-    #@circle.users.sort!{ |a,b| a.name <=> b.name}
     @accepted_users = @circle.accepted_users
     @pending_users = @circle.pending_users
   end
@@ -24,7 +23,7 @@ class CirclesController < ApplicationController
 
   def create
     @circle = Circle.new(params[:circle])
-
+    @circle.circle_memberships.select{|cm| cm.user == current_user }.first.attributes = { :accepted => true, :owner => true }
     if @circle.save
       redirect_to circles_url, notice: 'Circle was successfully created.'
     else
