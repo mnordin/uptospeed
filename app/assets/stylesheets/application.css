@@ -17,9 +17,12 @@
     border-radius:8px;
     margin:-.5em 0 0 .2em;
 }
-#events .ring, #event .ring{
+#events .ring{
     float:right;
-    margin:-.3em 0 0 .2em;
+    margin:-1em 0 0 .2em;
+}
+#event .ring{
+    margin-top:.3em;
 }
 #circles .ring{
     float:left;
