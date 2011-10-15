@@ -10,6 +10,7 @@ task :cron => :environment do
       local_event.where = event_from_google.where
       local_event.start_time = event_from_google.start_time
       local_event.end_time = event_from_google.end_time
+      local_event.content = event_from_google.content
       local_event.save
       local_event = local_event.reload
     end
