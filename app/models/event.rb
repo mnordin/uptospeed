@@ -8,6 +8,10 @@ class Event < ActiveRecord::Base
     1
   end
 
+  def duration
+    end_time - start_time
+  end
+
   def old?
     start_time < Time.now
   end
