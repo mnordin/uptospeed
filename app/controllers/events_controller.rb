@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   def index
     start_at = params[:start_at].present? ? Time.parse(params[:start_at]) : Time.now
-    @events_grouped = Event.where("start_time > ? and end_time < ?", start_at.beginning_of_week, start_at.end_of_week).group_by(&:group_by_date)
+    @events_grouped = Event.where("start_time > ? and end_time < ?", start_at.beginning_of_week, start_at.end_of_week).order("start_time").group_by(&:group_by_date)
   end
 
   def show
