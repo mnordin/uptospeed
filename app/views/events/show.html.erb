@@ -4,6 +4,7 @@
 <div id="event" data-role="content" data-theme="b">
     <p class="time"><strong><%= @event.start_time.to_s(:time) %> - <%= @event.end_time.to_s(:time) %></strong></p>
     <h3><%= @event.where %></h3>
+    <p><%= @event.content %></p>
     <% if @event.users.present? %>
         <ul data-role="listview" data-inset="true" data-theme="d">
             <li data-role="list-divider" role="heading" data-theme="a">Anmälda</li>
