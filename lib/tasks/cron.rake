@@ -11,6 +11,15 @@ task :cron => :environment do
       local_event.start_time = event_from_google.start_time
       local_event.end_time = event_from_google.end_time
       local_event.content = event_from_google.content
+      
+      sess = Patron::Session.new
+      address = CGI.escape(local_event.where)
+      response = sess.get("http://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=false")
+      result = JSON.parse(response.body)
+      latlng = result["results"].first["geometry"]["location"] || ""
+      local_event.lat = latlng["lat"] || ""
+      local_event.lng = latlng["lng"] || ""
+      
       local_event.save
       local_event = local_event.reload
     end
