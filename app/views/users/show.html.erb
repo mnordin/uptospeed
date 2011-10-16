@@ -3,6 +3,7 @@
 </div>
 <div data-role="content" data-theme="b">
     <p id="total-score">Du har totalt <span><%= @user.total_score %></span> poäng.</p>
+    <p>Du har tränat totalt <%= @duration %> timmar.</p>
     <ul data-role="listview" data-inset="true" data-theme="d">
         <li data-role="list-divider">Framtida träningar <span class="ui-li-count"><%= @user.future_events.count %></span></li>
         <% @user.future_events.each do |event| %>
