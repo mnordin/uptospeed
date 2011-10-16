@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
+    @duration = @user.past_events.map(&:duration).sum / 3600
   end
 
   def edit
