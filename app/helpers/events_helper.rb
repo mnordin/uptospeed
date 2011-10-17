@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 module EventsHelper
 
   def next_link_params
@@ -24,4 +25,11 @@ module EventsHelper
     date.end_of_day < Time.now
   end
 
+  def places(address)
+    return "Sats Medborgarplatsen"        if address =~ /Kocksgatan 12/
+    return "Eriksdalsbadet"               if address =~ /Hammarby Slussväg 20/
+    return "Mynewsdesk Stockholmskontor"  if address =~ /Rosenlundsgatan 40/
+    return "Fryshuset"                    if address =~ /Mårtensdalsgatan 6/
+    return "VBC Sportcenter"              if address =~ /Södermalmsallen 14/
+  end
 end
