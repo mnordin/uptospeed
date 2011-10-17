@@ -6,7 +6,7 @@
 </div>
 <div id="event" data-role="content" data-theme="b">
     <p class="time"><strong><%= @event.start_time.to_s(:time) %> - <%= @event.end_time.to_s(:time) %></strong></p>
-    <div class="content">
+    <h3><%= places(@event.where) %></h3>
         <%= simple_format(@event.content) %>
     </div>
     <p class="float-right"><%= @event.where %></p>
