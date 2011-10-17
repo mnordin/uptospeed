@@ -1,15 +1,14 @@
 <div data-role="header" data-position="inline">
     <h1><%= @event.title %></h1>
+    <% if geo?(@event) %>
+        <%= link_to "Karta", event_map_path(@event), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "map", :class => "ui-btn-right" %>
+    <% end %>
 </div>
 <div id="event" data-role="content" data-theme="b">
     <p class="time"><strong><%= @event.start_time.to_s(:time) %> - <%= @event.end_time.to_s(:time) %></strong></p>
     <div class="content">
         <%= simple_format(@event.content) %>
     </div>
-    <% if geo?(@event) %>
-        <div id="map" data-role="map" data-lat="<%= @event.lat %>" data-lng="<%= @event.lng %>" class="map">
-        </div>
-    <% end %>
     <p class="float-right"><%= @event.where %></p>
     <% if @event.users.present? %>
         <ul data-role="listview" data-inset="true" data-theme="d">
