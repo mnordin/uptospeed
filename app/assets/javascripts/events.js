@@ -1,8 +1,8 @@
-$("#events-show").live("pageinit", function(){
-    var map = $("div[data-role='map']", this);
-    var lat = $(map).data("lat");
-    var lng = $(map).data("lng");
-    init_map(lat, lng, map);
+$("#events-show").live("pagecreate", function(){
+    var map_element = $("div[data-role='map']", this);
+    var lat = $(map_element).data("lat");
+    var lng = $(map_element).data("lng");
+    init_map(lat, lng, map_element);
 });
 
 function init_map(lat, lng, element){
