@@ -5,5 +5,11 @@
 // the compiled file.
 //
 //= require "jquery-1.6.4"
+
+//= require "circles"
+//= require "events"
+//= require "sessions"
+//= require "users"
+
 //= require "jquery.mobile-1.0rc2pre"
 //= require_tree .
