@@ -1,9 +1,9 @@
-$("#events-show").live("pagecreate", function(){
-    var map_element = $("div[data-role='map']", this);
-    var lat = $(map_element).data("lat");
-    var lng = $(map_element).data("lng");
-    init_map(lat, lng, map_element);
-});
+// $("#events-show").live("pagecreate", function(){
+//     var map_element = $("div[data-role='map']", this);
+//     var lat = $(map_element).data("lat");
+//     var lng = $(map_element).data("lng");
+//     init_map(lat, lng, map_element);
+// });
 
 function init_map(lat, lng, element){
     var latlng = new google.maps.LatLng(lat, lng);
