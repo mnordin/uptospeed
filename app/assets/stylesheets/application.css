@@ -71,6 +71,9 @@
 .ui-icon-stats{
     background-image: url(jquery-mobile/icon-stats.png) !important;
 }
+.ui-icon-map{
+    background-image: url(jquery-mobile/icon-map.png) !important;
+}
 .pending-memberships{
     float:right;
     font-weight:bold;
