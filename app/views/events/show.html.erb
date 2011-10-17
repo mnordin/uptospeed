@@ -7,9 +7,14 @@
 <div id="event" data-role="content" data-theme="b">
     <p class="time"><strong><%= @event.start_time.to_s(:time) %> - <%= @event.end_time.to_s(:time) %></strong></p>
     <h3><%= places(@event.where) %></h3>
+
+    <div class="info-header ui-body-e">
+        <h2>Information</h2>
+    </div>
+    <div class="content ui-body-d">
         <%= simple_format(@event.content) %>
     </div>
-    <p class="float-right"><%= @event.where %></p>
+
     <% if @event.users.present? %>
         <ul data-role="listview" data-inset="true" data-theme="d">
             <li data-role="list-divider" role="heading" data-theme="a">Anmälda</li>

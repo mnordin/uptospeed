@@ -8,7 +8,27 @@
     background:#000;
 }
 .content{
-    font-size:18px;
+    padding:5px 10px;
+    font-size:14px;
+    -webkit-border-bottom-left-radius:10px;
+    -webkit-border-bottom-right-radius:10px;
+    -moz-border-bottom-left-radius:10px;
+    -moz-border-bottom-right-radius:10px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+}
+.info-header{
+    -webkit-border-top-left-radius:10px;
+    -webkit-border-top-right-radius:10px;
+    -moz-border-top-left-radius:10px;
+    -moz-border-top-right-radius:10px;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+.info-header h2{
+    font-size:14px !important;
+    line-height:14px !important;
+    padding:0 10px;
 }
 .event-time{
     font-size:14px !important;
