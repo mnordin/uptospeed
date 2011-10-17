@@ -9,6 +9,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def map
+    @event = Event.find(params[:id])
+  end
+
   def attend
     if Attendance.create_or_destroy_by_params(params)
       redirect_to params[:url]
