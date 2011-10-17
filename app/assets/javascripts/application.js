@@ -12,4 +12,5 @@
 //= require "users"
 
 //= require "jquery.mobile-1.0rc2pre"
+//= require "jquery.ui.map.full.min"
 //= require_tree .
