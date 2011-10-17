@@ -8,11 +8,8 @@
         <%= simple_format(@event.content) %>
     </div>
     <% if geo?(@event) %>
-        <div id="map-event<%= @event.id %>" data-role="map" data-lat="<%= @event.lat %>" data-lng="<%= @event.lng %>" class="map">
+        <div id="map" data-role="map" data-lat="<%= @event.lat %>" data-lng="<%= @event.lng %>" class="map">
         </div>
-        <script type="text/javascript" charset="utf-8">
-            init_map(<%= @event.lat %>, <%= @event.lng %>, $("#map-event<%= @event.id %>"));
-        </script>
     <% end %>
     <p class="float-right"><%= @event.where %></p>
     <% if @event.users.present? %>
