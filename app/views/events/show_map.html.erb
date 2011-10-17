@@ -1,0 +1,10 @@
+<div data-role="header" data-position="inline">
+    <h1><%= @event.title %></h1>
+    <% if geo?(@event) %>
+        <%= link_to "Visa karta", new_circle_path, :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "pop", :'data-icon' => "plus", :class => "ui-btn-right" %>
+    <% end %>
+</div>
+<div id="event-map" data-role="content" data-theme="b">
+    <div id="map" data-role="map" data-lat="<%= @event.lat %>" data-lng="<%= @event.lng %>" class="map">
+    </div>
+</div>
