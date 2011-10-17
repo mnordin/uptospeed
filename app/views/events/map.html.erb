@@ -1,0 +1,8 @@
+<div data-role="header" data-position="inline">
+    <h1>Karta för <%= @event.title %></h1>
+</div>
+<div id="event-map" data-role="content" data-theme="b">
+    <div id="map" data-role="map" data-lat="<%= @event.lat %>" data-lng="<%= @event.lng %>" class="map">
+    </div>
+    <p class="float-right"><%= @event.where %></p>
+</div>
