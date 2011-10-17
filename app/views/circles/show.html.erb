@@ -1,8 +1,8 @@
 <div data-role="header" class="remove-back-button">
-    <%= link_to "Tillbaka", circles_url, :'data-role' => "button", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
+    <%= link_to "Tillbaka", circles_path, :'data-role' => "button", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
     <h1><%= @circle.title %></h1>
     <% if current_user.has_accepted_membership?(@circle) %>
-        <%= link_to "Inställningar", circle_settings_url(@circle), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "gear", :'data-iconpos' => "notext", :class => "ui-btn-right" %>
+        <%= link_to "Inställningar", circle_settings_path(@circle), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "gear", :'data-iconpos' => "notext", :class => "ui-btn-right" %>
     <% end %>
 </div>
 <div data-role="content" data-theme="b">
@@ -49,14 +49,14 @@
                     <% end %>
                     <%= f.submit "Acceptera inbjudan", :'data-theme' => "b", :'data-icon' => "check", :'data-direction' => "reverse" %>
                 <% end %>
-                <%= form_tag remove_circle_membership_url, :method => "post", :'data-ajax' => false do %>
+                <%= form_tag remove_circle_membership_path, :method => "post", :'data-ajax' => false do %>
                     <%= hidden_field_tag "user_id", current_user.id %>
                     <%= submit_tag "Tacka nej", :'data-theme' => "a", :'data-icon' => "delete", :'data-direction' => "reverse" %>
                 <% end %>
             </div>
     <% elsif current_user.has_accepted_membership?(@circle) %>
             <div class="actions">
-                <%= form_tag remove_circle_membership_url, :method => "post" do %>
+                <%= form_tag remove_circle_membership_path, :method => "post" do %>
                     <%= hidden_field_tag "user_id", current_user.id %>
                     <%= submit_tag "Gå ur cirkeln", :'data-theme' => "a", :'data-direction' => "reverse" %>
                 <% end %>

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     Rails.logger.info("********#{auth}")
     user = User.find_by_email(auth["user_info"]["email"]) || User.create_with_omniauth(auth)
     session[:user_id] = user.id
-    redirect_to root_url, :notice => "Signed in!"
+    redirect_to root_path, :notice => "Signed in!"
   end
 
   def failure

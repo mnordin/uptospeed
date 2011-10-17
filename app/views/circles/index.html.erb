@@ -1,6 +1,6 @@
 <div data-role="header">
     <h1>Cirklar</h1>
-    <%= link_to "Ny cirkel", new_circle_url, :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "pop", :'data-icon' => "plus", :class => "ui-btn-right" %>
+    <%= link_to "Ny cirkel", new_circle_path, :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "pop", :'data-icon' => "plus", :class => "ui-btn-right" %>
 </div>
 <div data-role="content" data-theme="b">
     <div id="circles">
@@ -10,7 +10,7 @@
             <li data-role="list-divider">Inbjudningar <span class="ui-li-count"><%= @pending_circles.count %></span></li>
             <% @pending_circles.each do |circle| %>
                 <li>
-                    <%= link_to circle_url(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+                    <%= link_to circle_path(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
                         <div class="ui-grid-a">
                             <div class="ui-block-a">
                                 <%= circle.title %>
@@ -29,7 +29,7 @@
             <li data-role="list-divider">Dina cirklar <span class="ui-li-count"><%= @user_circles.count %></span></li>
             <% @user_circles.each do |circle| %>
                 <li>
-                    <%= link_to circle_url(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+                    <%= link_to circle_path(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
                         <div class="ui-grid-a">
                             <div class="ui-block-a">
                                 <%= ring(:circle => circle) %>
@@ -48,7 +48,7 @@
             <li data-role="list-divider">Alla publika cirklar <span class="ui-li-count"><%= @public_circles.count %></span></li>
             <% @public_circles.each do |circle| %>
                 <li>
-                    <%= link_to circle_url(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+                    <%= link_to circle_path(circle, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
                         <div class="ui-grid-a">
                             <div class="ui-block-a">
                                 <%= ring(:circle => circle) if current_user.has_accepted_membership?(circle) %>

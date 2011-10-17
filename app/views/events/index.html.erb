@@ -1,10 +1,10 @@
 <div data-role="header" data-position="fixed">
     <% if Event.exists_before?(monday_param) %>
-        <%= link_to "Förra", events_url(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
+        <%= link_to "Förra", events_path(prev_link_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
     <% end %>
     <h1>Träningar</h1>
     <% if Event.exists_after?(monday_param) %>
-        <%= link_to "Nästa", events_url(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right", :class => "ui-btn-right" %>
+        <%= link_to "Nästa", events_path(next_link_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right", :class => "ui-btn-right" %>
     <% end %>
 </div>
 

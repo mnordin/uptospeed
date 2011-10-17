@@ -25,7 +25,7 @@ class CirclesController < ApplicationController
     @circle = Circle.new(params[:circle])
     @circle.circle_memberships.select{|cm| cm.user == current_user }.first.attributes = { :accepted => true, :owner => true }
     if @circle.save
-      redirect_to circles_url, notice: 'Circle was successfully created.'
+      redirect_to circles_path, notice: 'Circle was successfully created.'
     else
       render action: "new"
     end
@@ -35,7 +35,7 @@ class CirclesController < ApplicationController
     @circle = Circle.find(params[:id])
 
     if @circle.update_attributes(params[:circle])
-      redirect_to circles_url, notice: 'Circle was successfully updated.'
+      redirect_to circles_path, notice: 'Circle was successfully updated.'
     else
       render action: "edit"
     end
@@ -51,13 +51,13 @@ class CirclesController < ApplicationController
     cm = CircleMembership.find_by_circle_id_and_user_id(circle.id, params[:user_id])
     cm.destroy
 
-    redirect_to circles_url
+    redirect_to circles_path
   end
 
   def destroy
     @circle = Circle.find(params[:id])
     @circle.destroy
 
-    redirect_to circles_url
+    redirect_to circles_path
   end
 end
