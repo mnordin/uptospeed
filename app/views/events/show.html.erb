@@ -1,4 +1,5 @@
-<div data-role="header">
+<div data-role="header" data-position="inline" class="remove-back-button">
+    <%= link_to "Ångra", params[:url], :'data-role' => "button", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button", :'data-ajax' => "false" %>
     <h1><%= @event.title %></h1>
 </div>
 <div id="event" data-role="content" data-theme="b">
@@ -7,7 +8,7 @@
         <%= simple_format(@event.content) %>
     </div>
     <% if geo?(@event) %>
-        <div id="map" data-role="map" data-lat="<%= @event.lat %>" data-lng="<%= @event.lng %>" class="map">
+        <div id="map-<%= @event.id %>" data-role="map" data-lat="<%= @event.lat %>" data-lng="<%= @event.lng %>" class="map">
         </div>
     <% end %>
     <p class="float-right"><%= @event.where %></p>
@@ -42,6 +43,6 @@
         <% else %>
             <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b", :'data-icon' => "check" %>
         <% end %>
-        <%= link_to "Avbryt", params[:url], :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse" %>
+        <%= link_to "Avbryt", params[:url], :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-ajax' => "false" %>
     <% end %>
 </div>
