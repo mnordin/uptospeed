@@ -22,7 +22,5 @@ function init_map(lat, lng, element){
 };
 
 function resize_map(map, latlng){
-    map.setCenter(latlng);
-    map.setZoom(map.getZoom());
     google.maps.event.trigger(map, 'resize');
 }
