@@ -1,7 +1,7 @@
 <li class="event<%= event.users.include?(current_user) ? " you" : "" %><%= (event.users.include?(current_user) and event.start_time.end_of_day < Time.now) ? " you-old" : "" %>">
     <%= link_to event_path(event.id, :url => request.fullpath), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
         <h3><%= event.title %></h3>
-        <p><%= event.where %></p>
+        <p><%= places(event.where) %></p>
         <p class="ui-li-aside event-time"><strong><%= event.start_time.to_s(:time) %> - <%= event.end_time.to_s(:time) %></strong></p>
         <% if event.users.present? %>
             <span class="ui-li-count attending-amount"><%= event.users.count %></span>
