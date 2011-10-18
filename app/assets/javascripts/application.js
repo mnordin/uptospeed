@@ -6,6 +6,8 @@
 //
 //= require "jquery-1.6.4"
 
+//= require "iscroll-4.1.9"
+
 //= require "circles"
 //= require "events"
 //= require "sessions"
