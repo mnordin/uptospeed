@@ -1,8 +1,8 @@
 <div data-role="header" data-position="fixed">
     <h1>Träningar</h1>
 </div>
-
 <div data-role="content" data-theme="b">
+    <%= link_to "Future", events_path(future_events_params), :'data-role' => "button", :id => "future" %>
     <div id="events">
         <ul data-role="listview" data-divider-theme="b" data-split-theme="c" data-split-icon="arrow-r">
         <% @events_grouped.each do |date, events| %>
@@ -13,5 +13,6 @@
         <% end %>
         </ul>
     </div>
+    <%= link_to "Past", events_path(past_events_params), :'data-role' => "button", :id => "past" %>
 </div>
 <%= render :partial => "/main_navigation" %>
