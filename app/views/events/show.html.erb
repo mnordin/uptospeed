@@ -1,6 +1,6 @@
 <div data-role="header" data-position="inline" class="remove-back-button">
     <%= link_to "Avbryt", params[:url], :'data-role' => "button", :'data-icon' => "delete", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
-    <h1><%= @event.title %></h1>
+    <h1 data-title="Up to Speed"><%= @event.title %></h1>
     <% if geo?(@event) %>
         <%= link_to "Karta", event_map_path(@event), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "pop", :'data-icon' => "map", :class => "ui-btn-right" %>
     <% end %>
