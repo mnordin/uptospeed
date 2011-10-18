@@ -8,6 +8,9 @@
 
 //= require "iscroll-4.1.9"
 
+//= require "customize_add2home"
+//= require "add2home"
+
 //= require "circles"
 //= require "events"
 //= require "sessions"
