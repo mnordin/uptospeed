@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   # sessionscontroller uses create action to set user_id
   before_filter :require_authed_user, :except => :create
 
+  helper_method :current_user
+
   def current_user
     if session[:user_id]
       User.find(session[:user_id])
