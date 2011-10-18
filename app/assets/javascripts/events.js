@@ -1,5 +1,14 @@
+$("#events-index").live("swipeup", function(){
+    alert("Swipe up!");
+});
+$("#events-index").live("swipedown", function(){
+    alert("Swipe down!");
+});
+
+
+// Events map
 var latlng;
-$("#events-map").live("pagecreate", function() {
+$("#events-map").live("pageinit", function() {
     var lat = $("#map").data("lat");
     var lng = $("#map").data("lng");
     latlng = new google.maps.LatLng(lat, lng);
