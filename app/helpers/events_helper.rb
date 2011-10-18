@@ -1,16 +1,16 @@
 # -*- encoding: utf-8 -*-
 module EventsHelper
 
-  def next_link_params
-    start_at = params[:start_at].present? ? Time.parse(params[:start_at]) : Time.now.beginning_of_week
-    start_at += 1.week
-    return {:start_at => start_at.strftime("%Y-%m-%d")}
+  def future_events_params
+    future_weeks = params[:future_weeks].present? ? params[:future_weeks].to_i + 1 : 2
+    past_weeks = params[:past_weeks] || 1
+    return { future_weeks: future_weeks, past_weeks: past_weeks }
   end
 
-  def prev_link_params
-    start_at = params[:start_at].present? ? Time.parse(params[:start_at]) : Time.now.beginning_of_week
-    start_at -= 1.week
-    return {:start_at => start_at.strftime("%Y-%m-%d")}
+  def past_events_params
+    future_weeks = params[:future_weeks] || 1
+    past_weeks = params[:past_weeks].present? ? params[:past_weeks].to_i + 1 : 2
+    return { future_weeks: future_weeks, past_weeks: past_weeks }
   end
 
   def monday_param
