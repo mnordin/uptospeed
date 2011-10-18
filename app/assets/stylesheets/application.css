@@ -36,6 +36,9 @@
     padding:1em;
     overflow:hidden;
 }
+.hide{
+    display:none;
+}
 .float-left{
     float:left;
 }
