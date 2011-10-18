@@ -1,10 +1,3 @@
-$("#events-index").live("swipeup", function(){
-    alert("Swipe up!");
-});
-$("#events-index").live("swipedown", function(){
-    alert("Swipe down!");
-});
-
 
 // Events map
 var latlng;
