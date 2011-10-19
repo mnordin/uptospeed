@@ -1,5 +1,5 @@
-<li class="event<%= event.users.include?(current_user) ? " you" : "" %><%= (event.users.include?(current_user) and event.start_time.end_of_day < Time.now) ? " you-old" : "" %>">
-    <%= link_to event_path(event.id, :url => request.fullpath), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+<li id="event<%= event.id %>" class="event<%= event.users.include?(current_user) ? " you" : "" %><%= (event.users.include?(current_user) and event.start_time.end_of_day < Time.now) ? " you-old" : "" %>">
+    <%= link_to event_path(event.id, :url => request.fullpath, :origin => "event#{event.id}"), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
         <h3><%= event.title %></h3>
         <p><%= places(event.where) %></p>
         <p class="ui-li-aside event-time"><strong><%= event.start_time.to_s(:time) %> - <%= event.end_time.to_s(:time) %></strong></p>
@@ -8,5 +8,5 @@
             <%= ring(:event => event) %>
         <% end %>
     <% end %>
-    <%= link_to "Se!", event_path(event.id, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" %>
+    <%= link_to "Se!", event_path(event.id, :url => request.fullpath, :origin => "event#{event.id}"), :'data-rel' => "dialog", :'data-transition' => "pop" %>
 </li>
