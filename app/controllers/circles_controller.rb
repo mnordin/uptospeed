@@ -19,6 +19,7 @@ class CirclesController < ApplicationController
 
   def edit
     @circle = Circle.find(params[:id])
+    @users_grouped = User.order(:first_name).group_by {|u| u.name[0].upcase }
   end
 
   def create

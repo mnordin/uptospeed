@@ -21,6 +21,11 @@
             </li>
         <% end %>
     </ul>
+    <% if current_user.has_accepted_membership?(@circle) %>
+    <div class="actions">
+        <%= link_to "Bjud in fler medarbetare", edit_circle_path(@circle), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip" %>
+    </div>
+    <% end %>
     <% if @circle.pending_users.present? %>
     <ul data-role="listview" data-inset="true" data-theme="d">
         <li data-role="list-divider" role="heading" data-theme="a">Väntar på svar <span class="ui-li-count"><%= @circle.pending_users.count %></span></li>

@@ -1,6 +1,26 @@
-<h1>Editing circle</h1>
+<div data-role="header">
+    <h1 data-title="Up to Speed">Bjud in till <%= @circle.title %></h1>
+</div>
+<div data-role="content" data-theme="b" class="ui-body-c">
+    <%= form_for @circle, :'data-ajax' => "false" do |f| %>
 
-<%= render 'form' %>
+    <div data-role="fieldcontain">
+        <p class="bottom-space">Bjud in </p>
+        <ul data-role="listview" data-filter="true" data-filter-placeholder="Sök personer..." data-filter-theme="c" data-theme="c">
+            <% @users_grouped.each do |letter, users| %>
+                <li data-role="list-divider"><%= letter %></li>
+                <li>
+                <% users.each do |user| %>
+                    <%= check_box_tag "circle[circle_memberships_attributes][][user_id]", user.id, @circle.users.include?(user) || user == current_user, :id => "circle_membership_#{user.id}" %>
+                    <%= label_tag "circle_membership_#{user.id}", user.name %>
+                <% end %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
 
-<%= link_to 'Show', @circle %> |
-<%= link_to 'Back', circles_path %>
+    <div class="actions top-space">
+        <%= f.submit "Skicka inbjudningar", :'data-theme' => "b" %>
+    </div>
+    <% end %>
+</div>
