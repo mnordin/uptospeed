@@ -84,3 +84,13 @@ h1 a.header-link.ui-link{
     border-top: #444 !important;
     text-shadow: 0 -1px 1px #666;
 }
+.today{
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FAEB9E), to(#F7C942)) !important;
+    background-image: -webkit-linear-gradient(top, #FAEB9E, #F7C942) !important;
+    background-image: -moz-linear-gradient(top, #FAEB9E, #F7C942) !important;
+    background-image: -ms-linear-gradient(top, #FAEB9E, #F7C942) !important;
+    background-image: -o-linear-gradient(top, #FAEB9E, #F7C942) !important;
+    background-image: linear-gradient(top, #FAEB9E, #F7C942) !important;
+    border-top: #F7C942 !important;
+    text-shadow: 0 -1px 1px #999;
+}
