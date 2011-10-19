@@ -1,18 +1,22 @@
 <div data-role="header" data-position="fixed">
+    <% if Event.exists_before?(Time.now - 1.weeks) %>
+        <%= link_to "Förra", events_path(past_events_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
+    <% end %>
     <h1 data-title="Up to Speed">Träningar</h1>
+    <% if Event.exists_after?(Time.now + 1.weeks) %>
+        <%= link_to "Nästa", events_path(future_events_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right", :class => "ui-btn-right" %>
+    <% end %>
 </div>
 <div data-role="content" data-theme="b">
     <div id="events">
-        <%= link_to "Future", events_path(future_events_params), :'data-role' => "button", :id => "future" %>
         <ul data-role="listview" data-divider-theme="b" data-split-theme="c" data-split-icon="arrow-r">
         <% @events_grouped.each do |date, events| %>
-            <li data-role="list-divider" role="heading" class="<%= date.strftime("%A").downcase %><%= old?(date) ? " old" : "" %>"><%= l date, :format => :list %></li>
+            <li data-role="list-divider" role="heading" class="<%= date.strftime("%A").downcase %><%= old?(date) ? " old" : "" %><%= today?(date, @events_grouped) %>"><%= l date, :format => :list %></li>
             <% events.each do |event| %>
                 <%= render :partial => "event", :locals => { :event => event } %>
             <% end %>
         <% end %>
         </ul>
-        <%= link_to "Past", events_path(past_events_params), :'data-role' => "button", :id => "past" %>
     </div>
 </div>
 <%= render :partial => "/main_navigation" %>

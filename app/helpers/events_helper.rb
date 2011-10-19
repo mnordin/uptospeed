@@ -2,15 +2,15 @@
 module EventsHelper
 
   def future_events_params
-    future_weeks = params[:future_weeks].present? ? params[:future_weeks].to_i + 1 : 2
-    past_weeks = params[:past_weeks] || 1
-    return { future_weeks: future_weeks, past_weeks: past_weeks }
+    now = params[:now].present? ? Time.parse(params[:now]) : Time.now
+    now = (now + 11.days).to_date
+    return { now: now }
   end
 
   def past_events_params
-    future_weeks = params[:future_weeks] || 1
-    past_weeks = params[:past_weeks].present? ? params[:past_weeks].to_i + 1 : 2
-    return { future_weeks: future_weeks, past_weeks: past_weeks }
+    now = params[:now].present? ? Time.parse(params[:now]) : Time.now
+    now = (now - 11.days).to_date
+    return { now: now }
   end
 
   def monday_param
