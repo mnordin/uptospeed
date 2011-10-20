@@ -13,8 +13,8 @@ module EventsHelper
     return { now: now }
   end
 
-  def monday_param
-    params[:start_at].present? ? params[:start_at] : Time.now.beginning_of_week.strftime("%Y-%m-%d")
+  def now_from_params
+    params[:now].present? ? Time.parse(params[:now]) : Time.now
   end
 
   def geo?(event)
