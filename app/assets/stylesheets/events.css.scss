@@ -53,28 +53,36 @@ h1 a.header-link.ui-link{
 }
 
 .you{
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#c8edc2), to(#adcca7)) !important;
-    background-image: -webkit-linear-gradient(top, #c8edc2, #adcca7) !important;
-    background-image: -moz-linear-gradient(top, #c8edc2, #adcca7) !important;
-    background-image: -ms-linear-gradient(top, #c8edc2, #adcca7) !important;
-    background-image: -o-linear-gradient(top, #c8edc2, #adcca7) !important;
-    background-image: linear-gradient(top, #c8edc2, #adcca7) !important;
-    border-top:none !important;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#def5da), to(#bdd4b8)) !important;
+    background-image: -webkit-linear-gradient(top, #def5da, #bdd4b8) !important;
+    background-image: -moz-linear-gradient(top, #def5da, #bdd4b8) !important;
+    background-image: -ms-linear-gradient(top, #def5da, #bdd4b8) !important;
+    background-image: -o-linear-gradient(top, #def5da, #bdd4b8) !important;
+    background-image: linear-gradient(top, #def5da, #bdd4b8) !important;
+    border-top: 1px solid #bbb;
 }
 .you .ui-btn-inner{
     border-top:none !important;
 }
 .old{
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#d4d4d4), to(#e6e6e6)) !important;
-    background-image: -webkit-linear-gradient(top, #d4d4d4, #e6e6e6) !important;
-    background-image: -moz-linear-gradient(top, #d4d4d4, #e6e6e6) !important;
-    background-image: -ms-linear-gradient(top, #d4d4d4, #e6e6e6) !important;
-    background-image: -o-linear-gradient(top, #d4d4d4, #e6e6e6) !important;
-    background-image: linear-gradient(top, #d4d4d4, #e6e6e6) !important;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#cfcfcf), to(#e6e6e6)) !important;
+    background-image: -webkit-linear-gradient(top, #cfcfcf, #e6e6e6) !important;
+    background-image: -moz-linear-gradient(top, #cfcfcf, #e6e6e6) !important;
+    background-image: -ms-linear-gradient(top, #cfcfcf, #e6e6e6) !important;
+    background-image: -o-linear-gradient(top, #cfcfcf, #e6e6e6) !important;
+    background-image: linear-gradient(top, #cfcfcf, #e6e6e6) !important;
     border-top: 1px solid #bbb;
 }
-.you.old{
-    background:pink !important;
+.old a{
+    color:gray !important;
+}
+.you.old a{
+    background-image: url(checkmark.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.you.old a .ui-li-heading, .you.old a .ui-li-desc{
+    text-indent: 34px !important;
 }
 .ui-bar-b.old{
     background-image: -webkit-gradient(linear, left top, left bottom, from(#c2cfcf), to(#8e9191)) !important; /* Saf4+, Chrome */
