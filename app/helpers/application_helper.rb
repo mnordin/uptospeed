@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def back_button_url
+    return session[:back_url] || root_path
+  end
+
   def highlight_current_tab(controller_name)
     if controller_name == params[:controller]
       return "ui-btn-active"
