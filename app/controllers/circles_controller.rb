@@ -1,6 +1,7 @@
 class CirclesController < ApplicationController
 
   def index
+    set_back_url
     @pending_circles = current_user.circles.select{|c| c.accepted?(current_user) == false }
     @user_circles = current_user.circles.select{|c| c.accepted?(current_user) == true }
     @public_circles = Circle.order(:title).select{|c| c.public? }
