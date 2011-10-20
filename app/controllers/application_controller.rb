@@ -20,4 +20,12 @@ class ApplicationController < ActionController::Base
       redirect_to "/auth/google_apps"
     end
   end
+
+  def set_back_url
+    session[:back_url] = request.fullpath
+  end
+
+  def remove_back_url
+    session[:back_url] = nil
+  end
 end
