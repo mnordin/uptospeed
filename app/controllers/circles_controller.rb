@@ -27,7 +27,7 @@ class CirclesController < ApplicationController
     @circle = Circle.new(params[:circle])
     @circle.circle_memberships.select{|cm| cm.user == current_user }.first.attributes = { :accepted => true, :owner => true }
     if @circle.save
-      redirect_to circles_path, notice: 'Circle was successfully created.'
+      redirect_to @circle, notice: 'Circle was successfully created.'
     else
       render action: "new"
     end
