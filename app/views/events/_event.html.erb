@@ -1,5 +1,5 @@
 <li id="event<%= event.id %>" class="event<%= event.users.include?(current_user) ? " you" : "" %><%= old?(event) ? " old" : "" %>">
-    <%= link_to event_path(event.id, :url => request.fullpath, :origin => "event#{event.id}"), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+    <%= link_to event_path(event.id, :url => request.fullpath, :origin => "event#{event.id}"), :'data-transition' => "pop" do %>
         <h3><%= event.title %></h3>
         <p><%= places(event.where) %></p>
         <p class="ui-li-aside event-time"><strong><%= event.start_time.to_s(:time) %> - <%= event.end_time.to_s(:time) %></strong></p>
