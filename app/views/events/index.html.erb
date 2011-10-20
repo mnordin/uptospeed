@@ -11,7 +11,7 @@
     <div id="events">
         <ul data-role="listview" data-divider-theme="b" data-split-theme="c" data-split-icon="arrow-r">
         <% @events_grouped.each do |date, events| %>
-            <li data-role="list-divider" role="heading" class="<%= date.strftime("%A").downcase %><%= old?(date) ? " old" : "" %><%= today?(date, @events_grouped) %>"><%= l date, :format => :list %></li>
+            <li data-role="list-divider" role="heading" class="<%= date.strftime("%A").downcase %><%= old?(date) ? " old" : "" %><%= today?(date) %>"><%= l date, :format => :list %></li>
             <% events.each do |event| %>
                 <%= render :partial => "event", :locals => { :event => event } %>
             <% end %>
