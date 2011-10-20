@@ -3,13 +3,13 @@ module EventsHelper
 
   def future_events_params
     now = params[:now].present? ? Time.parse(params[:now]) : Time.now
-    now = (now + 11.days).to_date
+    now = (now + 1.weeks).to_date
     return { now: now }
   end
 
   def past_events_params
     now = params[:now].present? ? Time.parse(params[:now]) : Time.now
-    now = (now - 11.days).to_date
+    now = (now - 1.weeks).to_date
     return { now: now }
   end
 
