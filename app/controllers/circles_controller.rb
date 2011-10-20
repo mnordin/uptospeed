@@ -56,10 +56,10 @@ class CirclesController < ApplicationController
     redirect_to circles_path
   end
 
-  def destroy
-    @circle = Circle.find(params[:id])
-    @circle.destroy
-
-    redirect_to circles_path
-  end
+  #def destroy
+  #  @circle = Circle.find(params[:id])
+  #  @circle.destroy
+  #
+  #  redirect_to circles_path
+  #end
 end
