@@ -39,6 +39,9 @@
 .hide{
     display:none;
 }
+.not-visible{
+    visibility:hidden;
+}
 .float-left{
     float:left;
 }
