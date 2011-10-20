@@ -12,6 +12,10 @@ module ApplicationHelper
     end
   end
 
+  def fake_dialog(params)
+    return "ui-dialog" if params[:action] == "show" and params[:controller] != "users"
+  end
+
   def ring(args = {})
     if args[:user].present?
       user = args[:user]
