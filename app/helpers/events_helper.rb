@@ -21,8 +21,8 @@ module EventsHelper
     event.lat.present? and event.lng.present?
   end
 
-  def old?(date)
-    date.end_of_day < Time.now
+  def old?(event)
+    event.start_time.end_of_day < Time.now
   end
 
   def today?(date)
