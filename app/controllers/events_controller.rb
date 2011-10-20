@@ -21,6 +21,7 @@ class EventsController < ApplicationController
         @events_grouped = new_hash
       end
     end
+    set_back_url
   end
 
   def show

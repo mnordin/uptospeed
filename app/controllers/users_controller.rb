@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    set_back_url
     @user = User.find(current_user.id)
     @duration = @user.past_events.map(&:duration).sum / 3600
   end
