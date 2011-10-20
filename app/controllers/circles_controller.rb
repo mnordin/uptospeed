@@ -37,7 +37,7 @@ class CirclesController < ApplicationController
     @circle = Circle.find(params[:id])
 
     if @circle.update_attributes(params[:circle])
-      redirect_to circles_path, notice: 'Circle was successfully updated.'
+      redirect_to @circle, notice: 'Circle was successfully updated.'
     else
       render action: "edit"
     end
