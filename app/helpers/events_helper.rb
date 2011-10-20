@@ -25,7 +25,7 @@ module EventsHelper
     date.end_of_day < Time.now
   end
 
-  def today?(date, collection)
+  def today?(date)
     return " today" if date == Time.now.to_date
   end
 
