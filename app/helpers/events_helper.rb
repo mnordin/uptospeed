@@ -26,11 +26,7 @@ module EventsHelper
   end
 
   def today?(date, collection)
-    if collection.keys.include?(Time.now.to_date)
-      return " today" if date == Time.now.to_date
-    else
-      return " today" if [date.to_date-1.days, date.to_date, date.to_date+1.days].include?(Time.now.to_date)
-    end
+    return " today" if date == Time.now.to_date
   end
 
   def places(address)
