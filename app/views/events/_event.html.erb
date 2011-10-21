@@ -1,11 +1,9 @@
 <li id="event<%= event.id %>" class="event<%= event.users.include?(current_user) ? " you" : "" %><%= old?(event) ? " old" : "" %>">
-    <%= link_to event_path(event.id, :url => request.fullpath, :origin => "event#{event.id}"), :'data-transition' => "pop" do %>
+    <%= link_to event_path(event.id, :url => request.fullpath), :'data-transition' => "pop" do %>
         <h3><%= event.title %></h3>
         <p><%= places(event.where) %></p>
         <p class="ui-li-aside event-time"><strong><%= event.start_time.to_s(:time) %> - <%= event.end_time.to_s(:time) %></strong></p>
-        <%# if event.users.present? %>
-            <span class="ui-li-count attending-amount<%= event.users.count == 0 ? " not-visible" : "" %>"><%= event.users.count %></span>
-            <%= ring(:event => event) %>
-        <%# end %>
+        <span class="ui-li-count attending-amount<%= event.users.count == 0 ? " not-visible" : "" %>"><%= event.users.count %></span>
+        <%= ring(:event => event) %>
     <% end %>
 </li>
