@@ -4,39 +4,43 @@
 <div data-role="content" data-theme="b">
     <p id="total-score">Du har totalt <span><%= @user.total_score %></span> poäng.</p>
     <p>Du har tränat totalt ca <%= @duration.round %> timmar.</p>
-    <ul data-role="listview" data-inset="true" data-theme="d">
-        <li data-role="list-divider">Framtida träningar <span class="ui-li-count"><%= @user.future_events.count %></span></li>
-        <% @user.future_events.each do |event| %>
-            <li>
-                <%= link_to event_path(event, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
-                    <div class="ui-grid-a">
-                        <div class="ui-block-a">
-                            <%= event.title %>
+    <% if @user.future_events.present? %>
+        <ul data-role="listview" data-inset="true" data-theme="d">
+            <li data-role="list-divider">Framtida träningar <span class="ui-li-count"><%= @user.future_events.count %></span></li>
+            <% @user.future_events.each do |event| %>
+                <li>
+                    <%= link_to event_path(event, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <%= event.title %>
+                            </div>
+                            <div class="ui-block-b right-content">
+                                <%= l event.start_time, :format => :shorter %>
+                            </div>
                         </div>
-                        <div class="ui-block-b right-content">
-                            <%= l event.start_time, :format => :shorter %>
+                    <% end %>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
+    <% if @user.past_events.present? %>
+        <ul data-role="listview" data-inset="true" data-theme="d">
+            <li data-role="list-divider">Historik <span class="ui-li-count"><%= @user.past_events.count %></span></li>
+            <% @user.past_events.each do |event| %>
+                <li>
+                    <%= link_to event_path(event, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <%= event.title %>
+                            </div>
+                            <div class="ui-block-b right-content">
+                                <%= l event.start_time, :format => :shorter %>
+                            </div>
                         </div>
-                    </div>
-                <% end %>
-            </li>
-        <% end %>
-    </ul>
-    <ul data-role="listview" data-inset="true" data-theme="d">
-        <li data-role="list-divider">Historik <span class="ui-li-count"><%= @user.past_events.count %></span></li>
-        <% @user.past_events.each do |event| %>
-            <li>
-                <%= link_to event_path(event, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
-                    <div class="ui-grid-a">
-                        <div class="ui-block-a">
-                            <%= event.title %>
-                        </div>
-                        <div class="ui-block-b right-content">
-                            <%= l event.start_time, :format => :shorter %>
-                        </div>
-                    </div>
-                <% end %>
-            </li>
-        <% end %>
-    </ul>
+                    <% end %>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
 </div>
 <%= render :partial => "/main_navigation" %>
