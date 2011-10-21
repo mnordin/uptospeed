@@ -14,7 +14,7 @@
                             <%= event.title %>
                         </div>
                         <div class="ui-block-b right-content">
-                            <%= event.start_time.strftime("%d %b") %>
+                            <%= l event.start_time, :format => :shorter %>
                         </div>
                     </div>
                 <% end %>
@@ -31,7 +31,7 @@
                             <%= event.title %>
                         </div>
                         <div class="ui-block-b right-content">
-                            <%= event.start_time.strftime("%d %b") %>
+                            <%= l event.start_time, :format => :shorter %>
                         </div>
                     </div>
                 <% end %>
