@@ -262,6 +262,7 @@
       short: "%e %b %H:%M"
       long: "%e %B %Y %H:%M"
       list: "%A %e %b"
+      shorter: "%e %b"
     am: ""
     pm: ""
 
