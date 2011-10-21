@@ -12,8 +12,13 @@ module ApplicationHelper
     end
   end
 
+  def data_theme(params)
+    return "a" if params[:action] =~ /show|map/ && params[:controller] != "users"
+    return "b"
+  end
+
   def fake_dialog(params)
-    return "ui-dialog" if params[:action] == "show"
+    return "ui-dialog ui-body-a" if params[:action] == "show" && params[:controller] != "users"
   end
 
   def ring(args = {})
