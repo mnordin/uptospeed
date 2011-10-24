@@ -42,7 +42,7 @@ class Event < ActiveRecord::Base
       "singleevents"                => true
     })
     calendar_id = Event.fetch_calendar(service).id
-    events.select!{|e| e.calendar_id == CGI.escape("newsdesk.se_tr45ab3op4eh54497ko4073118@group.calendar.google.com")}.sort!{|a,b| a.start_time <=> b.start_time}
+    events.select!{|e| e.calendar_id == calendar_id}.sort!{|a,b| a.start_time <=> b.start_time}
     events.each do |event|
       event.attendees.delete_if{|a| a[:name] =~ /Up to Speed Stockholm/}
     end
@@ -59,7 +59,6 @@ class Event < ActiveRecord::Base
       service = auth_google_service
     end
     service.calendars.select{|cal| cal.title =~ /Up to Speed Stockholm/}.first
-    # or id "newsdesk.se_tr45ab3op4eh54497ko4073118@group.calendar.google.com"
   end
 
 
