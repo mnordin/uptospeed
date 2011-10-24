@@ -1,4 +1,4 @@
-desc "Saves all events a month ahead and sync attendee list"
+desc "Saves all events two weeks ahead and sync attendee list"
 task :cron => :environment do
   puts "Saving all new events"
   events_from_google = Event.fetch_events_from_google(:start_at => Time.now, :end_at => 2.weeks.from_now.end_of_week)
@@ -11,12 +11,14 @@ task :cron => :environment do
       local_event.start_time = event_from_google.start_time
       local_event.end_time = event_from_google.end_time
       local_event.content = event_from_google.content
-      
+
+      # Get latitude and longitude from Google Maps API
       sess = Patron::Session.new
       address = CGI.escape(local_event.where)
       response = sess.get("http://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=false")
       result = JSON.parse(response.body)
       latlng = result["results"].first["geometry"]["location"] || ""
+      puts "Updating #{event.title} with lat #{latlng["lat"]} and lng #{latlng["lng"]}" if latlng.present?
       local_event.lat = latlng["lat"] || ""
       local_event.lng = latlng["lng"] || ""
       
