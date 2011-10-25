@@ -44,6 +44,10 @@
 .float-right{
     float:right;
 }
+.clearfix{
+    overflow:hidden;
+    clear:both;
+}
 .left-content{
     text-align:left;
 }
