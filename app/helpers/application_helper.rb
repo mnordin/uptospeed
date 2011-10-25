@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def data_theme(params)
-    return "a" if params[:action] =~ /show|new|map|settings/ && params[:controller] != "users"
+    return "a" if params[:action] =~ /show|new|edit|map|settings/ && params[:controller] != "users"
     return "b"
   end
 
