@@ -10,10 +10,14 @@
         <h3 class="float-left"><%= places(@event.where) %></h3>
         <p class="time float-right"><strong><%= @event.start_time.to_s(:time) %> - <%= @event.end_time.to_s(:time) %></strong></p>
     </div>
-    <div class="content ui-body-d">
-        <%= simple_format(@event.content) %>
-    </div>
-
+    <% if @event.content.present? %>
+        <div class="info-header ui-body-e">
+            <h2>Information</h2>
+        </div>
+        <div class="content ui-body-d">
+            <%= simple_format(@event.content) %>
+        </div>
+    <% end %>
     <% if @event.users.present? %>
         <ul data-role="listview" data-inset="true" data-theme="d">
             <li data-role="list-divider" role="heading" data-theme="a">Anmälda</li>
