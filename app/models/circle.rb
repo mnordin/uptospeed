@@ -7,7 +7,11 @@ class Circle < ActiveRecord::Base
   validates :title, :presence => true
 
   def accepted?(user)
-    circle_memberships.select{|cm| cm.user == user }.first.accepted? == true
+    accepted_users.include?(user)
+  end
+
+  def pending?(user)
+    pending_users.include?(user)
   end
 
   def accepted_users
