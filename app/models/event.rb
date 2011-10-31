@@ -21,11 +21,11 @@ class Event < ActiveRecord::Base
   end
 
   def self.exists_before?(time)
-    Event.order(:start_time).limit(1).first.start_time < time
+    Event.order(:start_time).limit(1).first.start_time < time.beginning_of_week
   end
 
   def self.exists_after?(time)
-    Event.order(:start_time).reverse_order.limit(1).first.start_time > time
+    Event.order(:start_time).reverse_order.limit(1).first.start_time > time.end_of_week
   end
 
   def self.fetch_events_from_google(args = {})
