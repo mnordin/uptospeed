@@ -6,6 +6,7 @@ en:
     next: "Next"
     previous: "Previous"
     info: "Information"
+    search: "Search..."
   events:
     header: "Events"
     map: "Map"
@@ -23,6 +24,14 @@ en:
     pending_memberships: "Pending memberships"
     your_circles: "Your circles"
     all_public_circles: "All public circles"
+    new:
+      header: "New circle"
+      title: "Title"
+      public_circle: "Public circle?"
+      secret: "Secret"
+      public: "Public"
+      add_users: "Add people"
+      create: "Create circle"
   stats:
     header: "Statistics"
   

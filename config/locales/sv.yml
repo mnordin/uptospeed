@@ -6,6 +6,7 @@ sv:
     next: "Nästa"
     previous: "Förra"
     info: "Information"
+    search: "Sök..."
   events:
     header: "Träningar"
     map: "Karta"
@@ -23,6 +24,14 @@ sv:
     pending_memberships: "Obesvarade inbjudningar"
     your_circles: "Dina cirklar"
     all_public_circles: "Alla publika cirklar"
+    new:
+      header: "Ny cirkel"
+      title: "Titel"
+      public: "Publik cirkel?"
+      secret: "Hemlig"
+      public: "Publik"
+      add_users: "Lägg till personer"
+      create: "Skapa cirkel"
   stats:
     header: "Statistik"
   
