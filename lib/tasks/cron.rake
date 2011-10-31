@@ -18,7 +18,7 @@ task :cron => :environment do
       response = sess.get("http://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=false")
       result = JSON.parse(response.body)
       latlng = result["results"].first["geometry"]["location"] || ""
-      puts "Updating #{event.title} with lat #{latlng["lat"]} and lng #{latlng["lng"]}" if latlng.present?
+      puts "Updating #{local_event.title} with lat #{latlng["lat"]} and lng #{latlng["lng"]}" if latlng.present?
       local_event.lat = latlng["lat"] || ""
       local_event.lng = latlng["lng"] || ""
       
