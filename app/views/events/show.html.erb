@@ -1,9 +1,8 @@
 <div data-role="header" data-position="inline" class="ui-corner-top ui-overlay-shadow ui-header">
-    <%= link_to "Avbryt", back_button_url, :'data-role' => "button", :'data-icon' => "delete", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
-    <h1 data-title="Up to Speed"><%= @event.title %></h1>
+    <%= link_to t(:'shared.close'), back_button_url, :'data-role' => "button", :'data-icon' => "delete", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
     <h1 data-title="<%= t(:title) %>"><%= @event.title %></h1>
     <% if geo?(@event) %>
-        <%= link_to "Karta", event_map_path(@event), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "map", :class => "ui-btn-right" %>
+        <%= link_to t(:'shared.show.map'), event_map_path(@event), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "map", :class => "ui-btn-right" %>
     <% end %>
 </div>
 <div id="event" data-role="content" data-theme="b" class="ui-corner-bottom ui-overlay-shadow">
@@ -13,7 +12,7 @@
     </div>
     <% if @event.content.present? %>
         <div class="info-header ui-body-e">
-            <h2>Information</h2>
+            <h2><%= t(:'shared.info') %></h2>
         </div>
         <div class="content ui-body-d">
             <%= simple_format(@event.content) %>
@@ -21,7 +20,7 @@
     <% end %>
     <% if @event.users.present? %>
         <ul data-role="listview" data-inset="true" data-theme="d">
-            <li data-role="list-divider" role="heading" data-theme="a">Anmälda</li>
+            <li data-role="list-divider" role="heading" data-theme="a"><%= t(:'events.attendances.header') %></li>
             <% @event.users.each do |user| %>
                 <li<%= user == current_user ? ' class="you"' : '' %>>
                     <%= user.name %>
@@ -30,25 +29,25 @@
             <% end %>
         </ul>
     <% else %>
-        <h3>Inga anmälda ännu</h3>
+        <h3><%= t(:'events.attendances.no_attendees') %></h3>
     <% end %>
     <%= form_tag event_attend_path(@event.id), :'data-ajax' => "false" do %>
         <%= hidden_field_tag :user_id, current_user.id.to_s %>
         <%= hidden_field_tag :attending, !@event.users.include?(current_user) %>
         <% if @event.users.include?(current_user) %>
             <% if @event.old? %>
-                <p><strong>Du har fått poäng för denna träning.</strong></p>
+                <p><strong><%= t(:'events.points_received') %></strong></p>
             <% else %>
-                <p><strong>Du är anmäld.</strong></p>
+                <p><strong><%= t(:'events.attendances.you') %></strong></p>
             <% end %>
         <% else %>
-            <p><strong>Kommer du?</strong></p>
+            <p><strong><%= t(:'events.attendances.will_you') %></strong></p>
         <% end %>
         <% if @event.users.include?(current_user) %>
-            <%= submit_tag "Nej, jag ångrar mig!", :'data-theme' => "a", :'data-icon' => "delete" %>
+            <%= submit_tag t(:'events.attendances.decline'), :'data-theme' => "a", :'data-icon' => "delete" %>
         <% else %>
-            <%= submit_tag "Ja, jag kommer!", :'data-theme' => "b", :'data-icon' => "check" %>
+            <%= submit_tag t(:'events.attendances.accept'), :'data-theme' => "b", :'data-icon' => "check" %>
         <% end %>
-        <%= link_to "Avbryt", back_button_url, :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse" %>
+        <%= link_to t(:'shared.cancel'), back_button_url, :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse" %>
     <% end %>
 </div>
