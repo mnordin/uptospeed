@@ -44,7 +44,7 @@
             <% end %>
         </ul>
 
-        <ul data-role="listview" data-inset="true" data-theme="d">
+        <ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="c">
             <li data-role="list-divider"><%= t(:'circles.all_public_circles') %> <span class="ui-li-count"><%= @public_circles.count %></span></li>
             <% @public_circles.each do |circle| %>
                 <li>
