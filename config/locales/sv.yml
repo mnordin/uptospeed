@@ -19,6 +19,10 @@ sv:
     points_received: "Du har fått poäng för denna träning"
   circles:
     header: "Cirklar"
+    new: "Ny cirkel"
+    pending_memberships: "Obesvarade inbjudningar"
+    your_circles: "Dina cirklar"
+    all_public_circles: "Alla publika cirklar"
   stats:
     header: "Statistik"
   

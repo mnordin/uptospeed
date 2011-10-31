@@ -19,6 +19,10 @@ en:
     points_received: "You've received points for this training"
   circles:
     header: "Circles"
+    new: "New circle"
+    pending_memberships: "Pending memberships"
+    your_circles: "Your circles"
+    all_public_circles: "All public circles"
   stats:
     header: "Statistics"
   
