@@ -1,10 +1,22 @@
 en:
   title: "Up to Speed"
   shared:
+    close: "Close"
+    cancel: "Cancel"
     next: "Next"
     previous: "Previous"
+    info: "Information"
   events:
     header: "Events"
+    map: "Map"
+    attendances:
+      header: "Attendances"
+      no_attendees: "No attendees"
+      you: "You're an attendee"
+      will_you: "Will you attend?"
+      accept: "Yes, i will attend!"
+      decline: "No, I changed my mind"
+    points_received: "You've received points for this training"
   circles:
     header: "Circles"
   stats:

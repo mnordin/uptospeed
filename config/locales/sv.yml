@@ -1,10 +1,22 @@
 sv:
   title: "Up to Speed"
   shared:
+    close: "Stäng"
+    cancel: "Avbryt"
     next: "Nästa"
     previous: "Förra"
+    info: "Information"
   events:
     header: "Träningar"
+    map: "Karta"
+    attendance:
+      header: "Anmälda"
+      no_attendees: "Inga anmälda"
+      you: "Du är anmäld"
+      will_you: "Kommer du att delta?"
+      accept: "Ja, jag kommer!"
+      decline: "Nej, jag ångrar mig"
+    points_received: "Du har fått poäng för denna träning"
   circles:
     header: "Cirklar"
   stats:
