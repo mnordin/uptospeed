@@ -2,7 +2,7 @@
     <%= link_to t(:'shared.close'), back_button_url, :'data-role' => "button", :'data-icon' => "delete", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
     <h1 data-title="<%= t(:title) %>"><%= @event.title %></h1>
     <% if geo?(@event) %>
-        <%= link_to t(:'shared.show.map'), event_map_path(@event), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "map", :class => "ui-btn-right" %>
+        <%= link_to t(:'events.map'), event_map_path(@event), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "map", :class => "ui-btn-right" %>
     <% end %>
 </div>
 <div id="event" data-role="content" data-theme="b" class="ui-corner-bottom ui-overlay-shadow">
