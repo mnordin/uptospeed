@@ -1,12 +1,16 @@
-# Swedish translation.
-# By Johan Lundström (johanlunds@gmail.com) with parts taken from http://github.com/daniel/swe_rails.
-# With contributions by:
-#   * Sven Dahlstrand (sven.dahlstrand@gmail.com)
-#   * Henrik Nyh (henrik@nyh.se)
-#   * Magnus Bergmark (magnus.bergmark@gmail.com)
-#   * Carl Åkerlindh (carl.akerlindh@gmail.com)
-
-"sv":
+sv:
+  shared:
+    next: "Nästa"
+    previous: "Förra"
+  events:
+    header: "Träningar"
+  circles:
+    header: "Cirklar"
+  stats:
+    header: "Statistik"
+  
+  
+  
   number:
     # Used in number_with_delimiter()
     # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'

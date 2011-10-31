@@ -1,5 +1,18 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  shared:
+    next: "Next"
+    previous: "Previous"
+  events:
+    header: "Events"
+  circles:
+    header: "Circles"
+  stats:
+    header: "Statistics"
+  
+  # Date formats, only add the ones that
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%e %b"
+      long: "%e %B %Y"
+      list: "%A %e %b"
