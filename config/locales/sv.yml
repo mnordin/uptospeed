@@ -10,7 +10,7 @@ sv:
   events:
     header: "Träningar"
     map: "Karta"
-    attendance:
+    attendances:
       header: "Anmälda"
       no_attendees: "Inga anmälda"
       you: "Du är anmäld"
@@ -29,7 +29,7 @@ sv:
     new:
       header: "Ny cirkel"
       title: "Titel"
-      public: "Publik cirkel?"
+      public_circle: "Publik cirkel?"
       secret: "Hemlig"
       public: "Publik"
       add_users: "Lägg till personer"
