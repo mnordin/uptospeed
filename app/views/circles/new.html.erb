@@ -1,5 +1,5 @@
 <div data-role="header">
-    <h1 data-title="Up to Speed">Ny cirkel</h1>
+    <h1 data-title="<%= t(:title) %>"><%= t(:'circles.new.header') %></h1>
 </div>
 <div data-role="content" data-theme="b" class="ui-body-c">
     <%= form_for @circle, :'data-ajax' => "false" do |f| %>
@@ -16,18 +16,18 @@
         <% end %>
 
         <div data-role="fieldcontain">
-            <%= f.label :title, "Titel" %>
+            <%= f.label :title, t(:'circles.new.title') %>
             <%= f.text_field :title, :'data-theme' => "d" %>
         </div>
 
         <div data-role="fieldcontain">
-            <%= f.label :public, "Publik cirkel?" %>
-            <%= f.select :public, options_for_select([["Hemlig", 0], ["Publik", 1]], 1), {}, :'data-role' => "slider" %>
+            <%= f.label :public, t(:'circles.new.public_circle') %>
+            <%= f.select :public, options_for_select([[t(:'circles.new.secret'), 0], [t(:'circles.new.public'), 1]], 1), {}, :'data-role' => "slider" %>
         </div>
 
         <div data-role="fieldcontain">
-            <p class="bottom-space">Lägg till personer</p>
-            <ul data-role="listview" data-filter="true" data-filter-placeholder="Sök personer..." data-filter-theme="c" data-theme="c">
+            <p class="bottom-space"><%= t(:'circles.new.add_users') %></p>
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="<%= t(:'shared.search') %>" data-filter-theme="c" data-theme="c">
                 <% @users_grouped.each do |letter, users| %>
                     <li data-role="list-divider"><%= letter %></li>
                     <li>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="actions top-space">
-            <%= f.submit "Skapa cirkel", :'data-theme' => "b" %>
+            <%= f.submit t(:'circles.new.create'), :'data-theme' => "b" %>
         </div>
     <% end %>
 </div>
