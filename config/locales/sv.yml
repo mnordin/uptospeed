@@ -18,6 +18,8 @@ sv:
       accept: "Ja, jag kommer!"
       decline: "Nej, jag ångrar mig"
     points_received: "Du har fått poäng för denna träning"
+    future_events: "Framtida träningar"
+    past_events: "Historik"
   circles:
     header: "Cirklar"
     new: "Ny cirkel"
@@ -34,8 +36,8 @@ sv:
       create: "Skapa cirkel"
   stats:
     header: "Statistik"
-  
-  
+    total_score: "Du har totalt <span>%{score}</span> poäng"
+    total_duration: "Du har tränat ungefär %{duration} timmar"
   
   number:
     # Used in number_with_delimiter()

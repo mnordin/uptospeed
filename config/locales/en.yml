@@ -18,6 +18,8 @@ en:
       accept: "Yes, i will attend!"
       decline: "No, I changed my mind"
     points_received: "You've received points for this training"
+    future_events: "Future training events"
+    past_events: "History"
   circles:
     header: "Circles"
     new: "New circle"
@@ -34,6 +36,8 @@ en:
       create: "Create circle"
   stats:
     header: "Statistics"
+    total_score: "You have a total of <span>%{score}</span> points"
+    total_duration: "You have trained for about %{duration} hours"
   
   # Date formats, only add the ones that
   date:
@@ -42,3 +46,6 @@ en:
       short: "%e %b"
       long: "%e %B %Y"
       list: "%A %e %b"
+  time:
+    formats:
+      shorter: "%e %b"
