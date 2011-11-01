@@ -1,5 +1,6 @@
 <div data-role="header">
     <h1 data-title="Up to Speed">Bjud in till <%= @circle.title %></h1>
+    <%= link_to t(:'shared.back'), circle_path(@circle), :'data-role' => "button", :'data-transition' => "flip", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
 </div>
 <div data-role="content" data-theme="b" class="ui-body-c">
     <%= form_for @circle, :'data-ajax' => "false" do |f| %>
