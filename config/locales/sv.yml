@@ -3,10 +3,15 @@ sv:
   shared:
     close: "Stäng"
     cancel: "Avbryt"
+    back: "Bakåt"
     next: "Nästa"
     previous: "Förra"
     info: "Information"
+    yes: "Ja"
+    no: "Nej"
     search: "Sök..."
+    forms:
+      save: "Spara"
   events:
     header: "Träningar"
     map: "Karta"
@@ -26,6 +31,14 @@ sv:
     pending_memberships: "Obesvarade inbjudningar"
     your_circles: "Dina cirklar"
     all_public_circles: "Alla publika cirklar"
+    show:
+      settings: "Inställningar"
+      members: "Medlemmar"
+      invite_users: "Bjud in fler medarbetare"
+      awaiting_approval: "Väntar på svar"
+      accept_invite: "Acceptera inbjudan"
+      decline_invite: "Tacka nej till inbjudan"
+      leave_circle: "Gå ur cirkeln"
     new:
       header: "Ny cirkel"
       title: "Titel"
@@ -34,6 +47,24 @@ sv:
       public: "Publik"
       add_users: "Lägg till personer"
       create: "Skapa cirkel"
+    edit:
+      header: "Bjud in"
+      invite: "Bjud in medarbetare"
+      send_invitations: "Skicka inbjudningar"
+    settings:
+      header: "Inställningar"
+      share_score: "Visa din poäng inom cirkeln?"
+      circle_color: "Cirkelfärg"
+    colors:
+      transparent: "Ingen färg"
+      red: "Röd"
+      orange: "Orange"
+      yellow: "Gul"
+      lime: "Lime"
+      green: "Grön"
+      light_blue: "Ljusblå"
+      blue: "Blå"
+      purple: "Lila"
   stats:
     header: "Statistik"
     total_score: "Du har totalt <span>%{score}</span> poäng"

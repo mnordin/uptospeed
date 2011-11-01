@@ -3,10 +3,15 @@ en:
   shared:
     close: "Close"
     cancel: "Cancel"
+    back: "Back"
     next: "Next"
     previous: "Previous"
     info: "Information"
+    yes: "Yes"
+    no: "No"
     search: "Search..."
+    forms:
+      save: "Save"
   events:
     header: "Events"
     map: "Map"
@@ -26,6 +31,14 @@ en:
     pending_memberships: "Pending memberships"
     your_circles: "Your circles"
     all_public_circles: "All public circles"
+    show:
+      settings: "Settings"
+      members: "Members"
+      invite_users: "Invite more coworkers"
+      awaiting_approval: "Waiting for approval"
+      accept_invite: "Accept invite"
+      decline_invite: "Decline invite"
+      leave_circle: "Gå ur cirkeln"
     new:
       header: "New circle"
       title: "Title"
@@ -34,6 +47,24 @@ en:
       public: "Public"
       add_users: "Add people"
       create: "Create circle"
+    edit:
+      header: "Invite"
+      invite: "Invite coworkers"
+      send_invitations: "Send invitations"
+    settings:
+      header: "Settings"
+      share_score: "Share your score within the circle?"
+      circle_color: "Circle color"
+    colors:
+      transparent: "Transparent"
+      red: "Red"
+      orange: "Orange"
+      yellow: "Yellow"
+      lime: "Lime"
+      green: "Green"
+      light_blue: "Light blue"
+      blue: "Blue"
+      purple: "Purple"
   stats:
     header: "Statistics"
     total_score: "You have a total of <span>%{score}</span> points"
