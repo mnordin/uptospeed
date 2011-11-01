@@ -11,7 +11,7 @@
             <li data-role="list-divider"><%= t(:'events.future_events') %> <span class="ui-li-count"><%= @user.future_events.count %></span></li>
             <% @user.future_events.each do |event| %>
                 <li>
-                    <%= link_to event_path(event, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+                    <%= link_to event_path(event, :url => request.url), :'data-transition' => "pop" do %>
                         <div class="ui-grid-a">
                             <div class="ui-block-a">
                                 <%= event.title %>
@@ -30,7 +30,7 @@
             <li data-role="list-divider"><%= t(:'events.past_events') %> <span class="ui-li-count"><%= @user.past_events.count %></span></li>
             <% @user.past_events.each do |event| %>
                 <li>
-                    <%= link_to event_path(event, :url => request.url), :'data-rel' => "dialog", :'data-transition' => "pop" do %>
+                    <%= link_to event_path(event, :url => request.url), :'data-transition' => "pop" do %>
                         <div class="ui-grid-a">
                             <div class="ui-block-a">
                                 <%= event.title %>
