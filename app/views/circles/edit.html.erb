@@ -1,13 +1,12 @@
 <div data-role="header">
-    <h1 data-title="Up to Speed">Bjud in till <%= @circle.title %></h1>
     <%= link_to t(:'shared.back'), circle_path(@circle), :'data-role' => "button", :'data-transition' => "flip", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
+    <h1 data-title="<%= t(:title) %>"><%= t(:'circles.edit.header') %></h1>
 </div>
 <div data-role="content" data-theme="b" class="ui-body-c">
-    <%= form_for @circle, :'data-ajax' => "false" do |f| %>
-
+    <%= form_for @circle, :'data-ajax' => "false", :'data-transition' => "flip", :'data-direction' => "reverse" do |f| %>
     <div data-role="fieldcontain">
-        <p class="bottom-space">Bjud in </p>
-        <ul data-role="listview" data-filter="true" data-filter-placeholder="Sök personer..." data-filter-theme="c" data-theme="c">
+        <p class="bottom-space"><%= t(:'circles.edit.invite') %> </p>
+        <ul data-role="listview" data-filter="true" data-filter-placeholder="<%= t(:'shared.search') %>" data-filter-theme="c" data-theme="c">
             <% @users_grouped.each do |letter, users| %>
                 <li data-role="list-divider"><%= letter %></li>
                 <li>
@@ -19,9 +18,8 @@
             <% end %>
         </ul>
     </div>
-
     <div class="actions top-space">
-        <%= f.submit "Skicka inbjudningar", :'data-theme' => "b" %>
+        <%= f.submit t(:'circles.edit.send_invitations'), :'data-theme' => "b" %>
     </div>
     <% end %>
 </div>

@@ -1,13 +1,13 @@
-    <%= link_to "Tillbaka", back_button_url, :'data-role' => "button", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
-    <h1 data-title="Up to Speed"><%= @circle.title %></h1>
 <div data-role="header" data-position="inline">
+    <%= link_to t(:'shared.back'), back_button_url, :'data-role' => "button", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
+    <h1 data-title="<%= t(:'title') %>"><%= @circle.title %></h1>
     <% if current_user.has_accepted_membership?(@circle) %>
-        <%= link_to "Inställningar", circle_settings_path(@circle), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip", :'data-icon' => "gear", :'data-iconpos' => "notext", :class => "ui-btn-right" %>
+        <%= link_to t(:'circles.show.settings'), circle_settings_path(@circle), :'data-role' => "button", :'data-transition' => "flip", :'data-icon' => "gear", :'data-iconpos' => "notext", :class => "ui-btn-right" %>
     <% end %>
 </div>
 <div data-role="content" data-theme="b">
     <ul data-role="listview" data-inset="true" data-theme="d">
-        <li data-role="list-divider" role="heading" data-theme="a">Medlemmar <span class="ui-li-count"><%= @circle.accepted_users.count %></span></li>
+        <li data-role="list-divider" role="heading" data-theme="a"><%= t(:'circles.show.members') %> <span class="ui-li-count"><%= @circle.accepted_users.count %></span></li>
         <% @circle.accepted_users.each do |user| %>
             <li<%= user == current_user ? ' class="you"' : '' %>>
                 <div class="ui-grid-a">
@@ -23,12 +23,12 @@
     </ul>
     <% if current_user.has_accepted_membership?(@circle) %>
     <div class="actions">
-        <%= link_to "Bjud in fler medarbetare", edit_circle_path(@circle), :'data-role' => "button", :'data-rel' => "dialog", :'data-transition' => "flip" %>
+        <%= link_to t(:'circles.show.invite_users'), edit_circle_path(@circle), :'data-role' => "button", :'data-transition' => "flip" %>
     </div>
     <% end %>
     <% if @circle.pending_users.present? and @circle.users.include?(current_user) %>
     <ul data-role="listview" data-inset="true" data-theme="d">
-        <li data-role="list-divider" role="heading" data-theme="a">Väntar på svar <span class="ui-li-count"><%= @circle.pending_users.count %></span></li>
+        <li data-role="list-divider" role="heading" data-theme="a"><%= t(:'circles.show.awaiting_approval') %> <span class="ui-li-count"><%= @circle.pending_users.count %></span></li>
         <% @circle.pending_users.each do |user| %>
             <li<%= user == current_user ? ' class="you"' : '' %>>
                 <div class="ui-grid-a">
@@ -52,18 +52,18 @@
                             <%= cm.hidden_field :accepted, value: true %>
                         <% end %>
                     <% end %>
-                    <%= f.submit "Acceptera inbjudan", :'data-theme' => "b", :'data-icon' => "check", :'data-direction' => "reverse" %>
+                    <%= f.submit t(:'circles.show.accept_invite'), :'data-theme' => "b", :'data-icon' => "check", :'data-direction' => "reverse" %>
                 <% end %>
                 <%= form_tag remove_circle_membership_path, :method => "post", :'data-ajax' => false do %>
                     <%= hidden_field_tag "user_id", current_user.id %>
-                    <%= submit_tag "Tacka nej", :'data-theme' => "a", :'data-icon' => "delete", :'data-direction' => "reverse" %>
+                    <%= submit_tag t(:'circles.show.decline_invite'), :'data-theme' => "a", :'data-icon' => "delete", :'data-direction' => "reverse" %>
                 <% end %>
             </div>
     <% elsif current_user.has_accepted_membership?(@circle) %>
             <div class="actions">
                 <%= form_tag remove_circle_membership_path, :method => "post" do %>
                     <%= hidden_field_tag "user_id", current_user.id %>
-                    <%= submit_tag "Gå ur cirkeln", :'data-theme' => "a", :'data-direction' => "reverse" %>
+                    <%= submit_tag t(:'circles.show.leave_circle'), :'data-theme' => "a", :'data-direction' => "reverse" %>
                 <% end %>
             </div>
     <% else %>
