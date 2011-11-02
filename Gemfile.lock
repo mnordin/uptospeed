@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/airbrake/airbrake.git
+  revision: d071460ce09b44ed4792adee2f55558e17eb70db
+  specs:
+    airbrake (3.0.5)
+      activesupport
+      builder
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -33,9 +41,6 @@ GEM
     activesupport (3.1.0)
       multi_json (~> 1.0)
     addressable (2.2.6)
-    airbrake (3.0.4)
-      activesupport
-      builder
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
@@ -188,7 +193,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake
+  airbrake!
   coffee-rails (~> 3.1.0)
   delayed_job (~> 2.1.4)
   gcal4ruby

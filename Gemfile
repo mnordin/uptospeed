@@ -23,7 +23,9 @@ gem "delayed_job", "~> 2.1.4"
 gem "omniauth", "~> 0.3.0"
 
 # Airbrake for debugging
-gem "airbrake"
+# periodically getting threaderrors, version is pulled from github as fix
+# https://github.com/37signals/pow/issues/191
+gem "airbrake", :git => "https://github.com/airbrake/airbrake.git"
 
 # Thin speeds up environment on Cedar, http://devcenter.heroku.com/articles/cedar#using_cedar
 gem 'thin'
