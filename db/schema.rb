@@ -20,14 +20,6 @@ ActiveRecord::Schema.define(:version => 20111015184845) do
     t.datetime "updated_at"
   end
 
-  create_table "authentications", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "circle_memberships", :force => true do |t|
     t.boolean  "share_score", :default => false
     t.boolean  "favorite"
