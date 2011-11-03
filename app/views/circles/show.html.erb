@@ -9,7 +9,7 @@
     <ul data-role="listview" data-inset="true" data-theme="d">
         <li data-role="list-divider" role="heading" data-theme="a"><%= t(:'circles.show.members') %> <span class="ui-li-count"><%= @circle.accepted_users.count %></span></li>
         <% @circle.accepted_users.each do |user| %>
-            <li<%= user == current_user ? ' class="you"' : '' %>>
+            <li<%= you_class(user) %>>
                 <div class="ui-grid-a">
                     <div class="ui-block-a">
                         <%= user.name %>
@@ -21,6 +21,7 @@
             </li>
         <% end %>
     </ul>
+                        <li<%= you_class(user) %>>
     <% if current_user.has_accepted_membership?(@circle) %>
     <div class="actions">
         <%= link_to t(:'circles.show.invite_users'), edit_circle_path(@circle), :'data-role' => "button", :'data-transition' => "flip" %>
@@ -30,7 +31,6 @@
     <ul data-role="listview" data-inset="true" data-theme="d">
         <li data-role="list-divider" role="heading" data-theme="a"><%= t(:'circles.show.awaiting_approval') %> <span class="ui-li-count"><%= @circle.pending_users.count %></span></li>
         <% @circle.pending_users.each do |user| %>
-            <li<%= user == current_user ? ' class="you"' : '' %>>
                 <div class="ui-grid-a">
                     <div class="ui-block-a">
                         <%= user.name %>
