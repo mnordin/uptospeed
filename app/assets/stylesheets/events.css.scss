@@ -55,7 +55,10 @@ h1 a.header-link.ui-link{
     color:#fff;
     text-decoration:none;
 }
-
+.points-received{
+    background: url(checkmark_small.png) no-repeat 0 0;
+    text-indent: 20px;
+}
 .you{
     background-image: -webkit-gradient(linear, left top, left bottom, from(#def5da), to(#bdd4b8)) !important;
     background-image: -webkit-linear-gradient(top, #def5da, #bdd4b8) !important;

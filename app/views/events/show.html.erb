@@ -36,7 +36,7 @@
         <%= hidden_field_tag :attending, !@event.users.include?(current_user) %>
         <% if @event.users.include?(current_user) %>
             <% if @event.old? %>
-                <p><strong><%= t(:'events.points_received') %></strong></p>
+                <p class="points-received"><strong><%= t(:'events.points_received') %></strong></p>
             <% else %>
                 <p><strong><%= t(:'events.attendances.you') %></strong></p>
             <% end %>
