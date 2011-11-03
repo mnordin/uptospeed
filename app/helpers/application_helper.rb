@@ -12,27 +12,18 @@ module ApplicationHelper
     end
   end
 
-  def ring(args = {})
-    if args[:user].present?
-      user = args[:user]
-      rings = []
-      return "" if user == current_user
-      user.circles.each do |circle|
-        if user.has_accepted_membership?(circle)
-          rings << ring(:circle => circle)
-        end
-      end
+  def ring(options = {})
+    if options[:user].present?
+      user = options[:user]
+      rings = rings_for_user(user)
       rings.join("").html_safe
-    elsif args[:event].present?
-      event = args[:event]
-      rings = []
+    elsif options[:event].present?
+      event = options[:event]
       event.users.delete_if{|u| u == current_user}
-      event.users.each do |user|
-        rings << ring(:user => user)
-      end
+      rings = event.users.collect { |user| rings_for_user(user) }
       rings.flatten.uniq.join("").html_safe
-    elsif args[:circle].present?
-      circle = args[:circle]
+    elsif options[:circle].present?
+      circle = options[:circle]
       if current_user.circles.include?(circle) && current_user.has_accepted_membership?(circle)
         membership = current_user.circle_memberships.select{|cm| cm.circle == circle}.first
         color = membership.color.hex rescue "transparent"
@@ -48,5 +39,15 @@ module ApplicationHelper
   private
   def print_ring_html(color)
     "<div class=\"ring\" style=\"background:#{color}\"></div>"
+  end
+
+  def rings_for_user(user)
+    return [] if user == current_user
+    rings = user.circles.collect do |circle|
+      if user.has_accepted_membership?(circle)
+        ring(:circle => circle)
+      end
+    end
+    rings.compact
   end
 end
