@@ -22,7 +22,7 @@
         <ul data-role="listview" data-inset="true" data-theme="d">
             <li data-role="list-divider" role="heading" data-theme="a"><%= t(:'events.attendances.header') %></li>
             <% @event.users.each do |user| %>
-                <li<%= user == current_user ? ' class="you"' : '' %>>
+                <li<%= you_class(user) %>>
                     <%= user.name %>
                     <%= ring(:user => user) %>
                 </li>

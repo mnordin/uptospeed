@@ -41,6 +41,10 @@ module ApplicationHelper
     end
   end
 
+  def you_class(user)
+    ' class="you"' if user == current_user
+  end
+
   private
   def print_ring_html(color)
     "<div class=\"ring\" style=\"background:#{color}\"></div>"
