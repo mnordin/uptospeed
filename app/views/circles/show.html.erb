@@ -21,27 +21,31 @@
             </li>
         <% end %>
     </ul>
+    <% if @circle.pending_users.present? and @circle.users.include?(current_user) %>
+        <div data-role="collapsible-set">
+            <div data-role="collapsible" data-collapsed="true" data-theme="d" data-content-theme="c">
+                <h3><%= t(:'circles.show.awaiting_approval') %> <span class="count"><%= @circle.pending_users.count %></span></h3>
+                <ul data-role="listview" data-inset="true" data-theme="d">
+                    <% @circle.pending_users.each do |user| %>
                         <li<%= you_class(user) %>>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a">
+                                    <%= user.name %>
+                                </div>
+                                <div class="ui-block-b right-content">
+                                    <%= user_score(@circle.circle_memberships, user) %>
+                                </div>
+                            </div>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    <% end %>
     <% if current_user.has_accepted_membership?(@circle) %>
     <div class="actions">
         <%= link_to t(:'circles.show.invite_users'), edit_circle_path(@circle), :'data-role' => "button", :'data-transition' => "flip" %>
     </div>
-    <% end %>
-    <% if @circle.pending_users.present? and @circle.users.include?(current_user) %>
-    <ul data-role="listview" data-inset="true" data-theme="d">
-        <li data-role="list-divider" role="heading" data-theme="a"><%= t(:'circles.show.awaiting_approval') %> <span class="ui-li-count"><%= @circle.pending_users.count %></span></li>
-        <% @circle.pending_users.each do |user| %>
-                <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <%= user.name %>
-                    </div>
-                    <div class="ui-block-b right-content">
-                        <%= user_score(@circle.circle_memberships, user) %>
-                    </div>
-                </div>
-            </li>
-        <% end %>
-    </ul>
     <% end %>
     <% if current_user.hasnt_accepted_membership?(@circle) %>
             <div class="actions">

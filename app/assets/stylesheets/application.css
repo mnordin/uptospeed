@@ -96,3 +96,19 @@
     margin-top:-25px;
     margin-right:0;
 }
+.ui-collapsible-heading, .ui-collapsible-content{
+    margin:0 0 !important;
+}
+.ui-collapsible-content .ui-listview-inset{
+    margin: .6em 0 !important;
+}
+.ui-collapsible-heading .count{
+    float:right;
+    font-weight:bold;
+    padding:2px 6px;
+    font-size:12px;
+    background:#eee;
+    border:1px solid #aaa;
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+}
