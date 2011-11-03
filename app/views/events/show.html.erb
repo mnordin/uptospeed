@@ -44,7 +44,7 @@
             <p><strong><%= t(:'events.attendances.will_you') %></strong></p>
         <% end %>
         <% if @event.users.include?(current_user) %>
-            <%= submit_tag t(:'events.attendances.decline'), :'data-theme' => "a", :'data-icon' => "delete" %>
+            <%= submit_tag t(:'events.attendances.decline'), :'data-theme' => "f", :'data-icon' => "delete" %>
         <% else %>
             <%= submit_tag t(:'events.attendances.accept'), :'data-theme' => "b", :'data-icon' => "check" %>
         <% end %>
