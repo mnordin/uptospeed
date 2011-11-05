@@ -3,8 +3,7 @@ class EventsController < ApplicationController
   def index
     now = params[:now].present? ? Time.parse(params[:now]) : Time.now
     if weekend?(now)
-      start_date = now.strftime("%A").downcase == "saturday" ? now : now - 1.days
-      start_date = start_date.beginning_of_day
+      start_date = now.beginning_of_day
       end_date = (now + 1.weeks).end_of_week
     else
       start_date = now.beginning_of_week
