@@ -12,10 +12,6 @@ class Event < ActiveRecord::Base
     end_time - start_time
   end
 
-  def old?
-    start_time < Time.now
-  end
-
   def group_by_date
     start_time.to_date
   end
