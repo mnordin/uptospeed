@@ -4,13 +4,13 @@ module EventsHelper
   def future_events_params
     now = params[:now].present? ? Time.parse(params[:now]) : Time.now
     now = (now + 1.weeks).to_date
-    return { now: now }
+    { now: now }
   end
 
   def past_events_params
     now = params[:now].present? ? Time.parse(params[:now]) : Time.now
     now = (now - 1.weeks).to_date
-    return { now: now }
+    { now: now }
   end
 
   def now_from_params
@@ -26,7 +26,7 @@ module EventsHelper
   end
 
   def today?(date)
-    return " today" if date == Time.now.to_date
+    " today" if date == Time.now.to_date
   end
 
   def places(address)
