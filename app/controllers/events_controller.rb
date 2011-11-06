@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     end
     @events_grouped = Event.where("start_time > ? and end_time < ?", start_date, end_date).order("start_time ASC").group_by(&:group_by_date)
     if !@events_grouped.has_key?(Time.now.to_date)
-      date_range = (@events_grouped.keys.first..@events_grouped.keys.last)
+      date_range = (start_date.to_date..@events_grouped.keys.last)
       if date_range.cover?(Time.now.to_date)
         today = {Time.now.to_date => []}
         @events_grouped.merge!(today)

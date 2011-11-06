@@ -1,9 +1,9 @@
 <div data-role="header" data-position="fixed">
-    <% if Event.exists_before?(now_from_params) %>
+    <% if exists_before?(now_from_params) %>
         <%= link_to t(:'shared.previous'), events_path(past_events_params), :'data-role' => "button", :'data-direction' => "reverse", :'data-icon' => "arrow-l" %>
     <% end %>
     <h1 data-title="<%= t(:title) %>"><%= t(:'events.header') %></h1>
-    <% if Event.exists_after?(now_from_params) %>
+    <% if exists_after?(now_from_params) %>
         <%= link_to t(:'shared.next'), events_path(future_events_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right", :class => "ui-btn-right" %>
     <% end %>
 </div>

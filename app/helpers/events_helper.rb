@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
 module EventsHelper
-
   def future_events_params
     now = params[:now].present? ? Time.parse(params[:now]) : Time.now
     now = (now + 1.weeks).to_date
@@ -15,6 +14,22 @@ module EventsHelper
 
   def now_from_params
     params[:now].present? ? Time.parse(params[:now]) : Time.now
+  end
+
+  def exists_after?(time)
+    if weekend?(time)
+      Event.exists_after?(time + 1.weeks)
+    else
+      Event.exists_after?(time)
+    end
+  end
+
+  def exists_before?(time)
+    if weekend?(time)
+      Event.exists_before?(time + 1.weeks)
+    else
+      Event.exists_before?(time)
+    end
   end
 
   def geo?(event)
