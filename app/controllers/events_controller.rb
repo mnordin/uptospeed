@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  helper_method :weekend?
 
   def index
     now = params[:now].present? ? Time.parse(params[:now]) : Time.now
@@ -39,7 +40,6 @@ class EventsController < ApplicationController
     end
   end
 
-  private
   def weekend?(date)
     date.wday == 6 or date.wday == 0
   end
