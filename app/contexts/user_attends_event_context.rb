@@ -1,4 +1,4 @@
-class UserAttendsEventContext < Context
+class UserAttendsEventContext
   attr_accessor :user, :event
 
   def initialize(attributes = {})
@@ -7,11 +7,28 @@ class UserAttendsEventContext < Context
     end
   end
 
-  def attend_event!
-    extend_with_roles(user, ["attending"])
-    extend_with_roles(event, ["attendance"])
+  def attend_event
+    require File.dirname(__FILE__) + '/../roles/users/attending_role.rb'
+    user.extend AttendingRole
     user.attend(event)
-    Event.attend_on_google(event.google_id, user)
+
+    # if event.public?
+    require File.dirname(__FILE__) + '/../roles/events/public_event_role.rb'
+    event.extend PublicEventRole
+    event.attend_on_google(user)
+    # end
+  end
+
+  def unattend_event
+    require File.dirname(__FILE__) + '/../roles/users/attending_role.rb'
+    user.extend AttendingRole
+    user.unattend(event)
+
+    # if event.public?
+    require File.dirname(__FILE__) + '/../roles/events/public_event_role.rb'
+    event.extend PublicEventRole
+    event.unattend_on_google(user)
+    # end
   end
 
 end
