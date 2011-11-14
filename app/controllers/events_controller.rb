@@ -35,7 +35,13 @@ class EventsController < ApplicationController
   def attend
     @event = Event.find(params[:id])
     context = UserAttendsEventContext.new(:user => current_user, :event => @event)
-    context.attend_event!
+    unless @event.users.include?(current_user) # user isnt already attending the event  
+      context.attend_event
+      notice = "Your attendance has been registered!"
+    else
+      context.unattend_event
+      notice = "Your attendance has been removed!"
+    end
     redirect_to @event
   end
 
