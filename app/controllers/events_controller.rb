@@ -35,15 +35,8 @@ class EventsController < ApplicationController
   def attend
     @event = Event.find(params[:id])
     context = UserAttendsEventContext.new(:user => current_user, :event => @event)
-    Rails.logger.info("********context: #{context.inspect}")
-    
     context.attend_event!
     redirect_to @event
-    #if Attendance.create_or_destroy_by_params(params)
-    #  redirect_to Event.find(params[:id])
-    #else
-    #  redirect_to Event.find(params[:id]), notice: 'Nagot gick fel, forsok igen'
-    #end
   end
 
   def weekend?(date)
