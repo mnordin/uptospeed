@@ -5,7 +5,7 @@ module AttendingRole
   end
 
   def unattend(event)
-    Attendande.destroy(:user_id => self.id, :event_id => event.id)
+  	attendance = Attendance.find_by_user_id_and_event_id(self.id, event.id)
+  	attendance.destroy
   end
-
 end
