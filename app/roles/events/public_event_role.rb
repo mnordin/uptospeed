@@ -1,4 +1,4 @@
-module PublicEventRole
+module Events::PublicEventRole
   
   def attend_on_google(user)
     google_id = self.google_id
