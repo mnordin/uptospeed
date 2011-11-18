@@ -7,7 +7,6 @@ class Attendance < ActiveRecord::Base
   validates :event_id, :presence => true
 
   def self.create_or_destroy_by_params(params)
-    service = Event.auth_google_service
     if params[:attending] == "true"
       unless Attendance.already_exists?(params)
         Attendance.create(:user_id => params[:user_id], :event_id => params[:id])
