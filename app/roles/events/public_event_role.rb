@@ -1,7 +1,6 @@
 module Events::PublicEventRole
   
   def attend_on_google(user)
-    google_id = self.google_id
     service = auth_google_service
     google_event = GCal4Ruby::Event.find(service, id: google_id)
     google_event.attendees << {email: user.email, name: user.name, role: "attendee", status: "accepted"}
@@ -11,7 +10,6 @@ module Events::PublicEventRole
   end
 
   def unattend_on_google(user)
-    google_id = self.google_id
     service = auth_google_service
     google_event = GCal4Ruby::Event.find(service, id: google_id)
     google_event.attendees.delete_if {|u| u[:email] == user.email}
