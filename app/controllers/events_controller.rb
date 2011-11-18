@@ -2,24 +2,12 @@ class EventsController < ApplicationController
   helper_method :weekend?
 
   def index
-    now = params[:now].present? ? Time.parse(params[:now]) : Time.now
-    if weekend?(now)
-      start_date = now.beginning_of_day
-      end_date = (now + 1.weeks).end_of_week
-    else
-      start_date = now.beginning_of_week
-      end_date = now.end_of_week
-    end
+    start_date, end_date = display_range_based_on(params)
     @events_grouped = Event.where("start_time > ? and end_time < ?", start_date, end_date).order("start_time ASC").group_by(&:group_by_date)
-    if !@events_grouped.has_key?(Time.now.to_date)
-      date_range = (start_date.to_date..@events_grouped.keys.last)
-      if date_range.cover?(Time.now.to_date)
-        today = {Time.now.to_date => []}
-        @events_grouped.merge!(today)
-        new_hash = {}
-        @events_grouped.keys.sort.map{|date| new_hash[date] = @events_grouped[date]}
-        @events_grouped = new_hash
-      end
+
+    unless @events_grouped.has_key?(Time.now.to_date)
+      @events_grouped[Time.now.to_date] = []
+      @events_grouped = @events_grouped.sort {|a,b| a[0]<=>b[0]}
     end
     set_back_url
   end
@@ -34,11 +22,23 @@ class EventsController < ApplicationController
 
   def attend
     @event = Event.find(params[:id])
-    context = UserAttendsEventContext.new(:user => current_user, :event => @event)
+    UserAttendsEventContext.new(:user => current_user, :event => @event)
     redirect_to @event
   end
 
   def weekend?(date)
     date.wday == 6 or date.wday == 0
   end
+
+  private
+
+  def display_range_based_on(params)
+    now = params[:now].present? ? Time.parse(params[:now]) : Time.now
+    if weekend?(now)
+      [now.beginning_of_day, (now + 1.weeks).end_of_week]
+    else
+      [now.beginning_of_week, now.end_of_week]
+    end
+  end
+
 end
