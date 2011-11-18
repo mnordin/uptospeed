@@ -5,6 +5,12 @@ class UserAttendsEventContext
     attributes.each do |name, value|
       send("#{name}=", value)
     end
+
+    unless event.users.include?(user) # user isnt already attending the event
+      attend_event
+    else
+      unattend_event
+    end
   end
 
   def attend_event
