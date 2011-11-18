@@ -11,20 +11,20 @@ class UserAttendsEventContext
     user.extend Users::AttendingRole
     user.attend(event)
 
-    # if event.public?
-    event.extend Events::PublicEventRole
-    event.attend_on_google(user)
-    # end
+    if event.public?
+      event.extend Events::PublicEventRole
+      event.attend_on_google(user)
+    end
   end
 
   def unattend_event
     user.extend Users::AttendingRole
     user.unattend(event)
 
-    # if event.public?
-    event.extend Events::PublicEventRole
-    event.unattend_on_google(user)
-    # end
+    if event.public?
+      event.extend Events::PublicEventRole
+      event.unattend_on_google(user)
+    end
   end
 
 end
