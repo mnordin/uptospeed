@@ -6,6 +6,7 @@ class Attendance < ActiveRecord::Base
   validates :user_id, :presence => true, :uniqueness => { :scope => :event_id }
   validates :event_id, :presence => true
 
+  # move this to a helper!
   def self.already_exists?(params)
     Attendance.find_by_user_id_and_event_id(params[:user_id], params[:id]).present?
   end
