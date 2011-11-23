@@ -1,4 +1,4 @@
-class UserAttendsEventContext
+class UserUnattendsEventContext
 
   def initialize(user, event)
     @user = user
@@ -6,18 +6,18 @@ class UserAttendsEventContext
   end
 
   def self.execute(user, event)
-    UserAttendsEventContext.new(user, event).execute
+    UserUnattendsEventContext.new(user, event).execute
   end
 
   def execute
-    raise "#{@user.name} is already attending #{@event.title}" if @event.users.include?(@user)
+    raise "#{@user.name} is already attending #{@event.title}" unless @event.users.include?(@user)
 
     @user.extend Users::AttendingRole
-    @user.attend(@event)
+    @user.unattend(@event)
 
     if @event.public?
       @event.extend Events::PublicEventRole
-      unless @event.attend_on_google(@user)
+      unless @event.unattend_on_google(@user)
         # raise "error syncing with google"
       end
     end
