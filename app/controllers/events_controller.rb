@@ -5,7 +5,7 @@ class EventsController < ApplicationController
     start_date, end_date = display_range_based_on(params)
     @events_grouped = Event.where("start_time > ? and end_time < ?", start_date, end_date).order("start_time ASC").group_by(&:group_by_date)
 
-    unless @events_grouped.has_key?(Time.now.to_date)
+    unless @events_grouped.has_key?(Time.now.to_date) && (start_date..end_date).cover?(Time.now)
       @events_grouped[Time.now.to_date] = []
       @events_grouped = @events_grouped.sort {|a,b| a[0]<=>b[0]}
     end
@@ -22,7 +22,12 @@ class EventsController < ApplicationController
 
   def attend
     @event = Event.find(params[:id])
-    UserAttendsEventContext.new(:user => current_user, :event => @event)
+    unless @event.users.include?(current_user)
+      context = UserAttendsEventContext.new(current_user, @event)
+    else
+      context = UserUnattendsEventContext.new(current_user, @event)
+    end
+    context.execute
     redirect_to @event
   end
 
