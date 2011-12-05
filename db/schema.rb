@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111205123431) do
+ActiveRecord::Schema.define(:version => 20111205124840) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "user_id"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20111205123431) do
     t.string   "uid"
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "office_id"
   end
 
 end

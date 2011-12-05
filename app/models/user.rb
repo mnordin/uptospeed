@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :circles, :through => :circle_memberships
   has_many :circle_memberships
   has_many :attendances
+  belongs_to :office
 
   validates :email, :presence => true, :uniqueness => true
 
