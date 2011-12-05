@@ -2,19 +2,19 @@ class Attendance < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
 
-  after_create :enqueue_attend_on_google
-  after_destroy :enqueue_unattend_on_google
+  after_create :attend_on_google
+  after_destroy :unattend_on_google
 
   # A user can't attend the same event more than once
   validates :user_id, :presence => true, :uniqueness => { :scope => :event_id }
   validates :event_id, :presence => true
 
-  def enqueue_attend_on_google
-    Event.delay.attend_on_google(event.google_id, user)
+  def attend_on_google
+    Event.attend_on_google(event.google_id, user)
   end
 
-  def enqueue_unattend_on_google
-    Event.delay.unattend_on_google(event.google_id, user)
+  def unattend_on_google
+    Event.unattend_on_google(event.google_id, user)
   end
 
   def self.create_or_destroy_by_params(params)
