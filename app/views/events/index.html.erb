@@ -7,7 +7,7 @@
         <%= link_to t(:'shared.next'), events_path(future_events_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "right", :class => "ui-btn-right" %>
     <% end %>
 </div>
-<div data-role="content" data-theme="b">
+<div data-role="content" data-theme="c">
     <div id="events">
         <ul data-role="listview" data-divider-theme="b" data-split-theme="c" data-split-icon="arrow-r">
         <% @events_grouped.each do |date, events| %>
