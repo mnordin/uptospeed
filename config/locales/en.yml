@@ -66,6 +66,7 @@ en:
       blue: "Blue"
       purple: "Purple"
   users:
+    menu: "Personal"
     show:
       header: "Statistics"
       total_score: "You have a total of <span>%{score}</span> points"

@@ -66,6 +66,7 @@ sv:
       blue: "Blå"
       purple: "Lila"
   users:
+    menu: "Personligt"
     show:
       header: "Statistik"
       total_score: "Du har totalt <span>%{score}</span> poäng"
