@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   
   # sessionscontroller uses create action to set user_id
   before_filter :require_authed_user, :except => :create
+  before_filter :set_locale
 
   helper_method :current_user
 
@@ -19,6 +20,10 @@ class ApplicationController < ActionController::Base
     if session[:user_id].blank?
       redirect_to "/auth/google_apps"
     end
+  end
+
+  def set_locale
+    I18n.locale = current_user.locale || current_user.office.default_locale
   end
 
   def set_back_url
