@@ -52,9 +52,6 @@ GEM
       execjs
     coffee-script-source (1.1.2)
     daemons (1.1.4)
-    delayed_job (2.1.4)
-      activesupport (~> 3.0)
-      daemons
     erubis (2.7.0)
     eventmachine (0.12.10)
     execjs (1.2.9)
@@ -195,7 +192,6 @@ PLATFORMS
 DEPENDENCIES
   airbrake!
   coffee-rails (~> 3.1.0)
-  delayed_job (~> 2.1.4)
   gcal4ruby
   json
   newrelic_rpm
