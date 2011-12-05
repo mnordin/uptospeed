@@ -3,8 +3,8 @@
 </div>
 <div data-role="content" data-theme="b">
     <div class="center-content">
-        <p id="total-score"><%= raw t(:'stats.total_score', score: @user.total_score) %>
-        <p><%= t(:'stats.total_duration', duration: @duration.round) %></p>
+        <p id="total-score"><%= raw t(:'users.show.total_score', score: @user.total_score) %>
+        <p><%= t(:'users.show.total_duration', duration: @duration.round) %></p>
     </div>
     <% if @user.future_events.present? %>
         <ul data-role="listview" data-inset="true" data-theme="d">

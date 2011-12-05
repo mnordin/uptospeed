@@ -65,10 +65,12 @@ en:
       light_blue: "Light blue"
       blue: "Blue"
       purple: "Purple"
-  stats:
-    header: "Statistics"
-    total_score: "You have a total of <span>%{score}</span> points"
-    total_duration: "You have trained for about %{duration} hours"
+  users:
+    show:
+      header: "Statistics"
+      total_score: "You have a total of <span>%{score}</span> points"
+      total_duration: "You have trained for about %{duration} hours"
+      settings: "Settings"
   
   # Date formats, only add the ones that
   date:

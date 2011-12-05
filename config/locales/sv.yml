@@ -65,10 +65,12 @@ sv:
       light_blue: "Ljusblå"
       blue: "Blå"
       purple: "Lila"
-  stats:
-    header: "Statistik"
-    total_score: "Du har totalt <span>%{score}</span> poäng"
-    total_duration: "Du har tränat ungefär %{duration} timmar"
+  users:
+    show:
+      header: "Statistik"
+      total_score: "Du har totalt <span>%{score}</span> poäng"
+      total_duration: "Du har tränat ungefär %{duration} timmar"
+      settings: "Inställningar"
   
   number:
     # Used in number_with_delimiter()
