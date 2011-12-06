@@ -5,3 +5,22 @@
 .remove-back-button a:first-child{
     display:none;
 }
+
+#listview-inset{
+    display: block;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    position: relative;
+}
+#listview-inset .label{
+    display: block;
+    font-size: 16px;
+    padding: .7em 15px .7em 15px;
+    margin:0;
+}
+#listview-inset ul[data-role="listview"]{
+    padding: .7em 15px .7em 15px;
+}
+#listview-inset .ui-listview-filter{
+    margin: 0 0 3px 0;
+}

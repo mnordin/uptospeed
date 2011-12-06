@@ -15,33 +15,35 @@
         </div>
         <% end %>
 
-        <div data-role="fieldcontain">
-            <%= f.label :title, t(:'circles.new.title') %>
-            <%= f.text_field :title, :'data-theme' => "d" %>
-        </div>
+        <ul data-role="listview" data-inset="true" data-theme="c">
+            <li data-role="fieldcontain" class="row">
+                <%= f.label :title, t(:'circles.new.title') %>
+                <%= f.text_field :title, :'data-theme' => "d", :placeholder => t(:'circles.new.title_placeholder') %>
+            </li>
 
-        <div data-role="fieldcontain">
-            <%= f.label :public, t(:'circles.new.public_circle') %>
-            <%= f.select :public, options_for_select([[t(:'circles.new.secret'), 0], [t(:'circles.new.public'), 1]], 1), {}, :'data-role' => "slider" %>
-        </div>
+            <li data-role="fieldcontain" class="row ui-body-b">
+                <%= f.label :public, t(:'circles.new.public_circle') %>
+                <%= f.select :public, options_for_select([[t(:'circles.new.secret'), 0], [t(:'circles.new.public'), 1]], 1), {}, :'data-role' => "slider" %>
+            </li>
 
-        <div data-role="fieldcontain">
-            <p class="bottom-space"><%= t(:'circles.new.add_users') %></p>
-            <ul data-role="listview" data-filter="true" data-filter-placeholder="<%= t(:'shared.search') %>" data-filter-theme="c" data-theme="c">
-                <% @users_grouped.each do |letter, users| %>
-                    <li data-role="list-divider"><%= letter %></li>
-                    <li>
-                    <% users.each do |user| %>
-                        <%= check_box_tag "circle[circle_memberships_attributes][][user_id]", user.id, @circle.circle_memberships.include?(user) || user == current_user, :id => "circle_membership_#{user.id}" %>
-                        <%= label_tag "circle_membership_#{user.id}", user.name %>
+            <fieldset data-role="fieldcontain" data-inset="true" class="row" id="listview-inset">
+                <p class="bottom-space label ui-body-c"><%= t(:'circles.new.add_users') %></p>
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="<%= t(:'shared.search') %>" data-filter-theme="b" data-theme="c">
+                    <% @users_grouped.each do |letter, users| %>
+                        <li data-role="list-divider"><%= letter %></li>
+                        <li>
+                        <% users.each do |user| %>
+                            <%= check_box_tag "circle[circle_memberships_attributes][][user_id]", user.id, user_already_invited?(@circle, user), :id => "circle_membership_#{user.id}" %>
+                            <%= label_tag "circle_membership_#{user.id}", user.name %>
+                        <% end %>
+                        </li>
                     <% end %>
-                    </li>
-                <% end %>
-            </ul>
-        </div>
+                </ul>
+            </fieldset>
 
-        <div class="actions top-space">
-            <%= f.submit t(:'circles.new.create'), :'data-theme' => "b" %>
-        </div>
+            <li data-role="fieldcontain" class="actions top-space">
+                <%= f.submit t(:'circles.new.create'), :'data-theme' => "b" %>
+            </li>
+        </ul>
     <% end %>
 </div>
