@@ -72,7 +72,20 @@ sv:
       total_score: "Du har totalt <span>%{score}</span> poäng"
       total_duration: "Du har tränat ungefär %{duration} timmar"
       settings: "Inställningar"
-  
+    edit:
+      header: "Redigera din profil"
+      office: "Kontor"
+      first_name: "Förnamn"
+      last_name: "Efternamn"
+  offices:
+    stockholm: "Stockholm"
+    gothenburg: "Göteborg"
+    malmoe: "Malmö"
+    oslo: "Oslo"
+    helsinki: "Helsingfors"
+    copenhagen: "Köpenhamn"
+    london: "London"
+    singapore: "Singapore"
   number:
     # Used in number_with_delimiter()
     # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
