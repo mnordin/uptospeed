@@ -45,7 +45,7 @@ class CirclesController < ApplicationController
 
   def settings
     @circle = Circle.find(params[:id])
-    @colors = Color.all
+    @colors = Color.order("id ASC")
   end
 
   def remove_circle_membership
