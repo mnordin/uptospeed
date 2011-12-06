@@ -13,4 +13,8 @@ class Office < ActiveRecord::Base
         I18n.default_locale
     end
   end
+
+  def i18n_title
+    I18n.t(:"offices.#{title}")
+  end
 end

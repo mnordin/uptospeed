@@ -10,27 +10,24 @@
         </ul>
     </div>
     <% end %>
+    <ul data-role="listview" data-inset="true" data-theme="c">
+        <li data-role="fieldcontain" class="row ui-body-b">
+            <%= f.label :office_id, t(:'users.edit.office') %>
+            <%= f.select :office_id, options_from_collection_for_select(@offices, :id, :i18n_title, f.object.office_id) %>
+        </li>
+        
+        <li data-role="fieldcontain" class="row">
+            <%= f.label :first_name, t(:'users.edit.first_name') %>
+            <%= f.text_field :first_name %>
+        </li>
+        
+        <li data-role="fieldcontain" class="row">
+            <%= f.label :last_name, t(:'users.edit.last_name') %>
+            <%= f.text_field :last_name %>
+        </li>
 
-    <div class="row">
-        <%= f.label :office %>
-        <%= f.select :office_id, options_from_collection_for_select(@offices, :id, :title, f.object.office_id) %>
-    </div>
-
-    <div class="row">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name %>
-    </div>
-
-    <div class="row">
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name %>
-    </div>
-
-    <div class="row">
-        <%= f.label :personal_goal %>
-        <%= f.text_area :personal_goal %>
-    </div>
-    <div class="actions">
-        <%= f.submit %>
-    </div>
+        <li data-role="fieldcontain" class="actions row ui-body-b">
+            <%= f.submit t(:'shared.forms.save') %>
+        </li>
+    </li>
 <% end %>
