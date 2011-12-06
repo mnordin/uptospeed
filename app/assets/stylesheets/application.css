@@ -112,3 +112,7 @@
     -moz-border-radius:20px;
     -webkit-border-radius:20px;
 }
+label{
+    font-size:14px !important;
+    font-weight:bold !important;
+}
