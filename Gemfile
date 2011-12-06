@@ -30,3 +30,6 @@ gem 'thin'
 
 # New relic for Heroku
 gem 'newrelic_rpm'
+
+gem 'pry'
+gem 'looksee'
