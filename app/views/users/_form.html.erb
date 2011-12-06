@@ -30,9 +30,8 @@
             <%= f.label :locale, t(:'users.edit.locale') %>
             <%= f.select :locale, options_for_select(@locales, f.object.locale), {}, :'data-theme' => "b" %>
         </li>
-
-        <li data-role="fieldcontain" class="actions row ui-body-b">
-            <%= f.submit t(:'shared.forms.save') %>
+        <li data-role="fieldcontain" class="actions">
+            <%= f.submit t(:'shared.forms.save'), :'data-theme' => "g" %>
         </li>
     </li>
 <% end %>

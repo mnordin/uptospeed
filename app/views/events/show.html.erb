@@ -46,7 +46,7 @@
         <% if @event.users.include?(current_user) %>
             <%= submit_tag t(:'events.attendances.decline'), :'data-theme' => "f", :'data-icon' => "delete" %>
         <% else %>
-            <%= submit_tag t(:'events.attendances.accept'), :'data-theme' => "b", :'data-icon' => "check" %>
+            <%= submit_tag t(:'events.attendances.accept'), :'data-theme' => "g", :'data-icon' => "check" %>
         <% end %>
         <%= link_to t(:'shared.cancel'), back_button_url, :'data-role' => "button", :'data-icon' => "back", :'data-theme' => "c", :'data-transition' => "pop", :'data-direction' => "reverse" %>
     <% end %>
