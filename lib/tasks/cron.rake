@@ -1,6 +1,7 @@
-desc "Saves all events two weeks ahead and sync attendee list"
+desc "All the jobs for Up to speed"
 task :cron => :environment do
-  puts "Saving all new events"
+
+  puts "Saving all new events two weeks ahead and sync attendee list"
   events_from_google = Event.fetch_events_from_google(:start_at => Time.now, :end_at => 2.weeks.from_now.end_of_week)
   events_from_google.each do |event_from_google|
     local_event = Event.find_or_initialize_by_google_id(event_from_google.id)
@@ -31,4 +32,7 @@ task :cron => :environment do
       end
     end
   end
+
+  puts "Deleting all circles without any accepted user memberships"
+  Circle.all.select{|c| c.accepted_users.size < 1 }.map(&:destroy)
 end
