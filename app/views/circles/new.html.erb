@@ -21,13 +21,13 @@
                 <%= f.text_field :title, :'data-theme' => "d", :placeholder => t(:'circles.new.title_placeholder') %>
             </li>
 
-            <li data-role="fieldcontain" class="row ui-body-b">
+            <li data-role="fieldcontain" class="row">
                 <%= f.label :public, t(:'circles.new.public_circle') %>
-                <%= f.select :public, options_for_select([[t(:'circles.new.secret'), 0], [t(:'circles.new.public'), 1]], 1), {}, :'data-role' => "slider" %>
+                <%= f.select :public, options_for_select([[t(:'circles.new.secret'), 0], [t(:'circles.new.public'), 1]], 1), {}, :'data-role' => "slider", :'data-theme' => "b" %>
             </li>
 
             <fieldset data-role="fieldcontain" data-inset="true" class="row" id="listview-inset">
-                <p class="bottom-space label ui-body-c"><%= t(:'circles.new.add_users') %></p>
+                <label class="bottom-space label ui-body-c"><%= t(:'circles.new.add_users') %></label>
                 <ul data-role="listview" data-filter="true" data-filter-placeholder="<%= t(:'shared.search') %>" data-filter-theme="b" data-theme="c">
                     <% @users_grouped.each do |letter, users| %>
                         <li data-role="list-divider"><%= letter %></li>

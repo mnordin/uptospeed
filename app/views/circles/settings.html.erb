@@ -2,21 +2,25 @@
     <%= link_to t(:'shared.back'), circle_path(@circle), :'data-role' => "button", :'data-transition' => "flip", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
     <h1 data-title="<%= t(:title) %>"><%= t(:'circles.settings.header') %></h1>
 </div>
-<div data-role="content" data-theme="b" class="ui-body-c">
+<div data-role="content" data-theme="b">
     <%= form_for @circle, :'data-ajax' => "false", :'data-transition' => "flip", :'data-direction' => "reverse" do |f| %>
+    <ul data-role="listview" data-inset="true" data-theme="c">
         <%= f.fields_for :circle_memberships do |cm| %>
             <% if cm.object.user == current_user %>
                 <%= cm.hidden_field :user_id %>
-                <div data-role="fieldcontain">
+                <li data-role="fieldcontain" class="row">
                     <%= cm.label :share_score, t(:'circles.settings.share_score') %>
-                    <%= cm.select :share_score, options_for_select([[t(:'shared.no'), false], [t(:'shared.yes'), true]], cm.object.share_score), {}, :'data-role' => "slider" %>
-                </div>
-                <div data-role="fieldcontain">
+                    <%= cm.select :share_score, options_for_select([[t(:'shared.no'), false], [t(:'shared.yes'), true]], cm.object.share_score), {}, :'data-role' => "slider", :'data-theme' => "b" %>
+                </li>
+                <li data-role="fieldcontain" class="row ui-body-b">
                     <%= cm.label :color_id, t(:'circles.settings.circle_color') %>
                     <%= cm.select :color_id, options_from_collection_for_select(@colors, :id, :i18n_color, cm.object.color_id) %>
-                </div>
+                </li>
             <% end %>
         <% end %>
-        <%= f.submit t(:'shared.forms.save'), :'data-theme' => "b" %>
+        <li data-role="fieldcontain" class="row">
+            <%= f.submit t(:'shared.forms.save'), :'data-theme' => "b" %>
+        </li>
+    </ul>
     <% end %>
 </div>
