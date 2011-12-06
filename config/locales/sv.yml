@@ -57,6 +57,7 @@ sv:
       share_score: "Visa din poäng inom cirkeln?"
       circle_color: "Cirkelfärg"
     colors:
+      none: "Ingen färg"
       transparent: "Ingen färg"
       red: "Röd"
       orange: "Orange"

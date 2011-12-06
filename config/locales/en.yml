@@ -57,6 +57,7 @@ en:
       share_score: "Share your score within the circle?"
       circle_color: "Circle color"
     colors:
+      none: "Transparent"
       transparent: "Transparent"
       red: "Red"
       orange: "Orange"
