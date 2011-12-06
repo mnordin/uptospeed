@@ -1,4 +1,5 @@
 <div data-role="header">
+    <%= link_to t(:'shared.back'), circles_path, :'data-role' => "button", :'data-transition' => "pop", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext" %>
     <h1 data-title="<%= t(:title) %>"><%= t(:'circles.new.header') %></h1>
 </div>
 <div data-role="content" data-theme="b" class="ui-body-c">
