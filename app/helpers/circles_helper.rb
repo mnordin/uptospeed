@@ -8,4 +8,8 @@ module CirclesHelper
       ""
     end
   end
+
+  def user_already_invited?(circle, user)
+    circle.circle_memberships.include?(user) || user == current_user
+  end
 end
