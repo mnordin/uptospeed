@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   # sessionscontroller uses create action to set user_id
-  before_filter :require_authed_user, :except => :create
-  before_filter :set_locale
+  before_filter :require_authed_user, :except => :sign_in
+  before_filter :set_locale, :except => :sign_in
 
   helper_method :current_user
 
