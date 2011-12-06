@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @offices = Office.all
+    @locales = [[t(:'locales.en'), "en"], [t(:'locales.sv'), "sv"]]
   end
 
   def update
