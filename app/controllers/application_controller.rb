@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = current_user.locale || current_user.office.default_locale
+    I18n.locale = current_user.locale || current_user.office.default_locale rescue I18n.default_locale
   end
 
   def set_back_url
