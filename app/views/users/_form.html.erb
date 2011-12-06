@@ -11,24 +11,21 @@
     </div>
     <% end %>
     <ul data-role="listview" data-inset="true" data-theme="c">
-        <li data-role="fieldcontain" class="row ui-body-b">
-            <%= f.label :office_id, t(:'users.edit.office') %>
-            <%= f.select :office_id, options_from_collection_for_select(@offices, :id, :i18n_title, f.object.office_id) %>
-        </li>
-        
         <li data-role="fieldcontain" class="row">
             <%= f.label :first_name, t(:'users.edit.first_name') %>
             <%= f.text_field :first_name %>
         </li>
-        
         <li data-role="fieldcontain" class="row">
             <%= f.label :last_name, t(:'users.edit.last_name') %>
             <%= f.text_field :last_name %>
         </li>
-
+        <li data-role="fieldcontain" class="row ui-body-b">
+            <%= f.label :office_id, t(:'users.edit.office') %>
+            <%= f.select :office_id, options_from_collection_for_select(@offices, :id, :i18n_title, f.object.office_id) %>
+        </li>
         <li data-role="fieldcontain" class="row">
             <%= f.label :locale, t(:'users.edit.locale') %>
-            <%= f.select :locale, options_for_select(@locales, f.object.locale), {}, :'data-theme' => "b" %>
+            <%= f.select :locale, options_for_select(@locales, f.object.locale), {}, :'data-theme' => "c" %>
         </li>
         <li data-role="fieldcontain" class="actions">
             <%= f.submit t(:'shared.forms.save'), :'data-theme' => "g" %>
