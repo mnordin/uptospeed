@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
 
-  def create
+  # sign in using omniauth
+  def sign_in
     auth = request.env["omniauth.auth"]
-    Rails.logger.info("********#{auth}")
     user = User.find_by_email(auth["user_info"]["email"]) || User.create_with_omniauth(auth)
     session[:user_id] = user.id
     redirect_to root_path, :notice => "Signed in!"
@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
   def failure
   end
 
-  def destroy
+  # sign out using omniauth
+  def sign_out
     session[:user_id] = nil
     redirect_to root_path, :notice => "Logged out"
   end
