@@ -38,7 +38,7 @@ en:
       awaiting_approval: "Waiting for approval"
       accept_invite: "Accept invite"
       decline_invite: "Decline invite"
-      leave_circle: "Gå ur cirkeln"
+      leave_circle: "Leave circle"
     new:
       header: "New circle"
       title: "Title"
