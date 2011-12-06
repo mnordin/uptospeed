@@ -78,6 +78,7 @@ en:
       office: "Office"
       first_name: "First name"
       last_name: "Last name"
+      locale: "Language"
   offices:
     stockholm: "Stockholm"
     gothenburg: "Gothenburg"
@@ -87,6 +88,9 @@ en:
     copenhagen: "Copenhagen"
     london: "London"
     singapore: "Singapore"
+  locales:
+    en: "English"
+    sv: "Swedish"
   
   # Date formats, only add the ones that
   date:

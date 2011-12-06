@@ -78,6 +78,7 @@ sv:
       office: "Kontor"
       first_name: "Förnamn"
       last_name: "Efternamn"
+      locale: "Språk"
   offices:
     stockholm: "Stockholm"
     gothenburg: "Göteborg"
@@ -87,6 +88,9 @@ sv:
     copenhagen: "Köpenhamn"
     london: "London"
     singapore: "Singapore"
+  locales:
+    en: "Engelska"
+    sv: "Svenska"
   number:
     # Used in number_with_delimiter()
     # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
