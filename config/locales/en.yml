@@ -42,6 +42,7 @@ en:
     new:
       header: "New circle"
       title: "Title"
+      title_placeholder: "The title of your new circle"
       public_circle: "Public circle?"
       secret: "Secret"
       public: "Public"

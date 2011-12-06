@@ -42,6 +42,7 @@ sv:
     new:
       header: "Ny cirkel"
       title: "Titel"
+      title_placeholder: "Titel på din cirkel"
       public_circle: "Publik cirkel?"
       secret: "Hemlig"
       public: "Publik"
