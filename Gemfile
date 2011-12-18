@@ -10,6 +10,11 @@ group :assets do
   gem 'uglifier'
 end
 
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+  gem "capybara"
+end
+
 gem 'json'
 gem "pg", "0.11.0"
 gem "patron", "~> 0.4.16"
