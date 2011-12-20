@@ -18,11 +18,3 @@
 //= require "jquery.mobile-1.0"
 //= require "jquery.ui.map.full.min"
 //= require_tree .
-
-if (window.applicationCache) {
-    applicationCache.addEventListener('updateready', function() {
-        if (confirm('An update is available. Reload now?')) {
-            window.location.reload();
-        }
-    });
-}
