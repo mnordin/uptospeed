@@ -1,5 +1,8 @@
 CACHE MANIFEST
-# v5 2012-12-20
+# v6 2012-12-20
+NETWORK:
+*
+CACHE
 assets/application.css
 assets/application.js
 assets/apple-icon.png
@@ -15,5 +18,3 @@ assets/jquery-mobile/icons-18-black.png
 assets/jquery-mobile/icons-18-white.png
 assets/jquery-mobile/icons-36-black.png
 assets/jquery-mobile/icons-36-white.png
-NETWORK:
-*
