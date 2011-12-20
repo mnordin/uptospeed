@@ -35,3 +35,5 @@ gem 'thin'
 
 # New relic for Heroku
 gem 'newrelic_rpm'
+
+gem "digestion", "~> 1.2.1"
