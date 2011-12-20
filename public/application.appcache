@@ -1,8 +1,14 @@
 CACHE MANIFEST
-# v7 2012-12-20
+# version 8
 
+CACHE:
+#stylesheet
 assets/application.css
+
+#javascript
 assets/application.js
+
+#images
 assets/apple-icon.png
 assets/checkmark.png
 assets/splash-screen.jpg
@@ -18,6 +24,5 @@ assets/jquery-mobile/icons-36-black.png
 assets/jquery-mobile/icons-36-white.png
 
 NETWORK:
-http://uptospeed.se/*
-http://www.uptospeed.se/*
+/
 *
