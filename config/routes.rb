@@ -9,6 +9,8 @@ UpToSpeed::Application.routes.draw do
   match "/events/:id/map" => "events#map", :only => "get", :as => :event_map
   match "/events/:id/attend" => "events#attend", :only => "post", :as => :event_attend
 
+  match "/manifest" => "application#manifest", :as => :manifest
+
   resources :users, :events, :circles
 
   root :to => 'events#index'
