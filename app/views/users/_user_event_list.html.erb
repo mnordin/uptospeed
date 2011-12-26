@@ -1,0 +1,12 @@
+<li>
+    <%= link_to event_path(event, :url => request.url), :'data-transition' => "pop" do %>
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <%= event.title %>
+            </div>
+            <div class="ui-block-b right-content">
+                <%= l event.start_time, :format => :shorter %>
+            </div>
+        </div>
+    <% end %>
+</li>
