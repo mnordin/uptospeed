@@ -72,7 +72,7 @@ en:
     show:
       header: "Statistics"
       total_score: "You have a total of <span>%{score}</span> points"
-      total_duration: "You have trained for about %{duration} hours"
+      total_duration: "You have trained for about <span>%{duration}</span> hours"
       settings: "Settings"
     edit:
       header: "Edit your profile"

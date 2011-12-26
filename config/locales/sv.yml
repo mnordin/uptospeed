@@ -72,7 +72,7 @@ sv:
     show:
       header: "Statistik"
       total_score: "Du har totalt <span>%{score}</span> poäng"
-      total_duration: "Du har tränat ungefär %{duration} timmar"
+      total_duration: "Du har tränat ungefär <span>%{duration}</span> timmar"
       settings: "Inställningar"
     edit:
       header: "Redigera din profil"
