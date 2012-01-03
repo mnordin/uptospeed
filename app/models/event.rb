@@ -3,6 +3,10 @@ class Event < ActiveRecord::Base
   has_many :attendances
 
   validates :google_id, :presence => true, :uniqueness => true
+  validates :title, :presence => true
+  validates :where, :presence => true
+  validates :start_time, :timeliness => {:type => :time}
+  validates :end_time, :timeliness => {:after => :start_time, :type => :time}
 
   def score
     1
