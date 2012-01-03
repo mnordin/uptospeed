@@ -21,6 +21,8 @@ gem "patron", "~> 0.4.16"
 
 gem "gcal4ruby"
 
+gem "validates_timeliness", "~> 3.0.2"
+
 # Beta Omniauth with new specific gem for OpenId, https://github.com/intridea/omniauth
 #gem 'oa-openid', "~> 0.3.0"
 gem "omniauth", "~> 0.3.0"
