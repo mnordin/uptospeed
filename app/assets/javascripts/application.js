@@ -6,9 +6,6 @@
 //
 //= require "jquery-1.6.4"
 
-//= require "customize_add2home"
-//= require "add2home"
-
 //= require "circles"
 //= require "events"
 //= require "sessions"
