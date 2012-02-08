@@ -10,6 +10,7 @@ UpToSpeed::Application.routes.draw do
   match "/events/:id/attend" => "events#attend", :only => "post", :as => :event_attend
 
   match "/events/appcache" => "events#appcache", :as => :appcache
+  match "/manifest" => "events#manifest", :as => :appcache_manifest
 
   resources :users, :events, :circles
 
