@@ -7,6 +7,17 @@
         <%= link_to t(:'shared.next'), events_path(future_events_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "notext", :class => "ui-btn-right" %>
     <% end %>
 </div>
+<div class="ui-grid-a">
+    <div class="ui-block-a">
+        <a href="#" data-role="button">Träning 60 min</a>
+    </div>
+    <div class="ui-block-b">
+        <%= form_for @read do |f| %>
+            <%= f.hidden_field :user_id %>
+            <%= f.submit "Läsa 60 min" %>
+        <% end %>
+    </div>
+</div>
 <div data-role="content" data-theme="c">
     <div id="events">
         <ul data-role="listview" data-divider-theme="b" data-split-theme="c" data-split-icon="arrow-r">
