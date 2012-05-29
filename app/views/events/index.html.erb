@@ -12,9 +12,9 @@
         <a href="#" data-role="button">Träning 60 min</a>
     </div>
     <div class="ui-block-b">
-        <%= form_for @read do |f| %>
+        <%= form_for @read, :'data-transition' => "none" do |f| %>
             <%= f.hidden_field :user_id %>
-            <%= f.submit "Läsa 60 min" %>
+            <%= f.submit "Läsa 60 min", :'data-theme' => "g" %>
         <% end %>
     </div>
 </div>
