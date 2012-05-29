@@ -1,0 +1,25 @@
+<% unless flash.empty? %>
+    <% if flash[:error] -%>
+        <div id="notification" class="ui-loader ui-overlay-shadow ui-body-f ui-corner-all">
+            <h1><%=h flash[:error] %></h1>
+        </div>
+    <% end -%>
+    <% if flash[:notice] -%>
+        <div id="notification" class="ui-loader ui-overlay-shadow ui-body-e ui-corner-all">
+            <h1><%=h flash[:notice] %></h1>
+        </div>
+    <% end -%>
+    <% if flash[:success] -%>
+        <div id="notification" class="ui-loader ui-overlay-shadow ui-body-g ui-corner-all">
+            <h1><%=h flash[:success] %></h1>
+        </div>
+    <% end -%>
+<script type="text/javascript">
+    $("#notification")
+        .css({ "display":"block", "opacity":0.96, "top": $(window).scrollTop() + 100 })
+        .delay( 2500 )
+        .fadeOut( 400, function(){
+            $(this).remove();
+    });
+</script>
+<% end %>
