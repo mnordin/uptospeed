@@ -32,7 +32,4 @@ task :cron => :environment do
       end
     end
   end
-
-  puts "Deleting all circles without any accepted user memberships"
-  Circle.all.select{|c| c.accepted_users.size < 1 }.map(&:destroy)
 end

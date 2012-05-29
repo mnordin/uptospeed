@@ -25,48 +25,6 @@ en:
     points_received: "You've received points for this training"
     future_events: "Future training events"
     past_events: "History"
-  circles:
-    header: "Circles"
-    new: "New circle"
-    pending_memberships: "Pending memberships"
-    your_circles: "Your circles"
-    all_public_circles: "All public circles"
-    show:
-      settings: "Settings"
-      members: "Members"
-      invite_users: "Invite more coworkers"
-      awaiting_approval: "Waiting for approval"
-      accept_invite: "Accept invite"
-      decline_invite: "Decline invite"
-      leave_circle: "Leave circle"
-    new:
-      header: "New circle"
-      title: "Title"
-      title_placeholder: "The title of your new circle"
-      public_circle: "Public circle?"
-      secret: "Secret"
-      public: "Public"
-      add_users: "Add people"
-      create: "Create circle"
-    edit:
-      header: "Invite"
-      invite: "Invite coworkers"
-      send_invitations: "Send invitations"
-    settings:
-      header: "Settings"
-      share_score: "Share your score within the circle?"
-      circle_color: "Circle color"
-    colors:
-      none: "Transparent"
-      transparent: "Transparent"
-      red: "Red"
-      orange: "Orange"
-      yellow: "Yellow"
-      lime: "Lime"
-      green: "Green"
-      light_blue: "Light blue"
-      blue: "Blue"
-      purple: "Purple"
   users:
     menu: "Personal"
     show:

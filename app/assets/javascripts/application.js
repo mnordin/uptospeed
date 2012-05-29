@@ -6,7 +6,6 @@
 //
 //= require "jquery-1.6.4"
 
-//= require "circles"
 //= require "events"
 //= require "sessions"
 //= require "users"

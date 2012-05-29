@@ -5,14 +5,6 @@
                 <%= link_to t(:'events.header'), events_path, :'data-role' => "button",  :'data-icon' => "dumbell", :'data-transition' => "slidedown", :class => highlight_current_tab("events") %>
             </li>
             <li>
-                <%= link_to circles_path, :'data-role' => "button",  :'data-icon' => "network", :'data-transition' => "slidedown", :class => highlight_current_tab("circles") do %>
-                <%= t(:'circles.header') %>
-                    <% if current_user.pending_memberships.present? %>
-                        <span class="pending-memberships"><%= current_user.pending_memberships.count %></span>
-                    <% end %>
-                <% end %>
-            </li>
-            <li>
                 <%= link_to t(:'users.menu'), user_path(current_user.id), :'data-role' => "button",  :'data-icon' => "stats", :'data-transition' => "slidedown", :class => highlight_current_tab("users") %>
             </li>
         </ul>

@@ -25,48 +25,6 @@ sv:
     points_received: "Du har fått poäng för denna träning"
     future_events: "Framtida träningar"
     past_events: "Historik"
-  circles:
-    header: "Cirklar"
-    new: "Ny cirkel"
-    pending_memberships: "Obesvarade inbjudningar"
-    your_circles: "Dina cirklar"
-    all_public_circles: "Alla publika cirklar"
-    show:
-      settings: "Inställningar"
-      members: "Medlemmar"
-      invite_users: "Bjud in fler medarbetare"
-      awaiting_approval: "Väntar på svar"
-      accept_invite: "Acceptera inbjudan"
-      decline_invite: "Tacka nej till inbjudan"
-      leave_circle: "Gå ur cirkeln"
-    new:
-      header: "Ny cirkel"
-      title: "Titel"
-      title_placeholder: "Titel på din cirkel"
-      public_circle: "Publik cirkel?"
-      secret: "Hemlig"
-      public: "Publik"
-      add_users: "Lägg till personer"
-      create: "Skapa cirkel"
-    edit:
-      header: "Bjud in"
-      invite: "Bjud in medarbetare"
-      send_invitations: "Skicka inbjudningar"
-    settings:
-      header: "Inställningar"
-      share_score: "Visa din poäng inom cirkeln?"
-      circle_color: "Cirkelfärg"
-    colors:
-      none: "Ingen färg"
-      transparent: "Ingen färg"
-      red: "Röd"
-      orange: "Orange"
-      yellow: "Gul"
-      lime: "Lime"
-      green: "Grön"
-      light_blue: "Ljusblå"
-      blue: "Blå"
-      purple: "Lila"
   users:
     menu: "Personligt"
     show:

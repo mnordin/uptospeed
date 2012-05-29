@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
-
-one:
-  hex: MyString
-  color: MyString
-
-two:
-  hex: MyString
-  color: MyString

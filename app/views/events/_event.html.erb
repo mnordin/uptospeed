@@ -4,6 +4,5 @@
         <p><%= places(event.where) %></p>
         <p class="ui-li-aside event-time"><strong><%= event.start_time.to_s(:time) %> - <%= event.end_time.to_s(:time) %></strong></p>
         <span class="ui-li-count attending-amount<%= event.users.count == 0 ? " not-visible" : "" %>"><%= event.users.count %></span>
-        <%= ring(:event => event) %>
     <% end %>
 </li>

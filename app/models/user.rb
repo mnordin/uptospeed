@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
   has_many :events, :through => :attendances
-  has_many :circles, :through => :circle_memberships
-  has_many :circle_memberships
   has_many :attendances
   belongs_to :office
 

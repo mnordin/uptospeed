@@ -2,8 +2,6 @@
 
 Up to Speed is the training program at Mynewsdesk. This is the jQuery Mobile-powered mobile web app where users can attend events and see a list of attendees on any event.
 
-Power users can also create circles, where they can share their score to friends and more easily get an overview of attendees to any event.
-
 ## Examination work
 
 This mobile web app was conceived during my examination work at Mynewsdesk. Main emphasize of the project has been to highlight the core values of the organization and the training program - to include users and create a community within the company. It's also fun, damnit!
