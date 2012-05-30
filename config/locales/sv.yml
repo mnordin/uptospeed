@@ -26,7 +26,7 @@ sv:
     future_events: "Framtida träningar"
     past_events: "Historik"
   reads:
-    create: "Lärande 60 min"
+    create: "Inlärning 60 min"
     error: "The competence improvement could not be registered, try again a bit later"
     success: "Your competence improvement has been registered!"
   users:
