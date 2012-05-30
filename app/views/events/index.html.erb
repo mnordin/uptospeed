@@ -7,14 +7,17 @@
         <%= link_to t(:'shared.next'), events_path(future_events_params), :'data-role' => "button", :'data-icon' => "arrow-r", :'data-iconpos' => "notext", :class => "ui-btn-right" %>
     <% end %>
 </div>
-<div class="ui-grid-a">
+<div class="ui-grid-a ui-body-a">
     <div class="ui-block-a">
-        <a href="#" data-role="button">Träning 60 min</a>
+        <%= form_for @workout, :'data-ajax' => "false" do |f| %>
+            <%= f.hidden_field :user_id %>
+            <%= f.submit "Workout 60 min", :'data-theme' => "g" %>
+        <% end %>
     </div>
     <div class="ui-block-b">
-        <%= form_for @read, :'data-transition' => "none" do |f| %>
+        <%= form_for @read, :'data-ajax' => "false" do |f| %>
             <%= f.hidden_field :user_id %>
-            <%= f.submit "Läsa 60 min", :'data-theme' => "g" %>
+            <%= f.submit "Learning 60 min", :'data-theme' => "g" %>
         <% end %>
     </div>
 </div>

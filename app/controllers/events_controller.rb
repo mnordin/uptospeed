@@ -22,6 +22,7 @@ class EventsController < ApplicationController
       end
     end
     @read = Read.new(:user => current_user)
+    @workout = Workout.new(:user => current_user)
     set_back_url
   end
 
