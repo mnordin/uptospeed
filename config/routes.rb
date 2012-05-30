@@ -10,7 +10,7 @@ UpToSpeed::Application.routes.draw do
   match "/events/appcache" => "events#appcache", :as => :appcache
   match "/manifest" => "events#manifest", :as => :appcache_manifest
 
-  resources :users, :events, :reads, :workouts
+  resources :users, :events, :learnings, :workouts
 
   root :to => 'events#index'
 end

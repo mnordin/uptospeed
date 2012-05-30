@@ -1,6 +1,6 @@
-class ReadsController < ApplicationController
+class LearningsController < ApplicationController
   def create
-    if Read.create(params[:read])
+    if Learning.create(params[:read])
       flash = { :success => I18n.t(:'reads.success') }
     else
       flash = { :error => I18n.t(:'reads.error') }

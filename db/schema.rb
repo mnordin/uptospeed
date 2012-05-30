@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530071946) do
+ActiveRecord::Schema.define(:version => 20120530093358) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "user_id"
@@ -34,16 +34,16 @@ ActiveRecord::Schema.define(:version => 20120530071946) do
     t.boolean  "public",     :default => true
   end
 
-  create_table "offices", :force => true do |t|
-    t.string   "title"
-    t.string   "lat"
-    t.string   "lng"
+  create_table "learnings", :force => true do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "reads", :force => true do |t|
-    t.integer  "user_id"
+  create_table "offices", :force => true do |t|
+    t.string   "title"
+    t.string   "lat"
+    t.string   "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

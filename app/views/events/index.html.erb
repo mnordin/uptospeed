@@ -15,7 +15,7 @@
         <% end %>
     </div>
     <div class="ui-block-b">
-        <%= form_for @read, :'data-ajax' => "false" do |f| %>
+        <%= form_for @learning, :'data-ajax' => "false" do |f| %>
             <%= f.hidden_field :user_id %>
             <%= f.submit t(:'reads.create'), :'data-theme' => "g" %>
         <% end %>
