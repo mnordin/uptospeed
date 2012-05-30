@@ -11,13 +11,13 @@
     <div class="ui-block-a">
         <%= form_for @workout, :'data-ajax' => "false" do |f| %>
             <%= f.hidden_field :user_id %>
-            <%= f.submit "Workout 60 min", :'data-theme' => "g" %>
+            <%= f.submit t(:'workouts.create'), :'data-theme' => "g" %>
         <% end %>
     </div>
     <div class="ui-block-b">
         <%= form_for @read, :'data-ajax' => "false" do |f| %>
             <%= f.hidden_field :user_id %>
-            <%= f.submit "Learning 60 min", :'data-theme' => "g" %>
+            <%= f.submit t(:'reads.create'), :'data-theme' => "g" %>
         <% end %>
     </div>
 </div>

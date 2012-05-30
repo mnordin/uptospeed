@@ -1,9 +1,9 @@
 class WorkoutsController < ApplicationController
   def create
     if Workout.create(params[:workout])
-      flash = { :success => "Workout created!" }
+      flash = { :success => I18n.t(:'workouts.success') }
     else
-      flash = { :error => "There was an error creating the Workout" }
+      flash = { :error => I18n.t(:'workouts.error') }
     end
     redirect_to events_path, :flash => flash
   end
