@@ -13,7 +13,7 @@ sv:
     forms:
       save: "Spara"
   events:
-    header: "Träningar"
+    header: "Mina pass"
     map: "Karta"
     attendances:
       header: "Anmälda"
@@ -25,6 +25,10 @@ sv:
     points_received: "Du har fått poäng för denna träning"
     future_events: "Framtida träningar"
     past_events: "Historik"
+  reads:
+    create: "Lärande 60 min"
+    error: "The competence improvement could not be registered, try again a bit later"
+    success: "Your competence improvement has been registered!"
   users:
     menu: "Personligt"
     show:
@@ -47,9 +51,14 @@ sv:
     copenhagen: "Köpenhamn"
     london: "London"
     singapore: "Singapore"
+  workouts:
+    create: "Workout 60 min"
+    error: "Workouten gick inte att spara, försök igen lite senare"
+    success: "Din workout är registrerad!"
   locales:
     en: "Engelska"
     sv: "Svenska"
+
   number:
     # Used in number_with_delimiter()
     # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'

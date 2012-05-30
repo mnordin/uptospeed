@@ -13,7 +13,7 @@ en:
     forms:
       save: "Save"
   events:
-    header: "Events"
+    header: "My events"
     map: "Map"
     attendances:
       header: "Attendances"
@@ -25,6 +25,10 @@ en:
     points_received: "You've received points for this training"
     future_events: "Future training events"
     past_events: "History"
+  reads:
+    create: "Learning 60 min"
+    error: "The competence improvement could not be registered, try again a bit later"
+    success: "Your competence improvement has been registered!"
   users:
     menu: "Personal"
     show:
@@ -47,10 +51,14 @@ en:
     copenhagen: "Copenhagen"
     london: "London"
     singapore: "Singapore"
+  workouts:
+    create: "Workout 60 min"
+    error: "The workout could not be registered, try again a bit later"
+    success: "Your workout has been registered!"
   locales:
     en: "English"
     sv: "Swedish"
-  
+
   # Date formats, only add the ones that
   date:
     formats:
