@@ -33,6 +33,11 @@ class User < ActiveRecord::Base
     circle_memberships.select{|cm| cm.accepted? == false }
   end
 
+  def self.total_points_this_month
+    this_month = {:created_at => Time.now.beginning_of_month..Time.now.end_of_month}
+    Attendance.where(this_month).count + Workout.where(this_month).count + Learning.where(this_month).count
+  end
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.first_name = auth["user_info"]["first_name"]
