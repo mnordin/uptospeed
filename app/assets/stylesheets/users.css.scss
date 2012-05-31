@@ -9,3 +9,11 @@
     font-size:24px;
     font-weight:bold;
 }
+.graph {
+    height: 70px;
+}
+.graph.parent{
+    border: none;
+    height: 72px;
+    overflow: hidden;
+}

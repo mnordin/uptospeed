@@ -3,6 +3,8 @@
     <%= link_to t(:'users.show.settings'), edit_user_path(@user), :'data-role' => "button", :'data-transition' => "flip", :'data-icon' => "gear", :'data-iconpos' => "notext", :class => "ui-btn-right" %>
 </div>
 <div data-role="content" data-theme="b">
+    <%= render :partial => "points_graph" %>
+
     <div class="center-content">
         <p id="total-score"><%= raw t(:'users.show.total_duration', duration: @duration.round) %></p>
         <p><%= raw t(:'users.show.total_score', score: @user.total_score) %>
