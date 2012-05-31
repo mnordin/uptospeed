@@ -5,6 +5,6 @@ class LearningsController < ApplicationController
     else
       flash = { :error => I18n.t(:'reads.error') }
     end
-    redirect_to events_path, :flash => flash
+    redirect_to user_path(current_user), :flash => flash
   end
 end
