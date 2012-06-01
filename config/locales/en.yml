@@ -33,6 +33,7 @@ en:
     menu: "Personal"
     show:
       header: "Statistics"
+      collective_points_this_month: "%{score} collective points this month"
       total_score: "You have a total of <span>%{score}</span> points"
       total_duration: "You have trained for about <span>%{duration}</span> hours"
       settings: "Settings"

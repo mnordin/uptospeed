@@ -33,6 +33,7 @@ sv:
     menu: "Personligt"
     show:
       header: "Statistik"
+      collective_points_this_month: "%{score} gemensamma poäng denna månad"
       total_score: "Du har totalt <span>%{score}</span> poäng"
       total_duration: "Du har tränat ungefär <span>%{duration}</span> timmar"
       settings: "Inställningar"
