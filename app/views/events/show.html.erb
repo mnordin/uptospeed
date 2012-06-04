@@ -24,7 +24,6 @@
             <% @event.users.each do |user| %>
                 <li<%= you_class(user) %>>
                     <%= user.name %>
-                    <%= ring(:user => user) %>
                 </li>
             <% end %>
         </ul>
