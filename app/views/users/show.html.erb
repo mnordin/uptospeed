@@ -11,9 +11,20 @@
     </div>
     <% if @user.events.future.present? %>
         <ul data-role="listview" data-inset="true" data-theme="d">
-            <li data-role="list-divider"><%= t(:'events.future_events') %> <span class="ui-li-count"><%= @user.future_events.count %></span></li>
-            <% @user.future_events.each do |event| %>
-                <%= render :partial => "user_event_list", locals: { event: event } %>
+            <li data-role="list-divider"><%= t(:'events.future_events') %> <span class="ui-li-count"><%= @user.events.future.count %></span></li>
+            <% @user.events.future.each do |event| %>
+                <li>
+                    <%= link_to event_path(event, :url => request.url), :'data-transition' => "pop" do %>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <%= event.title %>
+                            </div>
+                            <div class="ui-block-b right-content">
+                                <%= l event.start_time, :format => :shorter %>
+                            </div>
+                        </div>
+                    <% end %>
+                </li>
             <% end %>
         </ul>
     <% end %>
