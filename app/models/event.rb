@@ -8,6 +8,9 @@ class Event < ActiveRecord::Base
   validates :start_time, :timeliness => {:type => :time}
   validates :end_time, :timeliness => {:after => :start_time, :type => :time}
 
+  scope :past, lambda { where("start_time < ?", Time.now) }
+  scope :future, lambda { where("start_time > ?", Time.now) }
+
   def score
     1
   end

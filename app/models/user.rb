@@ -10,15 +10,7 @@ class User < ActiveRecord::Base
   end
 
   def total_score
-    past_events.map(&:score).sum
-  end
-
-  def future_events
-    events.select{|e| e.start_time > Time.now }
-  end
-
-  def past_events
-    events.select{|e| e.start_time < Time.now }
+    events.past.map(&:score).sum
   end
 
   def has_accepted_membership?(circle)
