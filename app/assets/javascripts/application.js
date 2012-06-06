@@ -4,13 +4,13 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require "jquery-1.6.4"
+//= require "jquery-1.7.1.min"
 
 //= require "events"
 //= require "sessions"
 //= require "users"
 
 //= require "jquery.mobile.custom"
-//= require "jquery.mobile-1.0"
+//= require "jquery.mobile-1.1.0.min"
 //= require "jquery.ui.map.full.min"
 //= require_tree .
