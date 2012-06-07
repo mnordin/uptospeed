@@ -1,8 +1,8 @@
 <div class="level">
-	<div class="info-header <%= level_theme(@level) %>">
+	<div class="info-header shadow <%= level_theme(@level) %>">
 		<h1>Level <%= @level.level %></h1>
 	</div>
-	<div class="content ui-body-d">
+	<div class="content ui-body-d shadow">
 		<div class="ui-grid-a">
 		    <div class="ui-block-a points"><%= raw t(:'levels.total_points', :total_points => @total_points) %></div>
 		    <% if @level.level < 9 %>
