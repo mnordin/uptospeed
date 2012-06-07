@@ -46,10 +46,7 @@ class EventsController < ApplicationController
     render :layout => false
   end
 
-  def manifest
-    send_file "public/uptospeed.appcache", :type => "text/cache-manifest"
-  end
-
+  private
   def weekend?(date)
     date.wday == 6 or date.wday == 0
   end

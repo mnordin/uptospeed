@@ -2,13 +2,9 @@
     <h1 data-title="Up to Speed"><%= @user.name %></h1>
     <%= link_to t(:'users.show.settings'), edit_user_path(@user), :'data-role' => "button", :'data-transition' => "flip", :'data-icon' => "gear", :'data-iconpos' => "notext", :class => "ui-btn-right" %>
 </div>
-<div data-role="content" data-theme="b">
-    <%= render :partial => "points_graph" %>
+<div data-role="content" class="<%= level_theme(@level) %>">
+    <%= render :partial => "level" %>
 
-    <div class="center-content">
-        <p id="total-score"><%= raw t(:'users.show.total_duration', duration: @duration.round) %></p>
-        <p><%= raw t(:'users.show.total_score', score: @user.total_score) %>
-    </div>
     <% if @user.events.future.present? %>
         <ul data-role="listview" data-inset="true" data-theme="d">
             <li data-role="list-divider"><%= t(:'events.future_events') %> <span class="ui-li-count"><%= @user.events.future.count %></span></li>
@@ -29,17 +25,35 @@
         </ul>
     <% end %>
 
-    <% if @user.events.past.present? %>
-        <div data-role="collapsible-set">
-            <div data-role="collapsible" data-collapsed="true" data-theme="d" data-content-theme="c">
-                <h3><%= t(:'events.past_events') %> <span class="count"><%= @user.events.past.count %></span></h3>
-                <ul data-role="listview" data-inset="true" data-theme="d">
-                    <% @user.events.past.each do |event| %>
-                        <%= render :partial => "user_event_list", locals: { event: event } %>
-                    <% end %>
-                </ul>
-            </div>
-        </div>
-    <% end %>
+    <ul data-role="listview" data-inset="true" data-theme="d" data-content-theme="c">
+        <li data-role="list-divider"><%= t(:'events.all_types_this_month') %> <span class="ui-li-count"><%= @user.events_learnings_and_workouts_this_month.count %></span></li>
+        <% @user.events_learnings_and_workouts_this_month.each do |event| %>
+            <li>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <%= event.title %>
+                    </div>
+                    <div class="ui-block-b right-content">
+                        <%= l event.start_time, :format => :shorter %>
+                    </div>
+                </div>
+            </li>
+        <% end %>
+    </ul>
+    <ul data-role="listview" data-inset="true" data-theme="d" data-content-theme="c">
+        <li data-role="list-divider"><%= t(:'events.all_types_history') %></li>
+        <% @user.all_events_learnings_and_workouts.each do |type, count| %>
+            <li>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <%= type %>
+                    </div>
+                    <div class="ui-block-b right-content">
+                        <%= count %>
+                    </div>
+                </div>
+            </li>
+        <% end %>
+    </ul>
 </div>
 <%= render :partial => "/main_navigation" %>

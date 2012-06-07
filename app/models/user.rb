@@ -12,25 +12,18 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def events_learnings_and_workouts_this_month
+    (workouts.where({:created_at => Time.now.beginning_of_month..Time.now.end_of_month}) +
+    learnings.where({:created_at => Time.now.beginning_of_month..Time.now.end_of_month}) +
+    events.where({:start_time => Time.now.beginning_of_month..Time.now.end_of_month})).sort { |o, p| o.created_at <=> p.created_at }.reverse
+  end
+
+  def all_events_learnings_and_workouts
+    { "Workouts" => workouts.count, "Learnings" => learnings.count, "Events" => events.count }
+  end
+
   def total_score
-    events.past.map(&:score).sum
-  end
-
-  def has_accepted_membership?(circle)
-    circle_memberships.select{|cm| cm.circle == circle }.map(&:accepted?).first == true
-  end
-
-  def hasnt_accepted_membership?(circle)
-    circle_memberships.select{|cm| cm.circle == circle }.map(&:accepted?).first == false
-  end
-
-  def pending_memberships
-    circle_memberships.select{|cm| cm.accepted? == false }
-  end
-
-  def self.total_points_this_month
-    this_month = {:created_at => Time.now.beginning_of_month..Time.now.end_of_month}
-    Attendance.where(this_month).count + Workout.where(this_month).count + Learning.where(this_month).count
+    events.past.count
   end
 
   def self.create_with_omniauth(auth)

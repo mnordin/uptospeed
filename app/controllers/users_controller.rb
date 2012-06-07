@@ -9,8 +9,9 @@ class UsersController < ApplicationController
     set_back_url
     @user = User.find(current_user.id)
     @duration = @user.events.past.map(&:duration).sum / 3600
-    @total_points = User.total_points_this_month
-    @percentage = (@total_points / 750.0) * 100
+    @total_points = Event.total_points_this_month
+    @level = Level.new(@total_points)
+    @percentage = (Float(@level.start_level - @total_points) / (@level.start_level - @level.next_level)) * 100
   end
 
   def edit

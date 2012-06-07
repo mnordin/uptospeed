@@ -13,6 +13,8 @@ en:
     forms:
       save: "Save"
   events:
+    all_types_history: "Archive"
+    all_types_this_month: "All trainings this month"
     header: "My events"
     map: "Map"
     attendances:
@@ -33,7 +35,6 @@ en:
     menu: "Personal"
     show:
       header: "Statistics"
-      collective_points_this_month: "%{score} collective points this month"
       total_score: "You have a total of <span>%{score}</span> points"
       total_duration: "You have trained for about <span>%{duration}</span> hours"
       settings: "Settings"
@@ -56,6 +57,9 @@ en:
     create: "Workout 60 min"
     error: "The workout could not be registered, try again a bit later"
     success: "Your workout has been registered!"
+  levels:
+    total_points: "<strong>%{total_points}</strong> points so far"
+    next_level: "Next level: <strong>%{next_level_points}</strong>"
   locales:
     en: "English"
     sv: "Swedish"

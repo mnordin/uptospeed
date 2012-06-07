@@ -1,0 +1,16 @@
+<div class="level">
+	<div class="info-header <%= level_theme(@level) %>">
+		<h1>Level <%= @level.level %></h1>
+	</div>
+	<div class="content ui-body-d">
+		<div class="ui-grid-a">
+		    <div class="ui-block-a points"><%= raw t(:'levels.total_points', :total_points => @total_points) %></div>
+		    <% if @level.level < 9 %>
+		    	<div class="ui-block-b next-level"><%= raw t(:'levels.next_level', :next_level_points => @level.next_level - @total_points) %></div>
+		    <% end %>
+		</div>
+	    <div class="graph parent ui-body-a">
+	        <div class="graph <%= level_theme(@level) %>" style="width:<%= @percentage %>%"></div>
+	    </div>
+	</div>
+</div>

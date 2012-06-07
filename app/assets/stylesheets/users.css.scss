@@ -9,12 +9,28 @@
     font-size:24px;
     font-weight:bold;
 }
+.level {
+    margin-bottom: 40px;
+}
+.level h1 {
+    text-align: center;
+    text-shadow: none;
+    font-size: 2em;
+    margin: 4px;
+    color: #000;
+}
+.level .points {
+    text-align: left;
+}
+.level .next-level {
+    text-align: right;
+}
 .graph {
     height: 60px;
 }
-.graph.parent{
+.graph.parent {
     border: none;
     height: 62px;
     overflow: hidden;
-    margin-bottom:70px;
+    margin: 14px 6px 20px 6px;
 }

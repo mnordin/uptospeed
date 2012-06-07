@@ -13,6 +13,8 @@ sv:
     forms:
       save: "Spara"
   events:
+    all_types_history: "Historik"
+    all_types_this_month: "Alla träningar denna månad"
     header: "Mina pass"
     map: "Karta"
     attendances:
@@ -33,7 +35,6 @@ sv:
     menu: "Personligt"
     show:
       header: "Statistik"
-      collective_points_this_month: "%{score} gemensamma poäng denna månad"
       total_score: "Du har totalt <span>%{score}</span> poäng"
       total_duration: "Du har tränat ungefär <span>%{duration}</span> timmar"
       settings: "Inställningar"
@@ -56,6 +57,9 @@ sv:
     create: "Workout 60 min"
     error: "Workouten gick inte att spara, försök igen lite senare"
     success: "Din workout är registrerad!"
+  levels:
+    total_points: "<strong>%{total_points}</strong> poäng hittills"
+    next_level: "Nästa nivå: <strong>%{next_level_points}</strong>"
   locales:
     en: "Engelska"
     sv: "Svenska"

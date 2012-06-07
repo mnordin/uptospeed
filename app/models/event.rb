@@ -10,10 +10,8 @@ class Event < ActiveRecord::Base
 
   scope :past, lambda { where("start_time < ?", Time.now) }
   scope :future, lambda { where("start_time > ?", Time.now) }
-
-  def score
-    1
-  end
+  scope :this_month, lambda { where("start_time > ?", Time.now.beginning_of_month)}
+  scope :old, lambda { where("start_time < ?", Time.now.beginning_of_month)}
 
   def duration
     end_time - start_time
@@ -26,6 +24,11 @@ class Event < ActiveRecord::Base
   def google_event
     service = Event.auth_google_service
     GCal4Ruby::Event.find(service, :id => google_id)
+  end
+
+  def self.total_points_this_month
+    this_month = {:created_at => Time.now.beginning_of_month..Time.now.end_of_month}
+    Attendance.where(this_month).count + Workout.where(this_month).count + Learning.where(this_month).count
   end
 
   def self.exists_before?(time)
