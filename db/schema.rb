@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530093358) do
+ActiveRecord::Schema.define(:version => 20120607221326) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "user_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20120530093358) do
     t.string   "lat"
     t.string   "lng"
     t.boolean  "public",     :default => true
+    t.integer  "office_id"
   end
 
   create_table "learnings", :force => true do |t|

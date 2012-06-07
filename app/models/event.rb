@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   has_many :users, :through => :attendances
   has_many :attendances
+  belongs_to :office
 
   validates :google_id, :presence => true, :uniqueness => true
   validates :title, :presence => true
