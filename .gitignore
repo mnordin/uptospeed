@@ -5,3 +5,4 @@ tmp/
 .sass-cache/
 *.DS_Store
 config/appconfig.yml
+config/initalizers/google_auth_environment.rb
