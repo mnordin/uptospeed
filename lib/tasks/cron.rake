@@ -13,6 +13,9 @@ task :cron => :environment do
       local_event.end_time = event_from_google.end_time
       local_event.content = event_from_google.content
 
+      # Refactor this when the other offices gets their own up to speed!
+      local_event.office_id = Office.find_by_title("stockholm").id
+
       # Get latitude and longitude from Google Maps API
       sess = Patron::Session.new
       address = CGI.escape(local_event.where)
