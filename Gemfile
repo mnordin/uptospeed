@@ -30,7 +30,7 @@ gem "omniauth", "~> 0.3.0"
 # Airbrake for debugging
 # periodically getting threaderrors, version is pulled from github as fix
 # https://github.com/37signals/pow/issues/191
-gem "airbrake", :git => "https://github.com/airbrake/airbrake.git"
+gem "airbrake"
 
 # Thin speeds up environment on Cedar, http://devcenter.heroku.com/articles/cedar#using_cedar
 gem 'thin'
