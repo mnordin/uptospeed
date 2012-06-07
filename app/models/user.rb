@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :events, :through => :attendances
   has_many :attendances
+  has_many :workouts
+  has_many :learnings
+
   belongs_to :office
 
   validates :email, :presence => true, :uniqueness => true
