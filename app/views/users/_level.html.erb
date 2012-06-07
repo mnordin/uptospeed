@@ -6,7 +6,7 @@
 		<div class="ui-grid-a">
 		    <div class="ui-block-a points"><%= raw t(:'levels.total_points', :total_points => @total_points) %></div>
 		    <% if @level.level < 9 %>
-		    	<div class="ui-block-b next-level"><%= raw t(:'levels.next_level', :next_level_points => @level.next_level - @total_points) %></div>
+		    	<div class="ui-block-b next-level"><%= raw t(:'levels.next_level', :next_level_points => @level.next_level) %></div>
 		    <% end %>
 		</div>
 	    <div class="graph parent ui-body-a">
