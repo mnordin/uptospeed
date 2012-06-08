@@ -27,6 +27,9 @@ en:
     points_received: "You've received points for this training"
     future_events: "Future training events"
     past_events: "History"
+    no_events:
+      description: "Only the Stockholm office have scheduled events at the moment. Please use the buttons above to register your training."
+      update_settings: "If you belong to Stockholm office, please go to your personal settings and update your information."
   reads:
     create: "Learning 60 min"
     error: "The competence improvement could not be registered, try again a bit later"

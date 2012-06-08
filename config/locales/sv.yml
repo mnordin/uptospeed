@@ -27,6 +27,9 @@ sv:
     points_received: "Du har fått poäng för denna träning"
     future_events: "Framtida träningar"
     past_events: "Historik"
+    no_events:
+      description: "Bara Stockholmskontoret har schemalagda träningar för tillfället. Var god använd knapparna ovan för att registrera din träning."
+      update_settings: "Om du tillhör Stockholmskontoret, var god gå till dina personliga inställningar och uppdatera din information."
   reads:
     create: "Inlärning 60 min"
     error: "The competence improvement could not be registered, try again a bit later"
