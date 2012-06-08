@@ -24,10 +24,12 @@
 <div data-role="content" data-theme="c">
     <div id="events">
         <ul data-role="listview" data-divider-theme="b" data-split-theme="c" data-split-icon="arrow-r">
-        <% @events_grouped.each do |date, events| %>
-            <li data-role="list-divider" role="heading" class="<%= date.strftime("%A").downcase %><%= date.end_of_day < Time.now ? " old" : "" %><%= today?(date) %>"><%= l date, :format => :list %></li>
-            <% events.each do |event| %>
-                <%= render :partial => "event", :locals => { :event => event } %>
+        <% if @events_grouped.present? %>
+            <% @events_grouped.each do |date, events| %>
+                <li data-role="list-divider" role="heading" class="<%= date.strftime("%A").downcase %><%= date. end_of_day < Time.now ? " old" : "" %><%= today?(date) %>"><%= l date, :format => :list %></li>
+                <% events.each do |event| %>
+                    <%= render :partial => "event", :locals => { :event => event } %>
+                <% end %>
             <% end %>
         <% end %>
         </ul>
