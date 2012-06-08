@@ -5,7 +5,7 @@
 	<div class="content ui-body-d shadow">
 		<div class="ui-grid-a">
 		    <div class="ui-block-a points"><%= raw t(:'levels.total_points', :total_points => @total_points) %></div>
-		    <% if @level.level < 9 %>
+		    <% if @level.level < 10 %>
 		    	<div class="ui-block-b next-level"><%= raw t(:'levels.next_level', :next_level_points => @level.next_level) %></div>
 		    <% end %>
 		</div>
