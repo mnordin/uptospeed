@@ -65,9 +65,9 @@ en:
   levels:
     total_points: "<strong>%{total_points}</strong> points so far"
     next_level: "Next level: <strong>%{next_level_points}</strong>"
-    explanation: "Together with all your colleagues, we call level up together. The score is a compilation of everyones learnings, workouts and registered training events. It's reset in the end of each month and generates money to the San Fran Plan depending on what level we reach."
+    explanation: "Together with all your colleagues, we level up together. The score is a compilation of everyones learnings, workouts and registered training events. It's reset in the end of each month and generates money to the San Fran Plan depending on what level we reach."
     pay_out: "Level 7 through 9 generates 1000 euro. Level 10 generates 2000 euro."
-    points: "%{points} poäng"
+    points: "%{points} points"
     disclaimer: "Observe that the thresholds to each level may be changed."
   locales:
     en: "English"
