@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     auth = request.env["omniauth.auth"]
     if user = User.find_by_email(auth["user_info"]["email"])
       session[:user_id] = user.id
-      redirect_to root_path, :notice => "Signed in!"
+      redirect_to root_path
     else
       user = User.create_with_omniauth(auth)
       session[:user_id] = user.id
