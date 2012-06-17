@@ -27,6 +27,8 @@ sv:
     points_received: "Du har fått poäng för denna träning"
     future_events: "Framtida träningar"
     past_events: "Historik"
+    information:
+      whats_this: "Vad är detta?"
     no_events:
       description: "Bara Stockholmskontoret har schemalagda träningar för tillfället. Var god använd knapparna ovan för att registrera din träning."
       update_settings: "Om du tillhör Stockholmskontoret, var god gå till dina personliga inställningar och uppdatera din information."
@@ -63,6 +65,10 @@ sv:
   levels:
     total_points: "<strong>%{total_points}</strong> poäng hittills"
     next_level: "Nästa nivå: <strong>%{next_level_points}</strong>"
+    explanation: "Tillsammans med alla dina medarbetarbetare går vi tillsammans upp i nivå. Poängen är en sammanställning av alla anställdas inlärningar, workouts och anmälda träningstillfällen. Den nollställs i slutet av varje månad och genererar pengar till San Fran Plan beroende på vilken nivå vi ligger på."
+    pay_out: "Level 7 till 9 genererar 10 000 kr. Level 10 genererar 20 000 kr."
+    points: "%{points} poäng"
+    disclaimer: "Observera att trösklarna till dessa nivåer kan ändras."
   locales:
     en: "Engelska"
     sv: "Svenska"

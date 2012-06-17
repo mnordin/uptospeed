@@ -1,0 +1,21 @@
+<div data-role="header" data-position="fixed">
+    <h1 data-title="Up to Speed">Levels</h1>
+</div>
+<div data-role="content" class="ui-body-b">
+    <p><%= t(:'levels.explanation') %></p>
+    <p><%= t(:'levels.pay_out') %></p>
+    <ol class="levels-legend">
+        <li><%= t(:'levels.points', :points => 0) %></li>
+        <li><%= t(:'levels.points', :points => 9) %></li>
+        <li><%= t(:'levels.points', :points => 38) %></li>
+        <li><%= t(:'levels.points', :points => 85) %></li>
+        <li><%= t(:'levels.points', :points => 150) %></li>
+        <li><%= t(:'levels.points', :points => 235) %></li>
+        <li class="mid"><%= t(:'levels.points', :points => 375) %></li>
+        <li class="mid"><%= t(:'levels.points', :points => 462) %></li>
+        <li class="mid"><%= t(:'levels.points', :points => 620) %></li>
+        <li class="full"><%= t(:'levels.points', :points => 750) %></li>
+    </ol>
+    <p class="light"><%= t(:'levels.disclaimer') %></p>
+</div>
+<%= render :partial => "/notification", :locals => { :flash => flash } %>

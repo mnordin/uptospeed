@@ -1,5 +1,6 @@
 <div class="level">
 	<div class="info-header shadow <%= level_theme(@level) %>">
+		<%= link_to t(:'users.show.information.whats_this'), levels_info_path(current_user), :'data-role' => "button", :'data-rel' => "dialog", :'data-icon' => "info", :'data-iconpos' => "notext", :class => "ui-btn-left float-left" %>
 		<h1>Level <%= @level.level %></h1>
 	</div>
 	<div class="content ui-body-d shadow">
