@@ -21,7 +21,7 @@
         </li>
         <li data-role="fieldcontain" class="row ui-body-b">
             <%= f.label :office_id, t(:'users.edit.office') %>
-            <%= f.select :office_id, options_from_collection_for_select(@offices, :id, :i18n_title, f.object.office_id) %>
+            <%= f.select :office_id, options_from_collection_for_select(@offices, :id, :i18n_title, f.object.office_id), :include_blank => t(:'users.edit.choose_office') %>
         </li>
         <li data-role="fieldcontain" class="row">
             <%= f.label :locale, t(:'users.edit.locale') %>

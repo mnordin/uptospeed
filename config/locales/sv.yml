@@ -46,6 +46,7 @@ sv:
     edit:
       header: "Redigera din profil"
       office: "Kontor"
+      choose_office: "Välj kontor"
       first_name: "Förnamn"
       last_name: "Efternamn"
       locale: "Språk"

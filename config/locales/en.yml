@@ -46,6 +46,7 @@ en:
     edit:
       header: "Edit your profile"
       office: "Office"
+      choose_office: "Choose office"
       first_name: "First name"
       last_name: "Last name"
       locale: "Language"
