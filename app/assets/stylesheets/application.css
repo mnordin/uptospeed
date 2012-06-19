@@ -31,6 +31,9 @@
     overflow:hidden;
     clear:both;
 }
+.pos-abs{
+    position: absolute;
+}
 .left-content{
     text-align:left;
 }
