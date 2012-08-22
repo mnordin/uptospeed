@@ -25,12 +25,12 @@ en:
       accept: "Yes, i will attend!"
       decline: "No, I changed my mind"
     points_received: "You've received points for this training"
-    future_events: "Future training events"
+    future_events: "Future trainings"
     past_events: "History"
     information:
       whats_this: "What's this?"
     no_events:
-      description: "Only the Stockholm office have scheduled events at the moment. Please use the buttons above to register your training."
+      description: "Only the Stockholm office have scheduled trainings at the moment. Please use the buttons above to register your training."
       update_settings: "If you belong to Stockholm office, please go to your personal settings and update your information."
   reads:
     create: "Learning 60 min"
@@ -66,7 +66,7 @@ en:
   levels:
     total_points: "<strong>%{total_points}</strong> points so far"
     next_level: "Next level: <strong>%{next_level_points}</strong>"
-    explanation: "Together with all your colleagues, we level up together. The score is a compilation of everyones learnings, workouts and registered training events. It's reset in the end of each month and generates money to the San Fran Plan depending on what level we reach."
+    explanation: "Together with all your colleagues, we level up together. The score is a compilation of everyones learnings, workouts and registered trainings. It's reset in the end of each month and generates money to the San Fran Plan depending on what level we reach."
     pay_out: "Level 7 through 9 generates 1000 euro. Level 10 generates 2000 euro."
     points: "%{points} points"
     disclaimer: "Observe that the thresholds to each level may be changed."
