@@ -15,7 +15,7 @@ en:
   events:
     all_types_history: "Archive"
     all_types_this_month: "All trainings this month"
-    header: "My events"
+    header: "Training"
     map: "Map"
     attendances:
       header: "Attendances"
@@ -37,7 +37,7 @@ en:
     error: "The competence improvement could not be registered, try again a bit later"
     success: "Your competence improvement has been registered!"
   users:
-    menu: "Personal"
+    menu: "Statistics"
     show:
       header: "Statistics"
       total_score: "You have a total of <span>%{score}</span> points"

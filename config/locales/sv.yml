@@ -15,7 +15,7 @@ sv:
   events:
     all_types_history: "Historik"
     all_types_this_month: "Alla träningar denna månad"
-    header: "Mina pass"
+    header: "Träningar"
     map: "Karta"
     attendances:
       header: "Anmälda"
@@ -37,7 +37,7 @@ sv:
     error: "The competence improvement could not be registered, try again a bit later"
     success: "Your competence improvement has been registered!"
   users:
-    menu: "Personligt"
+    menu: "Statistik"
     show:
       header: "Statistik"
       total_score: "Du har totalt <span>%{score}</span> poäng"
