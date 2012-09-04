@@ -44,10 +44,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def appcache
-    render :layout => false
-  end
-
   private
   def weekend?(date)
     date.wday == 6 or date.wday == 0
