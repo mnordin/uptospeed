@@ -4,7 +4,11 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require "jquery.mobile-1.1.1.min"
  *= require_self
- *= require_tree . 
+ *= require "scaffolds"
+ *= require "events"
+ *= require "users"
+ *= require "mnd-theme"
+ *= require_tree .
 */
 
 .footer-navigation{

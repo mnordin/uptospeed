@@ -7,8 +7,6 @@
 //= require "jquery-1.7.1.min"
 
 //= require "events"
-//= require "sessions"
-//= require "users"
 
 //= require "jquery.mobile.custom"
 //= require "jquery.mobile-1.1.1.min"
