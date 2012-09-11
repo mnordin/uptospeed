@@ -22,7 +22,8 @@ gem "gcal4ruby"
 
 # Beta Omniauth with new specific gem for OpenId, https://github.com/intridea/omniauth
 #gem 'oa-openid', "~> 0.3.0"
-gem "omniauth", "~> 0.3.0"
+gem "omniauth"
+gem "omniauth-google-apps"
 
 # Airbrake for debugging
 # periodically getting threaderrors, version is pulled from github as fix

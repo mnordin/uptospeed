@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   # sign in using omniauth
   def sign_in
     auth = request.env["omniauth.auth"]
-    if user = User.find_by_email(auth["user_info"]["email"])
+    if user = User.find_by_email(auth["info"]["email"])
       session[:user_id] = user.id
       redirect_to root_path
     else
