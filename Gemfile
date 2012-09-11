@@ -12,7 +12,6 @@ end
 
 group :test, :development do
   gem "rspec-rails", "~> 2.6"
-  gem "capybara"
 end
 
 gem 'json'
@@ -20,8 +19,6 @@ gem "pg", "0.11.0"
 gem "patron", "~> 0.4.16"
 
 gem "gcal4ruby"
-
-gem "validates_timeliness", "~> 3.0.2"
 
 # Beta Omniauth with new specific gem for OpenId, https://github.com/intridea/omniauth
 #gem 'oa-openid', "~> 0.3.0"
