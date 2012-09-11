@@ -30,7 +30,7 @@ gem "omniauth", "~> 0.3.0"
 gem "airbrake"
 
 # Thin speeds up environment on Cedar, http://devcenter.heroku.com/articles/cedar#using_cedar
-# gem 'thin'
+gem 'thin'
 
 # New relic for Heroku
 gem 'newrelic_rpm'
