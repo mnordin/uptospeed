@@ -6,8 +6,6 @@ class Event < ActiveRecord::Base
   validates :google_id, :presence => true, :uniqueness => true
   validates :title, :presence => true
   validates :where, :presence => true
-  validates :start_time, :timeliness => {:type => :time}
-  validates :end_time, :timeliness => {:after => :start_time, :type => :time}
 
   scope :past, lambda { where("start_time < ?", Time.now) }
   scope :future, lambda { where("start_time > ?", Time.now) }
