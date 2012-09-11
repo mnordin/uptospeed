@@ -39,6 +39,9 @@ module UpToSpeed
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
+    # Fixes compile error with Heroku: https://github.com/plataformatec/devise/commit/96f55a7ac7a61effd03a7f43dbbdfb6af8894579#diff-1
+    config.assets.initialize_on_precompile = false
+
     # Enable the asset pipeline
     config.assets.enabled = true
 
