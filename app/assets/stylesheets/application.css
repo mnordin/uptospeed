@@ -2,7 +2,7 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require "jquery.mobile-1.1.0.min"
+ *= require "jquery.mobile-1.1.1.min"
  *= require_self
  *= require_tree . 
 */
@@ -58,16 +58,16 @@
     top:.4em !important;
 }
 .ui-icon-network{
-    background-image: url(jquery-mobile/icon-network.png) !important;
+    background-image: url(icon-network.png) !important;
 }
 .ui-icon-stats{
-    background-image: url(jquery-mobile/icon-stats.png) !important;
+    background-image: url(icon-stats.png) !important;
 }
 .ui-icon-map{
-    background-image: url(jquery-mobile/icon-map.png) !important;
+    background-image: url(icon-map.png) !important;
 }
 .ui-icon-dumbell{
-    background-image: url(jquery-mobile/icon-dumbell.png) !important;
+    background-image: url(icon-dumbell.png) !important;
 }
 .pending-memberships{
     float:right;
