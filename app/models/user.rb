@@ -20,10 +20,6 @@ class User < ActiveRecord::Base
     { "Workouts" => workouts.count, "Learnings" => learnings.count, "Events" => events.count }
   end
 
-  def total_score
-    events.past.count
-  end
-
   def self.create_with_omniauth(auth)
     create! do |user|
       user.first_name = auth["user_info"]["first_name"]
