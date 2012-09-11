@@ -11,8 +11,9 @@ class Event < ActiveRecord::Base
 
   scope :past, lambda { where("start_time < ?", Time.now) }
   scope :future, lambda { where("start_time > ?", Time.now) }
-  scope :this_month, lambda { where("start_time > ?", Time.now.beginning_of_month)}
-  scope :old, lambda { where("start_time < ?", Time.now.beginning_of_month)}
+  scope :this_month, lambda { where("start_time > ?", Time.now.beginning_of_month) }
+  scope :past_this_month, lambda { where("start_time > ?", Time.now.beginning_of_month).past }
+  scope :old, lambda { where("start_time < ?", Time.now.beginning_of_month) }
 
   def duration
     end_time - start_time
