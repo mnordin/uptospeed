@@ -13,9 +13,7 @@ class User < ActiveRecord::Base
   end
 
   def events_learnings_and_workouts_this_month
-    ((workouts.past_this_month) +
-    learnings.where({:created_at => Time.now.beginning_of_month..Time.now.end_of_month}) +
-    events.where({:start_time => Time.now.beginning_of_month..Time.now.end_of_month})).sort { |o, p| o.created_at <=> p.created_at }.reverse
+    (workouts.this_month + learnings.this_month + events.past_this_month).reverse
   end
 
   def all_events_learnings_and_workouts
