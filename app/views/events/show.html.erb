@@ -30,7 +30,7 @@
     <% else %>
         <h3><%= t(:'events.attendances.no_attendees') %></h3>
     <% end %>
-    <%= form_tag event_attend_path(@event.id), :'data-ajax' => "false" do %>
+    <%= form_tag attend_event_path(@event.id), :'data-ajax' => "false" do %>
         <%= hidden_field_tag :user_id, current_user.id.to_s %>
         <%= hidden_field_tag :attending, !@event.users.include?(current_user) %>
         <% if @event.users.include?(current_user) %>
