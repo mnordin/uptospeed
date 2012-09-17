@@ -22,7 +22,7 @@
         <ul data-role="listview" data-inset="true" data-theme="d">
             <li data-role="list-divider" role="heading" data-theme="a">
                 <%= t(:'events.attendances.header') %>
-                <% if @event.users.include?(current_user) %>
+                <% if @event.users.include?(current_user) && @event.start_time < Time.now %>
                     <%= link_to "Register attendees", new_attendees_event_path, :id => 'register-attendees', :class => 'list-divider-button', :'data-theme' => "c", :'data-role' => "button", :'data-mini' => "true", :'data-icon' => "plus", :'data-iconpos' => "notext", :'data-rel' => "dialog" %>
                 <% end %>
             </li>

@@ -47,15 +47,15 @@ class EventsController < ApplicationController
   def new_attendees
     @event = Event.find(params[:id])
     if current_user.office_id
-      @users = User.where(:office_id => current_user.office_id)
+      @users = User.where(:office_id => current_user.office_id).order(:first_name)
     else
-      @users = User.all
+      @users = User.all.order(:first_name)
     end
   end
 
   def register_attendees
     @event = Event.find(params[:id])
-    @event.users = Users.find(params[:attendees])
+    @event.users << User.find(params[:attendees].keys)
     @event.save
     redirect_to @event
   end
