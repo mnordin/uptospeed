@@ -44,6 +44,22 @@ class EventsController < ApplicationController
     end
   end
 
+  def new_attendees
+    @event = Event.find(params[:id])
+    if current_user.office_id
+      @users = User.where(:office_id => current_user.office_id)
+    else
+      @users = User.all
+    end
+  end
+
+  def register_attendees
+    @event = Event.find(params[:id])
+    @event.users = Users.find(params[:attendees])
+    @event.save
+    redirect_to @event
+  end
+
   private
   def weekend?(date)
     date.wday == 6 or date.wday == 0
