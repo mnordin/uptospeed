@@ -113,3 +113,9 @@ form#new_workout .ui-btn .ui-btn-text, form#new_learning .ui-btn .ui-btn-text {
 .no-events {
     margin: 40px 0;
 }
+
+.list-divider-button {
+    float: right;
+    margin-top: -5px !important;
+    margin-right: -10px !important;
+}
