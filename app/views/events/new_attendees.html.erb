@@ -1,0 +1,17 @@
+<div data-role="header" data-position="fixed">
+    <h1 data-title="Up to Speed">Vilka har tränat med dig?</h1>
+</div>
+<div data-role="content" class="ui-body-b">
+    <div data-role="fieldcontain">
+        <%= form_tag register_attendees_event_path do %>
+            <fieldset>
+                <% @users.each do |user| %>
+                    <%= check_box_tag :attendees, user.id, @event.users.include?(user), :disabled => @event.users.include?(user) %>
+                    <%= label_tag :attendees, user.name %>
+                <% end %>
+            </fieldset>
+            <%= submit_tag "Spara" %>
+        <% end %>
+    </div>
+</div>
+<%= render :partial => "/notification", :locals => { :flash => flash } %>
