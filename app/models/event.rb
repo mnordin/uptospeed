@@ -26,8 +26,8 @@ class Event < ActiveRecord::Base
     GCal4Ruby::Event.find(service, :id => google_id)
   end
 
-  def self.total_points_this_month
-    this_month = {:created_at => Time.now.beginning_of_month..Time.now.end_of_month}
+  def self.total(time = Time.now)
+    this_month = {:created_at => time.beginning_of_month..time.end_of_month}
     Attendance.where(this_month).count + Workout.where(this_month).count + Learning.where(this_month).count
   end
 
