@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <td>Month</td>
+        <td>Points</td>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= 2.months.ago.strftime("%B") %></td>
+            <td><%= @month_before_last %></td>
+        </tr>
+        <tr>
+            <td><%= 1.months.ago.strftime("%B") %></td>
+            <td><%= @last_month %></td>
+        </tr>
+        <tr>
+            <td><%= Time.now.strftime("%B") %></td>
+            <td><%= @this_month %></td>
+        </tr>
+    </tbody>
+</table>

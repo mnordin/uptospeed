@@ -4,6 +4,8 @@ UpToSpeed::Application.routes.draw do
   match '/auth/failure' => 'sessions#failure'
   match '/signout' => 'sessions#sign_out', :as => :signout
 
+  match '/stats' => 'users#stats'
+
   resources :users do
     get 'levels_info', :on => :member
   end

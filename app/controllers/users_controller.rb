@@ -36,6 +36,12 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def stats
+    @month_before_last = Event.total(2.months.ago.beginning_of_month)
+    @last_month = Event.total(1.months.ago.beginning_of_month)
+    @this_month = Event.total(Time.now.beginning_of_month)
+  end
+
   def log_out
     session[:user_id] = nil
     redirect_to root_path
