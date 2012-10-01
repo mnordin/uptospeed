@@ -18,15 +18,13 @@ class Attendance < ActiveRecord::Base
   end
 
   def self.create_or_destroy_by_params(params)
-    service = Event.auth_google_service
     if params[:attending] == "true"
       unless Attendance.already_exists?(params)
         Attendance.create(:user_id => params[:user_id], :event_id => params[:id])
       end
     else
       if Attendance.already_exists?(params)
-        a = Attendance.find_by_user_id_and_event_id(params[:user_id], params[:id])
-        a.destroy
+        Attendance.find_by_user_id_and_event_id(params[:user_id], params[:id]).destroy
       end
     end
   end
