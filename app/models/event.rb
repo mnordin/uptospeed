@@ -60,7 +60,9 @@ class Event < ActiveRecord::Base
   end
 
   def self.auth_google_service
-    @service ||= GCal4Ruby::Service.new.authenticate(ENV['UPTOSPEED_USERNAME'], ENV['UPTOSPEED_PASSWORD'])
+    service = GCal4Ruby::Service.new
+    service.authenticate(ENV['UPTOSPEED_USERNAME'], ENV['UPTOSPEED_PASSWORD'])
+    service
   end
 
   def self.fetch_calendar(service = nil)
