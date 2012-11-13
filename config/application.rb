@@ -49,6 +49,8 @@ module UpToSpeed
     # Fixes compile error with Heroku: https://github.com/plataformatec/devise/commit/96f55a7ac7a61effd03a7f43dbbdfb6af8894579#diff-1
     config.assets.initialize_on_precompile = false
 
+    config.active_record.observers = :attendance_observer
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end
