@@ -52,10 +52,10 @@ class Event < ActiveRecord::Base
       "ctz"                         => "Europe/Stockholm",
       "singleevents"                => true
     })
-    calendar_id = Event.fetch_calendar(service).id
+    calendar_id = fetch_calendar(service).id
     events.select!{|e| e.calendar_id == calendar_id}.sort!{|a,b| a.start_time <=> b.start_time}
     events.each do |event|
-      event.attendees.delete_if{|a| a[:name] =~ /Up to Speed Stockholm/}
+      event.attendees.delete_if {|a| a[:name] =~ /Up to Speed Stockholm/}
     end
   end
 
