@@ -22,8 +22,7 @@ class Event < ActiveRecord::Base
   end
 
   def google_event
-    service = Event.auth_google_service
-    GCal4Ruby::Event.find(service, :id => google_id)
+    @google_event ||= GCal4Ruby::Event.find(Event.auth_google_service, :id => google_id)
   end
 
   def self.total(time = Time.now)
@@ -60,9 +59,11 @@ class Event < ActiveRecord::Base
   end
 
   def self.auth_google_service
-    service = GCal4Ruby::Service.new
-    service.authenticate(ENV['UPTOSPEED_USERNAME'], ENV['UPTOSPEED_PASSWORD'])
-    service
+    @service ||= begin
+      service = GCal4Ruby::Service.new
+      service.authenticate(ENV['UPTOSPEED_USERNAME'], ENV['UPTOSPEED_PASSWORD'])
+      service
+    end
   end
 
   def self.fetch_calendar(service = nil)
