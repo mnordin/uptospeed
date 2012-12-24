@@ -8,7 +8,4 @@
 
 //= require "events"
 
-//= require "jquery.mobile.custom"
-//= require "jquery.mobile-1.1.1.min"
-//= require "jquery.ui.map.full.min"
 //= require_tree .
