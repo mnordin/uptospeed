@@ -16,16 +16,6 @@ task :cron => :environment do
       # Refactor this when the other offices gets their own up to speed!
       local_event.office_id = Office.find_by_title("stockholm").id
 
-      # Get latitude and longitude from Google Maps API
-      sess = Patron::Session.new
-      address = CGI.escape(local_event.where)
-      response = sess.get("http://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=false")
-      result = JSON.parse(response.body)
-      latlng = result["results"].first["geometry"]["location"] || ""
-      puts "Updating #{local_event.title} with lat #{latlng["lat"]} and lng #{latlng["lng"]}" if latlng.present?
-      local_event.lat = latlng["lat"] || ""
-      local_event.lng = latlng["lng"] || ""
-      
       local_event.save
       local_event = local_event.reload
     end

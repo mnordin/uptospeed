@@ -1,9 +1,0 @@
-<div data-role="header" data-position="inline">
-    <%= link_to t(:'shared.back'), event_path(@event), :'data-role' => "button", :'data-transition' => "flip", :'data-direction' => "reverse", :'data-icon' => "delete", :'data-iconpos' => "notext", :class => "remove-text left-close-button" %>
-    <h1 data-title="<%= t(:title) %>"><%= t(:'events.map') %></h1>
-</div>
-<div id="event-map" data-role="content" data-theme="b">
-    <div id="map" data-role="map" data-lat="<%= @event.lat %>" data-lng="<%= @event.lng %>" class="map">
-    </div>
-    <p class="float-right"><%= @event.where %></p>
-</div>

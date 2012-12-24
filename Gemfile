@@ -16,7 +16,6 @@ end
 
 gem 'json'
 gem "pg", "0.11.0"
-gem "patron", "~> 0.4.16"
 
 gem "gcal4ruby"
 
