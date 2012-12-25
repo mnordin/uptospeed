@@ -5,7 +5,6 @@
 // the compiled file.
 //
 //= require "jquery-1.8.3.min"
-
-//= require "events"
+//= require "underscore-1.4.3-min"
 
 //= require_tree .
