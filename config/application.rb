@@ -39,10 +39,8 @@ module UpToSpeed
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    # Enable the asset pipeline, but precompile dynamically
-    config.assets.enabled = true
-    config.assets.compress = false
-    config.assets.digest = false
+    # Disable the asset pipeline for now
+    config.assets.enabled = false
 
     config.assets.precompile = nil
 
