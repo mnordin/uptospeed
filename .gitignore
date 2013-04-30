@@ -6,3 +6,4 @@ tmp/
 *.DS_Store
 config/appconfig.yml
 config/initializers/google_auth_environment.rb
+.rake_tasks~
