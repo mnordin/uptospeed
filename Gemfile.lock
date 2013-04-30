@@ -48,13 +48,19 @@ GEM
     eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    factory_girl (4.2.0)
+      activesupport (>= 3.0.0)
     gcal4ruby (0.5.5)
       gdata4ruby (>= 0.1.5)
     gdata4ruby (0.1.5)
     girl_friday (0.10.0)
       connection_pool (~> 0.9.0)
+    griddler (0.5.0)
+      htmlentities
+      rails (>= 3.2.0)
     hashie (1.2.0)
     hike (1.2.1)
+    htmlentities (4.3.1)
     i18n (0.6.1)
     journey (1.0.4)
     json (1.7.5)
@@ -149,17 +155,19 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake
-  coffee-rails
-  gcal4ruby
-  json
-  newrelic_rpm
-  omniauth
-  omniauth-google-apps
+  airbrake (~> 3.1.3)
+  coffee-rails (~> 3.2.2)
+  factory_girl (~> 4.2.0)
+  gcal4ruby (~> 0.5.5)
+  griddler (~> 0.5.0)
+  json (~> 1.7.5)
+  newrelic_rpm (~> 3.4.2)
+  omniauth (~> 1.1.1)
+  omniauth-google-apps (~> 0.0.2)
   patron (~> 0.4.16)
-  pg (= 0.11.0)
+  pg (~> 0.11.0)
   rails (= 3.2.8)
-  rspec-rails
-  sass-rails
-  thin
-  uglifier
+  rspec-rails (~> 2.11.0)
+  sass-rails (~> 3.2.5)
+  thin (~> 1.4.1)
+  uglifier (~> 1.3.0)
